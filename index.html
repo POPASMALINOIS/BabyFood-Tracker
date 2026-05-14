@@ -3,68 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
   <title>BabyFood Tracker</title>
 
   <meta name="theme-color" content="#A8B89F">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="BabyFood Tracker">
+  <meta name="apple-mobile-web-app-title" content="BabyFood">
 
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div id="splash-screen">
-  <img src="assets/splash.png" alt="Splash Screen">
-</div>
+  <div id="splash-screen">
+    <img src="assets/splash.png" alt="BabyFood Tracker">
+  </div>
 
-<div id="app" class="hidden">
+  <div id="app" class="hidden">
 
-  <header class="top-header">
-    <h1>BabyFood Tracker</h1>
-    <p>Acompaña cada bocado, celebra cada logro.</p>
-  </header>
+    <header class="top-header">
+      <h1>BabyFood Tracker</h1>
+      <p>Acompaña cada bocado, celebra cada logro.</p>
+    </header>
 
-  <main id="content">
+    <main id="content"></main>
 
-    <section class="dashboard active-section">
-      <div class="card">
-        <h2>Edad del bebé</h2>
-        <p id="baby-age">5 meses y 28 días</p>
-      </div>
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-section="inicio">
+        🏠
+        <span>Inicio</span>
+      </button>
 
-      <div class="card">
-        <h2>Último alimento</h2>
-        <p>Aguacate</p>
-      </div>
+      <button class="nav-btn" data-section="alimentos">
+        🥑
+        <span>Alimentos</span>
+      </button>
 
-      <div class="card">
-        <h2>Peso actual</h2>
-        <p>7.8 kg</p>
-      </div>
+      <button class="center-btn" data-section="registro">＋</button>
 
-      <div class="quick-actions">
-        <button>Registrar comida</button>
-        <button>Ver recetas</button>
-      </div>
-    </section>
+      <button class="nav-btn" data-section="recetas">
+        🍽️
+        <span>Recetas</span>
+      </button>
 
-  </main>
+      <button class="nav-btn" data-section="diario">
+        📒
+        <span>Diario</span>
+      </button>
+    </nav>
 
-  <nav class="bottom-nav">
-  <button class="nav-btn active" data-section="inicio">🏠<span>Inicio</span></button>
-  <button class="nav-btn" data-section="alimentos">🥑<span>Alimentos</span></button>
+  </div>
 
-  <button class="center-btn" data-section="registro">＋</button>
-
-  <button class="nav-btn" data-section="recetas">🍽️<span>Recetas</span></button>
-  <button class="nav-btn" data-section="diario">📒<span>Diario</span></button>
-</nav>
-
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

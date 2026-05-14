@@ -6,52 +6,52 @@
 
   <title>BabyFood Tracker</title>
 
-  <meta name="theme-color" content="#A8B89F">
+  <meta name="theme-color" content="#F7EFE8">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="BabyFood">
 
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
   <div id="splash-screen">
-    <img src="assets/splash.png" alt="BabyFood Tracker">
+    <img src="./assets/splash.png" alt="BabyFood Tracker">
   </div>
 
   <div id="app" class="hidden">
 
     <header class="top-header">
-      <h1>BabyFood Tracker</h1>
-      <p>Acompaña cada bocado, celebra cada logro.</p>
+      <div class="app-pill">BLW · Alimentación complementaria</div>
+      <h1>BabyFood</h1>
+      <p>Controla alimentos, recetas, reacciones y alérgenos.</p>
     </header>
 
     <main id="content"></main>
 
     <nav class="bottom-nav">
       <button class="nav-btn active" data-section="inicio">
-        🏠
+        <span class="nav-icon">⌂</span>
         <span>Inicio</span>
       </button>
 
       <button class="nav-btn" data-section="alimentos">
-        🥑
+        <span class="nav-icon">◐</span>
         <span>Alimentos</span>
       </button>
 
-      <button class="center-btn" data-section="registro">＋</button>
+      <button class="center-btn" data-section="registro">+</button>
 
       <button class="nav-btn" data-section="recetas">
-        🍽️
+        <span class="nav-icon">◌</span>
         <span>Recetas</span>
       </button>
 
-      <button class="nav-btn" data-section="diario">
-        📒
-        <span>Diario</span>
+      <button class="nav-btn" data-section="alergenos">
+        <span class="nav-icon">!</span>
+        <span>Alérgenos</span>
       </button>
     </nav>
 

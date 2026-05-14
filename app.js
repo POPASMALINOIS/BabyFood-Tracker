@@ -77,7 +77,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       navButtons.forEach(btn => btn.classList.remove("active"));
       button.classList.add("active");
 
-      const label = button.innerText.trim();
+      const section = button.dataset.section;
+
+if (section === "alimentos") {
+  showFoods();
+} else if (section === "recetas") {
+  showRecipes();
+} else if (section === "diario") {
+  showDiary();
+} else {
+  showDashboard();
+}
 
       if (label.includes("Alimentos")) {
         showFoods();

@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     setTimeout(() => {
       splash.style.display = "none";
       app.classList.remove("hidden");
-    }, 800);
-  }, 1400);
+    }, 1200);
+  }, 3200);
 
   async function loadRecipes() {
     try {

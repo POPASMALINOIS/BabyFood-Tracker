@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "nombre": "Aguacate",
+    "edad_minima": "6 meses",
+    "categoria": "Fruta",
+    "blw": "Tiras gruesas o machacado",
+    "alergenos": false,
+    "riesgo": "Bajo",
+    "congelable": true,
+    "beneficios": [
+      "Grasas saludables",
+      "Desarrollo cerebral",
+      "Vitamina E"
+    ],
+    "frecuencia": "Regular",
+    "observaciones": "Muy recomendable para inicio de alimentación complementaria."
+  },
+  {
+    "id": 2,
+    "nombre": "Plátano",
+    "edad_minima": "6 meses",
+    "categoria": "Fruta",
+    "blw": "Mitades o tiras con parte de piel",
+    "alergenos": false,
+    "riesgo": "Bajo",
+    "congelable": true,
+    "beneficios": [
+      "Potasio",
+      "Energía rápida",
+      "Fibra"
+    ],
+    "frecuencia": "Regular",
+    "observaciones": "Ideal para desayunos o meriendas."
+  },
+  {
+    "id": 3,
+    "nombre": "Brócoli",
+    "edad_minima": "6 meses",
+    "categoria": "Verdura",
+    "blw": "Árbolitos cocidos al vapor",
+    "alergenos": false,
+    "riesgo": "Bajo",
+    "congelable": true,
+    "beneficios": [
+      "Hierro",
+      "Vitamina C",
+      "Fibra"
+    ],
+    "frecuencia": "Frecuente",
+    "observaciones": "Cocer hasta textura blanda."
+  },
+  {
+    "id": 4,
+    "nombre": "Huevo",
+    "edad_minima": "6 meses",
+    "categoria": "Proteína",
+    "blw": "Tortilla o revuelto",
+    "alergenos": true,
+    "riesgo": "Moderado",
+    "congelable": false,
+    "beneficios": [
+      "Proteína",
+      "Colina",
+      "Hierro"
+    ],
+    "frecuencia": "2-3 veces/semana",
+    "observaciones": "Introducir progresivamente y vigilar reacción."
+  },
+  {
+    "id": 5,
+    "nombre": "Salmón",
+    "edad_minima": "6 meses",
+    "categoria": "Pescado",
+    "blw": "Desmenuzado",
+    "alergenos": true,
+    "riesgo": "Moderado",
+    "congelable": true,
+    "beneficios": [
+      "Omega 3",
+      "Proteína",
+      "Vitamina D"
+    ],
+    "frecuencia": "1-2 veces/semana",
+    "observaciones": "Sin espinas."
+  }
+]

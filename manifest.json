@@ -1,0 +1,24 @@
+{
+  "name": "BabyFood Tracker",
+  "short_name": "BabyFood",
+  "description": "App familiar para alimentación complementaria, BLW, recetas y seguimiento del bebé.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F9F6F2",
+  "theme_color": "#A8B89F",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -385,3 +385,58 @@ textarea {
     grid-template-columns: 1fr 1fr;
   }
 }
+/* MODAL PREMIUM */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 35, 30, 0.38);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 30px;
+  padding: 26px;
+  box-shadow: 0 24px 70px rgba(70, 55, 40, 0.22);
+  border: 1px solid rgba(255,255,255,0.75);
+  text-align: center;
+}
+
+.modal-box h2 {
+  color: var(--primary-dark);
+  font-size: 1.45rem;
+  margin-bottom: 12px;
+}
+
+.modal-box p {
+  color: var(--text);
+  line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.danger-btn {
+  width: 100%;
+  min-height: 52px;
+  border: none;
+  border-radius: 18px;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #D96C5F, #F19987);
+  box-shadow: 0 12px 28px rgba(217,108,95,0.25);
+}

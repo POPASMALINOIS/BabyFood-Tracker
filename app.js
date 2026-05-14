@@ -8,14 +8,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   /* SPLASH */
   setTimeout(() => {
-    splash.style.opacity = "0";
-    splash.style.transition = "opacity 0.8s ease";
+    splash.classList.add("fade-out");
 
     setTimeout(() => {
       splash.style.display = "none";
       app.classList.remove("hidden");
     }, 800);
-  }, 2200);
+  }, 1800);
 
   /* PERFIL INICIAL */
   const defaultProfile = {

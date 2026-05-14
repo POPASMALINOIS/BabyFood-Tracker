@@ -465,19 +465,129 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function addRecipeToShoppingList(recipe) {
-    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+  const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 
-    recipe.ingredientes.forEach(ingredient => {
+  const ignoredItems = [
+    "agua",
+    "agua hasta cubrir",
+    "agua o caldo casero sin sal",
+    "caldo casero sin sal",
+    "1 cucharadita de aceite",
+    "1 cucharadita de aceite de oliva virgen extra",
+    "aceite de oliva virgen extra",
+    "aceite",
+    "canela opcional a partir de tolerancia"
+  ];
+
+  const productMap = {
+    "calabaza": "Calabaza",
+    "patata": "Patatas",
+    "pollo": "Pollo",
+    "calabacín": "Calabacines",
+    "zanahoria": "Zanahorias",
+    "pavo": "Pavo",
+    "manzana": "Manzanas",
+    "pera": "Peras",
+    "plátano": "Plátanos",
+    "aguacate": "Aguacates",
+    "huevo": "Huevos",
+    "avena": "Avena",
+    "boniato": "Boniatos",
+    "arroz": "Arroz",
+    "merluza": "Merluza",
+    "salmón": "Salmón",
+    "brócoli": "Brócoli",
+    "judía verde": "Judías verdes",
+    "guisantes": "Guisantes",
+    "puerro": "Puerros",
+    "coliflor": "Coliflor",
+    "ternera": "Ternera",
+    "lentejas": "Lentejas",
+    "garbanzos": "Garbanzos",
+    "bacalao": "Bacalao fresco",
+    "conejo": "Conejo",
+    "mango": "Mango",
+    "melocotón": "Melocotones",
+    "ciruela": "Ciruelas",
+    "fresa": "Fresas",
+    "arándanos": "Arándanos",
+    "kiwi": "Kiwis",
+    "papaya": "Papaya",
+    "quinoa": "Quinoa",
+    "cuscús": "Cuscús",
+    "maíz": "Maíz",
+    "mijo": "Mijo",
+    "pasta": "Pasta pequeña"
+  };
+
+  function normalizeIngredient(ingredient) {
+    let text = ingredient.toLowerCase();
+
+    text = text
+      .replace(/\d+/g, "")
+      .replace(/g de/g, "")
+      .replace(/ml de/g, "")
+      .replace(/pieza pequeña de/g, "")
+      .replace(/piezas pequeñas de/g, "")
+      .replace(/1\/2/g, "")
+      .replace(/1\/4/g, "")
+      .replace(/cocido/g, "")
+      .replace(/cocida/g, "")
+      .replace(/cocidos/g, "")
+      .replace(/cocidas/g, "")
+      .replace(/molida/g, "")
+      .replace(/rallada/g, "")
+      .replace(/rallado/g, "")
+      .replace(/sin espinas/g, "")
+      .replace(/pequeña/g, "")
+      .replace(/pequeño/g, "")
+      .replace(/mediano/g, "")
+      .replace(/maduro/g, "")
+      .replace(/habitual del bebé/g, "")
+      .replace(/o agua/g, "")
+      .replace(/de /g, "")
+      .trim();
+
+    return text;
+  }
+
+  const productsToAdd = [];
+
+  recipe.ingredientes.forEach(ingredient => {
+    const lowerIngredient = ingredient.toLowerCase();
+
+    if (ignoredItems.some(item => lowerIngredient.includes(item))) {
+      return;
+    }
+
+    const normalized = normalizeIngredient(ingredient);
+
+    Object.keys(productMap).forEach(key => {
+      if (normalized.includes(key) || lowerIngredient.includes(key)) {
+        if (!productsToAdd.includes(productMap[key])) {
+          productsToAdd.push(productMap[key]);
+        }
+      }
+    });
+  });
+
+  productsToAdd.forEach(product => {
+    const alreadyExists = shoppingList.some(item =>
+      item.text.toLowerCase() === product.toLowerCase()
+    );
+
+    if (!alreadyExists) {
       shoppingList.push({
         id: Date.now() + Math.random(),
-        text: ingredient,
+        text: product,
         recipe: recipe.nombre,
         checked: false
       });
-    });
+    }
+  });
 
-    localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
-  }
+  localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+}
 
   function showShoppingList() {
     const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];

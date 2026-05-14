@@ -511,3 +511,57 @@ textarea {
 .modal-actions .danger-btn {
   min-height: 58px;
 }
+/* BUSCADOR, FAVORITOS Y LISTA DE COMPRA */
+.recipe-filter,
+.tag button {
+  border: none;
+}
+
+.shopping-item {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(143,163,131,0.14);
+}
+
+.shopping-item:last-child {
+  border-bottom: none;
+}
+
+.shopping-item label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: var(--text);
+}
+
+.shopping-item input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--primary);
+  flex-shrink: 0;
+}
+
+.shopping-item span {
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.shopping-item small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+#recipe-search {
+  margin-bottom: 14px;
+}
+
+#show-favorites,
+#show-shopping,
+#add-shopping,
+#favorite-recipe {
+  margin-top: 12px;
+}
+
+.remove-favorite-btn {
+  min-height: 52px;
+}

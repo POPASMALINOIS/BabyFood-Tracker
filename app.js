@@ -14,42 +14,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const allergens = [
-    "Huevo",
-    "Leche",
-    "Gluten",
-    "Pescado",
-    "Marisco",
-    "Frutos secos",
-    "Cacahuete",
-    "Soja",
-    "Sésamo",
-    "Apio",
-    "Mostaza",
-    "Sulfitos"
+    "Huevo", "Leche", "Gluten", "Pescado", "Marisco", "Frutos secos",
+    "Cacahuete", "Soja", "Sésamo", "Apio", "Mostaza", "Sulfitos"
   ];
 
-  if (!localStorage.getItem("babyProfile")) {
-    localStorage.setItem("babyProfile", JSON.stringify(defaultProfile));
-  }
-
-  if (!localStorage.getItem("foodDiary")) {
-    localStorage.setItem("foodDiary", JSON.stringify([]));
-  }
-
-  if (!localStorage.getItem("allergenDiary")) {
-    localStorage.setItem("allergenDiary", JSON.stringify({}));
-  }
+  initStorage();
 
   let babyProfile = JSON.parse(localStorage.getItem("babyProfile"));
 
   setTimeout(() => {
     splash.classList.add("fade-out");
-
     setTimeout(() => {
       splash.style.display = "none";
       app.classList.remove("hidden");
     }, 1200);
-
   }, 3200);
 
   async function loadRecipes() {
@@ -63,6 +41,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   await loadRecipes();
+
+  function initStorage() {
+    if (!localStorage.getItem("babyProfile")) {
+      localStorage.setItem("babyProfile", JSON.stringify(defaultProfile));
+    }
+    if (!localStorage.getItem("foodDiary")) {
+      localStorage.setItem("foodDiary", JSON.stringify([]));
+    }
+    if (!localStorage.getItem("allergenDiary")) {
+      localStorage.setItem("allergenDiary", JSON.stringify({}));
+    }
+    if (!localStorage.getItem("favoriteRecipes")) {
+      localStorage.setItem("favoriteRecipes", JSON.stringify([]));
+    }
+    if (!localStorage.getItem("shoppingList")) {
+      localStorage.setItem("shoppingList", JSON.stringify([]));
+    }
+    if (!localStorage.getItem("weightHistory")) {
+      localStorage.setItem("weightHistory", JSON.stringify([]));
+    }
+  }
 
   function calculateAge(birthDate) {
     if (!birthDate) return "Pendiente";
@@ -104,17 +103,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
 
     const diary = JSON.parse(localStorage.getItem("foodDiary")) || [];
+    const favorites = JSON.parse(localStorage.getItem("favoriteRecipes")) || [];
+    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+    const weightHistory = JSON.parse(localStorage.getItem("weightHistory")) || [];
     const lastEntries = diary.slice().reverse().slice(0, 3);
 
     content.innerHTML = `
       <section>
         <h2 class="section-title">Inicio</h2>
-        <p class="section-subtitle">Resumen rápido de alimentación, perfil y últimos registros.</p>
+        <p class="section-subtitle">Resumen rápido de alimentación, perfil, favoritos y evolución.</p>
 
         ${!babyProfile.name || !babyProfile.birthDate ? `
           <div class="card">
             <h2>Completa el perfil del bebé</h2>
-            <p>Para calcular la edad y personalizar la app, rellena nombre, fecha de nacimiento, peso y talla.</p>
+            <p>Rellena nombre, fecha de nacimiento, peso y talla para personalizar la app.</p>
             <button id="go-profile" class="primary-btn">Abrir perfil</button>
           </div>
         ` : ""}
@@ -141,6 +143,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           <button id="quick-recipes" class="secondary-btn">Ver recetas</button>
         </div>
 
+        <div class="quick-actions">
+          <button id="quick-favorites" class="secondary-btn">Favoritos (${favorites.length})</button>
+          <button id="quick-shopping" class="secondary-btn">Compra (${shoppingList.length})</button>
+        </div>
+
         <div class="card">
           <h2>Últimos registros</h2>
           ${
@@ -150,6 +157,17 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <p>${entry.amount} · ${entry.reaction}${entry.allergen ? ` · ${entry.allergen}` : ""}</p>
               `).join("")
               : `<p>Todavía no hay comidas registradas.</p>`
+          }
+        </div>
+
+        <div class="card">
+          <h2>Últimos pesos</h2>
+          ${
+            weightHistory.length
+              ? weightHistory.slice().reverse().slice(0, 3).map(item => `
+                <p><strong>${item.weight}</strong> · ${item.date}</p>
+              `).join("")
+              : `<p>No hay pesos registrados todavía.</p>`
           }
         </div>
       </section>
@@ -172,41 +190,37 @@ document.addEventListener("DOMContentLoaded", async () => {
       setActive("recetas");
       showRecipes();
     });
+
+    document.getElementById("quick-favorites").addEventListener("click", () => {
+      setActive("recetas");
+      showFavorites();
+    });
+
+    document.getElementById("quick-shopping").addEventListener("click", () => {
+      setActive("recetas");
+      showShoppingList();
+    });
   }
 
-  function showRecipes(filter = "Todas", ageFilter = "Todas") {
-    const categories = [
-      "Todas",
-      "Puré",
-      "Potito fruta",
-      "BLW",
-      "Desayuno",
-      "Comida",
-      "Cena",
-      "Snack"
-    ];
+  function showRecipes(filter = "Todas", ageFilter = "Todas", searchTerm = "") {
+    const categories = ["Todas", "Puré", "Potito fruta", "BLW", "Desayuno", "Comida", "Cena", "Snack"];
+    const ages = ["Todas", "6 meses", "7 meses", "8 meses", "9 meses", "10 meses", "12 meses"];
+    const favorites = JSON.parse(localStorage.getItem("favoriteRecipes")) || [];
 
-    const ages = [
-      "Todas",
-      "6 meses",
-      "7 meses",
-      "8 meses",
-      "9 meses",
-      "10 meses",
-      "12 meses"
-    ];
+    const normalizedSearch = searchTerm.toLowerCase().trim();
 
     const filtered = recipes.filter(recipe => {
-      const categoryMatch =
-        filter === "Todas" ||
-        recipe.tipo === filter ||
-        recipe.categoria === filter;
+      const categoryMatch = filter === "Todas" || recipe.tipo === filter || recipe.categoria === filter;
+      const ageMatch = ageFilter === "Todas" || recipe.edad_minima === ageFilter;
 
-      const ageMatch =
-        ageFilter === "Todas" ||
-        recipe.edad_minima === ageFilter;
+      const searchMatch =
+        !normalizedSearch ||
+        recipe.nombre.toLowerCase().includes(normalizedSearch) ||
+        recipe.tipo.toLowerCase().includes(normalizedSearch) ||
+        recipe.edad_minima.toLowerCase().includes(normalizedSearch) ||
+        recipe.ingredientes.join(" ").toLowerCase().includes(normalizedSearch);
 
-      return categoryMatch && ageMatch;
+      return categoryMatch && ageMatch && searchMatch;
     });
 
     content.innerHTML = `
@@ -215,67 +229,161 @@ document.addEventListener("DOMContentLoaded", async () => {
         <p class="section-subtitle">${filtered.length} recetas encontradas.</p>
 
         <div class="card compact">
+          <label for="recipe-search">Buscar receta o ingrediente</label>
+          <input id="recipe-search" type="text" placeholder="Ej. pollo, avena, manzana..." value="${searchTerm}">
+
           <label for="age-filter">Filtrar por edad</label>
           <select id="age-filter">
-            ${ages.map(age => `
-              <option value="${age}" ${age === ageFilter ? "selected" : ""}>${age}</option>
-            `).join("")}
+            ${ages.map(age => `<option value="${age}" ${age === ageFilter ? "selected" : ""}>${age}</option>`).join("")}
           </select>
 
           <label for="category-filter">Filtrar por tipo</label>
           <select id="category-filter">
-            ${categories.map(cat => `
-              <option value="${cat}" ${cat === filter ? "selected" : ""}>${cat}</option>
-            `).join("")}
+            ${categories.map(cat => `<option value="${cat}" ${cat === filter ? "selected" : ""}>${cat}</option>`).join("")}
           </select>
+
+          <div class="quick-actions">
+            <button id="show-favorites" class="secondary-btn">Favoritos</button>
+            <button id="show-shopping" class="secondary-btn">Lista compra</button>
+          </div>
         </div>
 
         ${
           filtered.length
-            ? filtered.map(recipe => `
-              <div class="card">
-                <h2>${recipe.nombre}</h2>
-                <p><strong>Tipo:</strong> ${recipe.tipo}</p>
-                <p><strong>Edad:</strong> ${recipe.edad_minima}</p>
-                <p><strong>Tiempo:</strong> ${recipe.tiempo}</p>
-                <p><strong>Textura:</strong> ${recipe.textura}</p>
+            ? filtered.map(recipe => {
+              const isFavorite = favorites.includes(Number(recipe.id));
+              return `
+                <div class="card">
+                  <h2>${recipe.nombre}</h2>
+                  <p><strong>Tipo:</strong> ${recipe.tipo}</p>
+                  <p><strong>Edad:</strong> ${recipe.edad_minima}</p>
+                  <p><strong>Tiempo:</strong> ${recipe.tiempo}</p>
+                  <p><strong>Textura:</strong> ${recipe.textura}</p>
 
-                <div class="tag-row">
-                  ${
-                    recipe.alergenos && recipe.alergenos.length
-                      ? recipe.alergenos.map(a => `<span class="tag warning-tag">${a}</span>`).join("")
-                      : `<span class="tag">Sin alérgenos principales</span>`
-                  }
+                  <div class="tag-row">
+                    ${
+                      recipe.alergenos && recipe.alergenos.length
+                        ? recipe.alergenos.map(a => `<span class="tag warning-tag">${a}</span>`).join("")
+                        : `<span class="tag">Sin alérgenos principales</span>`
+                    }
+                  </div>
+
+                  <div class="quick-actions">
+                    <button class="secondary-btn recipe-detail-btn" data-id="${recipe.id}">Ver receta</button>
+                    <button class="secondary-btn favorite-btn" data-id="${recipe.id}">
+                      ${isFavorite ? "★ Favorita" : "☆ Favorito"}
+                    </button>
+                  </div>
                 </div>
-
-                <button class="secondary-btn recipe-detail-btn" data-id="${recipe.id}">Ver receta completa</button>
-              </div>
-            `).join("")
+              `;
+            }).join("")
             : `
               <div class="card">
                 <h2>No hay recetas para este filtro</h2>
-                <p>Prueba con otra edad o categoría.</p>
+                <p>Prueba con otra edad, categoría o ingrediente.</p>
               </div>
             `
         }
       </section>
     `;
 
-    document.getElementById("age-filter").addEventListener("change", (event) => {
-      const selectedAge = event.target.value;
-      const selectedCategory = document.getElementById("category-filter").value;
-      showRecipes(selectedCategory, selectedAge);
+    document.getElementById("recipe-search").addEventListener("input", event => {
+      showRecipes(
+        document.getElementById("category-filter").value,
+        document.getElementById("age-filter").value,
+        event.target.value
+      );
     });
 
-    document.getElementById("category-filter").addEventListener("change", (event) => {
-      const selectedCategory = event.target.value;
-      const selectedAge = document.getElementById("age-filter").value;
-      showRecipes(selectedCategory, selectedAge);
+    document.getElementById("age-filter").addEventListener("change", event => {
+      showRecipes(
+        document.getElementById("category-filter").value,
+        event.target.value,
+        document.getElementById("recipe-search").value
+      );
     });
+
+    document.getElementById("category-filter").addEventListener("change", event => {
+      showRecipes(
+        event.target.value,
+        document.getElementById("age-filter").value,
+        document.getElementById("recipe-search").value
+      );
+    });
+
+    document.getElementById("show-favorites").addEventListener("click", showFavorites);
+    document.getElementById("show-shopping").addEventListener("click", showShoppingList);
 
     document.querySelectorAll(".recipe-detail-btn").forEach(button => {
+      button.addEventListener("click", () => showRecipeDetail(Number(button.dataset.id)));
+    });
+
+    document.querySelectorAll(".favorite-btn").forEach(button => {
       button.addEventListener("click", () => {
-        showRecipeDetail(Number(button.dataset.id));
+        toggleFavorite(Number(button.dataset.id));
+        showRecipes(filter, ageFilter, searchTerm);
+      });
+    });
+  }
+
+  function toggleFavorite(recipeId) {
+    let favorites = JSON.parse(localStorage.getItem("favoriteRecipes")) || [];
+
+    if (favorites.includes(recipeId)) {
+      favorites = favorites.filter(id => id !== recipeId);
+    } else {
+      favorites.push(recipeId);
+    }
+
+    localStorage.setItem("favoriteRecipes", JSON.stringify(favorites));
+  }
+
+  function showFavorites() {
+    const favorites = JSON.parse(localStorage.getItem("favoriteRecipes")) || [];
+    const favoriteRecipes = recipes.filter(recipe => favorites.includes(Number(recipe.id)));
+
+    content.innerHTML = `
+      <section>
+        <h2 class="section-title">Favoritos</h2>
+        <p class="section-subtitle">Recetas guardadas para tenerlas siempre a mano.</p>
+
+        <button id="back-recipes" class="secondary-btn">← Volver a recetas</button>
+
+        ${
+          favoriteRecipes.length
+            ? favoriteRecipes.map(recipe => `
+              <div class="card">
+                <h2>${recipe.nombre}</h2>
+                <p><strong>Edad:</strong> ${recipe.edad_minima}</p>
+                <p><strong>Tipo:</strong> ${recipe.tipo}</p>
+                <p><strong>Tiempo:</strong> ${recipe.tiempo}</p>
+
+                <div class="quick-actions">
+                  <button class="secondary-btn recipe-detail-btn" data-id="${recipe.id}">Ver receta</button>
+                  <button class="danger-btn remove-favorite-btn" data-id="${recipe.id}">Quitar</button>
+                </div>
+              </div>
+            `).join("")
+            : `
+              <div class="card">
+                <h2>Aún no tienes favoritos</h2>
+                <p>Marca recetas con ☆ Favorito para verlas aquí.</p>
+              </div>
+            `
+        }
+      </section>
+    `;
+
+    document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
+
+    document.querySelectorAll(".recipe-detail-btn").forEach(button => {
+      button.addEventListener("click", () => showRecipeDetail(Number(button.dataset.id)));
+    });
+
+    document.querySelectorAll(".remove-favorite-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        toggleFavorite(Number(button.dataset.id));
+        showFavorites();
       });
     });
   }
@@ -287,6 +395,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       showRecipes();
       return;
     }
+
+    const favorites = JSON.parse(localStorage.getItem("favoriteRecipes")) || [];
+    const isFavorite = favorites.includes(Number(recipe.id));
 
     content.innerHTML = `
       <section>
@@ -327,17 +438,115 @@ document.addEventListener("DOMContentLoaded", async () => {
           <p><strong>Consejo:</strong> ${recipe.notas}</p>
         </div>
 
-        <button id="register-recipe" class="primary-btn">Registrar que lo ha comido</button>
+        <div class="quick-actions">
+          <button id="register-recipe" class="primary-btn">Registrar comida</button>
+          <button id="favorite-recipe" class="secondary-btn">${isFavorite ? "★ Favorita" : "☆ Favorito"}</button>
+        </div>
+
+        <button id="add-shopping" class="secondary-btn">Añadir ingredientes a lista de compra</button>
       </section>
     `;
 
-    document.getElementById("back-recipes").addEventListener("click", () => {
-      showRecipes();
-    });
+    document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
 
     document.getElementById("register-recipe").addEventListener("click", () => {
       showFoodForm(recipe.nombre);
     });
+
+    document.getElementById("favorite-recipe").addEventListener("click", () => {
+      toggleFavorite(Number(recipe.id));
+      showRecipeDetail(recipe.id);
+    });
+
+    document.getElementById("add-shopping").addEventListener("click", () => {
+      addRecipeToShoppingList(recipe);
+      showShoppingList();
+    });
+  }
+
+  function addRecipeToShoppingList(recipe) {
+    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+
+    recipe.ingredientes.forEach(ingredient => {
+      shoppingList.push({
+        id: Date.now() + Math.random(),
+        text: ingredient,
+        recipe: recipe.nombre,
+        checked: false
+      });
+    });
+
+    localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+  }
+
+  function showShoppingList() {
+    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+
+    content.innerHTML = `
+      <section>
+        <h2 class="section-title">Lista de compra</h2>
+        <p class="section-subtitle">Ingredientes añadidos desde recetas.</p>
+
+        <button id="back-recipes" class="secondary-btn">← Volver a recetas</button>
+
+        ${
+          shoppingList.length
+            ? `
+              <div class="card">
+                ${shoppingList.map(item => `
+                  <div class="shopping-item">
+                    <label>
+                      <input type="checkbox" class="shopping-check" data-id="${item.id}" ${item.checked ? "checked" : ""}>
+                      <span style="${item.checked ? "text-decoration: line-through; opacity: .6;" : ""}">
+                        ${item.text}
+                      </span>
+                    </label>
+                    <p><small>${item.recipe}</small></p>
+                  </div>
+                `).join("")}
+              </div>
+
+              <button id="clear-shopping" class="danger-btn">Vaciar lista de compra</button>
+            `
+            : `
+              <div class="card">
+                <h2>Lista vacía</h2>
+                <p>Entra en una receta y pulsa “Añadir ingredientes a lista de compra”.</p>
+              </div>
+            `
+        }
+      </section>
+    `;
+
+    document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
+
+    document.querySelectorAll(".shopping-check").forEach(check => {
+      check.addEventListener("change", () => {
+        toggleShoppingItem(check.dataset.id);
+        showShoppingList();
+      });
+    });
+
+    const clearBtn = document.getElementById("clear-shopping");
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
+        localStorage.setItem("shoppingList", JSON.stringify([]));
+        showShoppingList();
+      });
+    }
+  }
+
+  function toggleShoppingItem(id) {
+    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+
+    const updated = shoppingList.map(item => {
+      if (String(item.id) === String(id)) {
+        return { ...item, checked: !item.checked };
+      }
+      return item;
+    });
+
+    localStorage.setItem("shoppingList", JSON.stringify(updated));
   }
 
   function showAllergens() {
@@ -371,6 +580,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function showProfile() {
     babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
+    const weightHistory = JSON.parse(localStorage.getItem("weightHistory")) || [];
 
     content.innerHTML = `
       <section>
@@ -415,11 +625,40 @@ document.addEventListener("DOMContentLoaded", async () => {
           <p><strong>Peso:</strong> ${babyProfile.currentWeight || "Pendiente"}</p>
           <p><strong>Talla:</strong> ${babyProfile.currentHeight || "Pendiente"}</p>
         </div>
+
+        <div class="card form-card">
+          <h2>Historial de peso</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="weight-date">Fecha</label>
+              <input id="weight-date" type="date" value="${new Date().toISOString().split("T")[0]}">
+            </div>
+
+            <div class="form-group">
+              <label for="weight-value">Peso</label>
+              <input id="weight-value" type="text" placeholder="Ej. 7,8 kg">
+            </div>
+          </div>
+
+          <button id="save-weight" class="secondary-btn">Añadir peso</button>
+
+          <div style="margin-top: 16px;">
+            ${
+              weightHistory.length
+                ? weightHistory.slice().reverse().map(item => `
+                  <p><strong>${item.weight}</strong> · ${item.date}</p>
+                `).join("")
+                : `<p>No hay pesos registrados.</p>`
+            }
+          </div>
+        </div>
       </section>
     `;
 
     document.getElementById("save-profile").addEventListener("click", saveProfile);
     document.getElementById("delete-profile").addEventListener("click", showDeleteProfileModal);
+    document.getElementById("save-weight").addEventListener("click", saveWeight);
   }
 
   function saveProfile() {
@@ -438,6 +677,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     setActive("inicio");
   }
 
+  function saveWeight() {
+    const date = document.getElementById("weight-date").value;
+    const weight = document.getElementById("weight-value").value.trim();
+
+    if (!date || !weight) {
+      alert("Indica fecha y peso.");
+      return;
+    }
+
+    const history = JSON.parse(localStorage.getItem("weightHistory")) || [];
+    history.push({ date, weight });
+    localStorage.setItem("weightHistory", JSON.stringify(history));
+
+    babyProfile.currentWeight = weight;
+    localStorage.setItem("babyProfile", JSON.stringify(babyProfile));
+
+    showProfile();
+  }
+
   function showDeleteProfileModal() {
     const modal = document.createElement("div");
     modal.className = "modal-overlay";
@@ -445,7 +703,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     modal.innerHTML = `
       <div class="modal-box">
         <h2>Borrar perfil</h2>
-        <p>Vas a borrar el perfil del bebé, el diario de comidas y el control de alérgenos guardado en este dispositivo. Esta acción no se puede deshacer.</p>
+        <p>Vas a borrar el perfil del bebé, el diario de comidas, favoritos, lista de compra, pesos y alérgenos guardados en este dispositivo. Esta acción no se puede deshacer.</p>
 
         <div class="modal-actions">
           <button id="cancel-delete" class="secondary-btn">Cancelar</button>
@@ -464,11 +722,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       localStorage.removeItem("babyProfile");
       localStorage.removeItem("foodDiary");
       localStorage.removeItem("allergenDiary");
+      localStorage.removeItem("favoriteRecipes");
+      localStorage.removeItem("shoppingList");
+      localStorage.removeItem("weightHistory");
 
-      localStorage.setItem("babyProfile", JSON.stringify(defaultProfile));
-      localStorage.setItem("foodDiary", JSON.stringify([]));
-      localStorage.setItem("allergenDiary", JSON.stringify({}));
-
+      initStorage();
       babyProfile = JSON.parse(localStorage.getItem("babyProfile"));
 
       modal.remove();

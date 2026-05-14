@@ -3,14 +3,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   const app = document.getElementById("app");
   const content = document.getElementById("content");
 
-  let foods = [];
   let recipes = [];
 
   const defaultProfile = {
-    name: "Mi bebé",
-    birthDate: "2025-11-15",
-    currentWeight: "7.8 kg",
-    lastFood: "Aguacate"
+    name: "",
+    birthDate: "",
+    currentWeight: "",
+    currentHeight: "",
+    notes: ""
   };
 
   const allergens = [
@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     "Soja",
     "Sésamo",
     "Apio",
-    "Mostaza"
+    "Mostaza",
+    "Sulfitos"
   ];
 
   if (!localStorage.getItem("babyProfile")) {
@@ -48,56 +49,26 @@ document.addEventListener("DOMContentLoaded", async () => {
       splash.style.display = "none";
       app.classList.remove("hidden");
     }, 800);
-  }, 1600);
+  }, 1400);
 
-  async function loadData() {
+  async function loadRecipes() {
     try {
-      const foodsResponse = await fetch("data/foods.json");
-      foods = await foodsResponse.json();
-
-      const recipesResponse = await fetch("data/recipes.json");
-      recipes = await recipesResponse.json();
+      const response = await fetch("data/recipes.json");
+      recipes = await response.json();
     } catch (error) {
-      console.error("Error cargando JSON:", error);
-
-      foods = [
-        {
-          nombre: "Aguacate",
-          edad_minima: "6 meses",
-          categoria: "Fruta",
-          blw: "Tiras gruesas o machacado",
-          alergenos: false,
-          riesgo: "Bajo",
-          observaciones: "Textura blanda, fácil de ofrecer al inicio."
-        }
-      ];
-
-      recipes = [
-        {
-          nombre: "Tortitas blandas de plátano y avena",
-          edad_minima: "6 meses",
-          categoria: "Desayuno",
-          tiempo: "12 min",
-          textura: "Blanda",
-          alergenos: ["Huevo", "Gluten"],
-          ingredientes: ["1 plátano maduro", "1 huevo", "3 cucharadas de avena molida"],
-          preparacion: [
-            "Machacar el plátano hasta formar una crema.",
-            "Mezclar con el huevo y la avena.",
-            "Cocinar pequeñas tortitas a fuego bajo.",
-            "Dejar enfriar y ofrecer en tiras grandes."
-          ],
-          notas: "No añadir azúcar ni sal."
-        }
-      ];
+      console.error("Error cargando recetas:", error);
+      recipes = [];
     }
   }
 
-  await loadData();
+  await loadRecipes();
 
   function calculateAge(birthDate) {
+    if (!birthDate) return "Pendiente";
     const birth = new Date(birthDate);
     const today = new Date();
+
+    if (Number.isNaN(birth.getTime())) return "Pendiente";
 
     let months = (today.getFullYear() - birth.getFullYear()) * 12;
     months += today.getMonth() - birth.getMonth();
@@ -110,6 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       days += prevMonth.getDate();
     }
 
+    if (months < 0) return "Pendiente";
     return `${months} meses y ${days} días`;
   }
 
@@ -119,36 +91,50 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  function showDashboard() {
-    babyProfile = JSON.parse(localStorage.getItem("babyProfile"));
+  function getLastFood() {
     const diary = JSON.parse(localStorage.getItem("foodDiary")) || [];
-    const lastEntries = diary.slice().reverse().slice(0, 2);
+    if (!diary.length) return "Sin registros";
+    return diary[diary.length - 1].food;
+  }
+
+  function showDashboard() {
+    babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
+    const diary = JSON.parse(localStorage.getItem("foodDiary")) || [];
+    const lastEntries = diary.slice().reverse().slice(0, 3);
 
     content.innerHTML = `
       <section>
         <h2 class="section-title">Inicio</h2>
-        <p class="section-subtitle">Resumen rápido de la alimentación del bebé.</p>
+        <p class="section-subtitle">Resumen rápido de alimentación, perfil y últimos registros.</p>
+
+        ${!babyProfile.name || !babyProfile.birthDate ? `
+          <div class="card">
+            <h2>Completa el perfil del bebé</h2>
+            <p>Para calcular la edad y personalizar la app, rellena nombre, fecha de nacimiento, peso y talla.</p>
+            <button id="go-profile" class="primary-btn">Abrir perfil</button>
+          </div>
+        ` : ""}
 
         <div class="dashboard-grid">
           <div class="card">
-            <h2>Edad actual</h2>
+            <h2>${babyProfile.name || "Mi bebé"}</h2>
             <p class="big-value">${calculateAge(babyProfile.birthDate)}</p>
           </div>
 
           <div class="card compact">
             <h2>Peso</h2>
-            <p class="big-value">${babyProfile.currentWeight}</p>
+            <p class="big-value">${babyProfile.currentWeight || "Pendiente"}</p>
           </div>
 
           <div class="card compact">
             <h2>Último</h2>
-            <p class="big-value">${babyProfile.lastFood}</p>
+            <p class="big-value">${getLastFood()}</p>
           </div>
         </div>
 
         <div class="quick-actions">
           <button id="quick-register" class="primary-btn">Registrar comida</button>
-          <button id="quick-allergens" class="secondary-btn">Ver alérgenos</button>
+          <button id="quick-recipes" class="secondary-btn">Ver recetas</button>
         </div>
 
         <div class="card">
@@ -157,7 +143,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             lastEntries.length
               ? lastEntries.map(entry => `
                 <p><strong>${entry.food}</strong> · ${entry.date}</p>
-                <p>${entry.amount} · ${entry.reaction}</p>
+                <p>${entry.amount} · ${entry.reaction}${entry.allergen ? ` · ${entry.allergen}` : ""}</p>
               `).join("")
               : `<p>Todavía no hay comidas registradas.</p>`
           }
@@ -165,79 +151,76 @@ document.addEventListener("DOMContentLoaded", async () => {
       </section>
     `;
 
+    const goProfile = document.getElementById("go-profile");
+    if (goProfile) {
+      goProfile.addEventListener("click", () => {
+        setActive("perfil");
+        showProfile();
+      });
+    }
+
     document.getElementById("quick-register").addEventListener("click", () => {
       setActive("");
       showFoodForm();
     });
 
-    document.getElementById("quick-allergens").addEventListener("click", () => {
-      setActive("alergenos");
-      showAllergens();
+    document.getElementById("quick-recipes").addEventListener("click", () => {
+      setActive("recetas");
+      showRecipes();
     });
   }
 
-  function showFoods() {
-    content.innerHTML = `
-      <section>
-        <h2 class="section-title">Alimentos</h2>
-        <p class="section-subtitle">Base rápida para consultar cómo ofrecer cada alimento.</p>
+  function showRecipes(filter = "Todas") {
+    const categories = ["Todas", "Puré", "Potito fruta", "BLW", "Desayuno", "Comida", "Cena", "Snack"];
+    const filtered = filter === "Todas" ? recipes : recipes.filter(r => r.tipo === filter || r.categoria === filter);
 
-        ${foods.map(food => `
-          <div class="card">
-            <h2>${food.nombre}</h2>
-            <p><strong>Desde:</strong> ${food.edad_minima}</p>
-            <p><strong>Categoría:</strong> ${food.categoria || "General"}</p>
-            <p><strong>BLW:</strong> ${food.blw || "Consultar preparación segura."}</p>
-            <p><strong>Riesgo:</strong> ${food.riesgo || "No indicado"}</p>
-            <p><strong>Observaciones:</strong> ${food.observaciones || "Sin observaciones."}</p>
-
-            <div class="tag-row">
-              <span class="tag">${food.alergenos ? "Alérgeno" : "No alérgeno común"}</span>
-              ${food.congelable ? `<span class="tag">Congelable</span>` : ""}
-            </div>
-          </div>
-        `).join("")}
-      </section>
-    `;
-  }
-
-  function showRecipes() {
     content.innerHTML = `
       <section>
         <h2 class="section-title">Recetas</h2>
-        <p class="section-subtitle">Ideas completas para preparar comidas reales.</p>
+        <p class="section-subtitle">${recipes.length} recetas con cantidades, edad, textura, alérgenos y preparación.</p>
 
-        ${recipes.map((recipe, index) => `
-          <div class="card">
-            <h2>${recipe.nombre}</h2>
-            <p><strong>Categoría:</strong> ${recipe.categoria}</p>
-            <p><strong>Edad:</strong> ${recipe.edad_minima}</p>
-            <p><strong>Tiempo:</strong> ${recipe.tiempo}</p>
-            <p><strong>Textura:</strong> ${recipe.textura}</p>
+        <div class="tag-row" style="margin-bottom: 16px;">
+          ${categories.map(cat => `
+            <button class="tag recipe-filter ${cat === filter ? "warning-tag" : ""}" data-filter="${cat}">${cat}</button>
+          `).join("")}
+        </div>
 
-            <div class="tag-row">
-              ${
-                recipe.alergenos && recipe.alergenos.length
-                  ? recipe.alergenos.map(a => `<span class="tag warning-tag">${a}</span>`).join("")
-                  : `<span class="tag">Sin alérgenos principales</span>`
-              }
+        ${
+          filtered.map((recipe) => `
+            <div class="card">
+              <h2>${recipe.nombre}</h2>
+              <p><strong>Tipo:</strong> ${recipe.tipo}</p>
+              <p><strong>Edad:</strong> ${recipe.edad_minima}</p>
+              <p><strong>Tiempo:</strong> ${recipe.tiempo}</p>
+              <p><strong>Textura:</strong> ${recipe.textura}</p>
+
+              <div class="tag-row">
+                ${
+                  recipe.alergenos && recipe.alergenos.length
+                    ? recipe.alergenos.map(a => `<span class="tag warning-tag">${a}</span>`).join("")
+                    : `<span class="tag">Sin alérgenos principales</span>`
+                }
+              </div>
+
+              <button class="secondary-btn recipe-detail-btn" data-id="${recipe.id}">Ver receta completa</button>
             </div>
-
-            <button class="secondary-btn recipe-detail-btn" data-index="${index}">Ver receta completa</button>
-          </div>
-        `).join("")}
+          `).join("")
+        }
       </section>
     `;
 
+    document.querySelectorAll(".recipe-filter").forEach(button => {
+      button.addEventListener("click", () => showRecipes(button.dataset.filter));
+    });
+
     document.querySelectorAll(".recipe-detail-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        showRecipeDetail(Number(button.dataset.index));
-      });
+      button.addEventListener("click", () => showRecipeDetail(Number(button.dataset.id)));
     });
   }
 
-  function showRecipeDetail(index) {
-    const recipe = recipes[index];
+  function showRecipeDetail(id) {
+    const recipe = recipes.find(r => Number(r.id) === Number(id));
+    if (!recipe) return showRecipes();
 
     content.innerHTML = `
       <section>
@@ -245,10 +228,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         <div class="card">
           <h2>${recipe.nombre}</h2>
+          <p><strong>Tipo:</strong> ${recipe.tipo}</p>
           <p><strong>Edad:</strong> ${recipe.edad_minima}</p>
-          <p><strong>Categoría:</strong> ${recipe.categoria}</p>
           <p><strong>Tiempo:</strong> ${recipe.tiempo}</p>
           <p><strong>Textura:</strong> ${recipe.textura}</p>
+          <p><strong>Raciones:</strong> ${recipe.raciones}</p>
 
           <div class="tag-row">
             ${
@@ -260,7 +244,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
 
         <div class="card">
-          <h2>Ingredientes</h2>
+          <h2>Ingredientes con cantidades</h2>
           ${recipe.ingredientes.map(item => `<p>• ${item}</p>`).join("")}
         </div>
 
@@ -272,44 +256,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
 
         <div class="card">
-          <h2>Consejo</h2>
-          <p>${recipe.notas || "Ofrecer siempre con supervisión y textura adecuada a la edad."}</p>
+          <h2>Conservación y seguridad</h2>
+          <p><strong>Conservación:</strong> ${recipe.conservacion}</p>
+          <p><strong>Consejo:</strong> ${recipe.notas}</p>
         </div>
+
+        <button id="register-recipe" class="primary-btn">Registrar que lo ha comido</button>
       </section>
     `;
 
-    document.getElementById("back-recipes").addEventListener("click", showRecipes);
-  }
-
-  function showDiary() {
-    const diary = JSON.parse(localStorage.getItem("foodDiary")) || [];
-
-    content.innerHTML = `
-      <section>
-        <h2 class="section-title">Diario</h2>
-        <p class="section-subtitle">Registro de comidas, cantidades y reacciones.</p>
-
-        ${
-          diary.length
-            ? diary.slice().reverse().map(entry => `
-              <div class="card">
-                <h2>${entry.food}</h2>
-                <p><strong>Fecha:</strong> ${entry.date}</p>
-                <p><strong>Cantidad:</strong> ${entry.amount}</p>
-                <p><strong>Reacción:</strong> ${entry.reaction}</p>
-                <p><strong>Alérgeno:</strong> ${entry.allergen || "No indicado"}</p>
-                <p><strong>Notas:</strong> ${entry.notes}</p>
-              </div>
-            `).join("")
-            : `
-              <div class="card">
-                <h2>Aún no hay registros</h2>
-                <p>Pulsa el botón central para registrar la primera comida.</p>
-              </div>
-            `
-        }
-      </section>
-    `;
+    document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
+    document.getElementById("register-recipe").addEventListener("click", () => {
+      showFoodForm(recipe.nombre);
+    });
   }
 
   function showAllergens() {
@@ -318,7 +277,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     content.innerHTML = `
       <section>
         <h2 class="section-title">Alérgenos</h2>
-        <p class="section-subtitle">Control por días de exposición y reacción observada.</p>
+        <p class="section-subtitle">Control de exposición: qué tomó, cuándo y reacción observada.</p>
 
         <div class="allergen-grid">
           ${allergens.map(allergen => {
@@ -328,7 +287,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div>
                   <h2>${allergen}</h2>
                   <p>${info ? `Último: ${info.date}` : "Sin introducir"}</p>
-                  <p>${info ? `Reacción: ${info.reaction}` : "Pendiente de registrar"}</p>
+                  <p>${info ? `Comida: ${info.food}` : "Pendiente de registrar"}</p>
+                  <p>${info ? `Reacción: ${info.reaction}` : ""}</p>
                 </div>
                 <span class="allergen-status">${info ? "Probado" : "Pendiente"}</span>
               </div>
@@ -339,16 +299,84 @@ document.addEventListener("DOMContentLoaded", async () => {
     `;
   }
 
-  function showFoodForm() {
+  function showProfile() {
+    babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
+
+    content.innerHTML = `
+      <section>
+        <h2 class="section-title">Perfil</h2>
+        <p class="section-subtitle">Datos del bebé guardados solo en este dispositivo.</p>
+
+        <div class="card form-card">
+          <div class="form-group">
+            <label for="profile-name">Nombre del bebé</label>
+            <input id="profile-name" type="text" placeholder="Ej. Lucas" value="${babyProfile.name || ""}">
+          </div>
+
+          <div class="form-group">
+            <label for="profile-birth">Fecha de nacimiento</label>
+            <input id="profile-birth" type="date" value="${babyProfile.birthDate || ""}">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="profile-weight">Peso actual</label>
+              <input id="profile-weight" type="text" placeholder="Ej. 7,8 kg" value="${babyProfile.currentWeight || ""}">
+            </div>
+
+            <div class="form-group">
+              <label for="profile-height">Talla actual</label>
+              <input id="profile-height" type="text" placeholder="Ej. 68 cm" value="${babyProfile.currentHeight || ""}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="profile-notes">Observaciones</label>
+            <textarea id="profile-notes" placeholder="Ej. lactancia, preferencias, recomendaciones pediatra...">${babyProfile.notes || ""}</textarea>
+          </div>
+
+          <button id="save-profile" class="primary-btn">Guardar perfil</button>
+        </div>
+
+        <div class="card">
+          <h2>Resumen</h2>
+          <p><strong>Edad:</strong> ${calculateAge(babyProfile.birthDate)}</p>
+          <p><strong>Peso:</strong> ${babyProfile.currentWeight || "Pendiente"}</p>
+          <p><strong>Talla:</strong> ${babyProfile.currentHeight || "Pendiente"}</p>
+        </div>
+      </section>
+    `;
+
+    document.getElementById("save-profile").addEventListener("click", saveProfile);
+  }
+
+  function saveProfile() {
+    const updatedProfile = {
+      name: document.getElementById("profile-name").value.trim(),
+      birthDate: document.getElementById("profile-birth").value,
+      currentWeight: document.getElementById("profile-weight").value.trim(),
+      currentHeight: document.getElementById("profile-height").value.trim(),
+      notes: document.getElementById("profile-notes").value.trim()
+    };
+
+    localStorage.setItem("babyProfile", JSON.stringify(updatedProfile));
+    babyProfile = updatedProfile;
+
+    alert("Perfil guardado correctamente.");
+    showDashboard();
+    setActive("inicio");
+  }
+
+  function showFoodForm(prefilledFood = "") {
     content.innerHTML = `
       <section>
         <h2 class="section-title">Registrar comida</h2>
-        <p class="section-subtitle">Añade qué ha comido, cantidad, reacción y posible alérgeno.</p>
+        <p class="section-subtitle">Añade alimento, cantidad, reacción y posible alérgeno.</p>
 
         <div class="card form-card">
           <div class="form-group">
             <label for="food-input">Alimento o receta</label>
-            <input id="food-input" type="text" placeholder="Ej. Aguacate, huevo, tortitas...">
+            <input id="food-input" type="text" placeholder="Ej. Puré de calabaza y pollo" value="${prefilledFood}">
           </div>
 
           <div class="form-row">
@@ -386,7 +414,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           <div class="form-group">
             <label for="notes-input">Notas</label>
-            <textarea id="notes-input" placeholder="Ej. lo aceptó bien, textura, preparación, dudas..."></textarea>
+            <textarea id="notes-input" placeholder="Textura, aceptación, preparación, reacción..."></textarea>
           </div>
 
           <button id="save-food-entry" class="primary-btn">Guardar registro</button>
@@ -422,9 +450,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     diary.push(entry);
     localStorage.setItem("foodDiary", JSON.stringify(diary));
 
-    babyProfile.lastFood = food;
-    localStorage.setItem("babyProfile", JSON.stringify(babyProfile));
-
     if (allergen) {
       const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
       allergenDiary[allergen] = {
@@ -436,8 +461,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       localStorage.setItem("allergenDiary", JSON.stringify(allergenDiary));
     }
 
-    setActive("alergenos");
-    showAllergens();
+    showDashboard();
+    setActive("inicio");
   }
 
   document.querySelectorAll(".nav-btn").forEach(button => {
@@ -446,9 +471,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       setActive(section);
 
       if (section === "inicio") showDashboard();
-      if (section === "alimentos") showFoods();
       if (section === "recetas") showRecipes();
       if (section === "alergenos") showAllergens();
+      if (section === "perfil") showProfile();
     });
   });
 

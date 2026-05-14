@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BabyFood Tracker</title>
+
+  <meta name="theme-color" content="#A8B89F">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="BabyFood Tracker">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="splash-screen">
+  <img src="assets/splash.png" alt="Splash Screen">
+</div>
+
+<div id="app" class="hidden">
+
+  <header class="top-header">
+    <h1>BabyFood Tracker</h1>
+    <p>Acompaña cada bocado, celebra cada logro.</p>
+  </header>
+
+  <main id="content">
+
+    <section class="dashboard active-section">
+      <div class="card">
+        <h2>Edad del bebé</h2>
+        <p id="baby-age">5 meses y 28 días</p>
+      </div>
+
+      <div class="card">
+        <h2>Último alimento</h2>
+        <p>Aguacate</p>
+      </div>
+
+      <div class="card">
+        <h2>Peso actual</h2>
+        <p>7.8 kg</p>
+      </div>
+
+      <div class="quick-actions">
+        <button>Registrar comida</button>
+        <button>Ver recetas</button>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active">🏠<span>Inicio</span></button>
+    <button class="nav-btn">🥑<span>Alimentos</span></button>
+
+    <button class="center-btn">＋</button>
+
+    <button class="nav-btn">🍽️<span>Recetas</span></button>
+    <button class="nav-btn">👶<span>Perfil</span></button>
+  </nav>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,5274 @@
+[
+  {
+    "id": 1,
+    "nombre": "Puré de calabaza, patata y pollo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de calabaza",
+      "60 g de patata",
+      "40 g de pollo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Pelar y trocear la calabaza y la patata.",
+      "Cocer con el pollo hasta que todo esté muy tierno.",
+      "Triturar con parte del agua de cocción.",
+      "Añadir el aceite al final y mezclar."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 2,
+    "nombre": "Puré de calabacín, zanahoria y pavo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "7 meses",
+    "tiempo": "30 min",
+    "textura": "Puré fino",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "100 g de calabacín",
+      "70 g de zanahoria",
+      "40 g de pavo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua"
+    ],
+    "preparacion": [
+      "Lavar, pelar y trocear las verduras.",
+      "Cocer con el pavo hasta textura muy blanda.",
+      "Triturar hasta conseguir la textura deseada.",
+      "Templar antes de servir."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 3,
+    "nombre": "Potito de manzana y pera",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Compota suave",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 manzana pequeña",
+      "1 pera madura",
+      "30 ml de agua"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer a fuego suave con el agua.",
+      "Triturar hasta textura fina.",
+      "Servir templado o frío."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 4,
+    "nombre": "Potito de plátano y aguacate",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "15 min",
+    "textura": "Compota suave",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "1/2 plátano maduro",
+      "1/4 aguacate",
+      "1 cucharada de leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Machacar el plátano y el aguacate.",
+      "Añadir la leche habitual para ajustar textura.",
+      "Mezclar hasta crema suave.",
+      "Servir al momento."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 5,
+    "nombre": "Tortitas de plátano y avena",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "30 min",
+    "textura": "Esponjosa",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Huevo",
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 plátano maduro",
+      "1 huevo",
+      "25 g de avena molida",
+      "1 cucharadita de aceite para la sartén"
+    ],
+    "preparacion": [
+      "Machacar el plátano.",
+      "Mezclar con huevo y avena.",
+      "Cocinar porciones pequeñas a fuego bajo.",
+      "Enfriar y cortar en tiras."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 6,
+    "nombre": "Palitos de boniato al horno",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "12 meses",
+    "tiempo": "30 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 boniato mediano",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Pelar y cortar el boniato en palitos gruesos.",
+      "Hornear a 180 ºC hasta que esté blando.",
+      "Comprobar que se aplasta con los dedos.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 7,
+    "nombre": "Crema de arroz, pollo y zanahoria",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "35 g de arroz",
+      "70 g de zanahoria",
+      "40 g de pollo",
+      "300 ml de agua",
+      "1 cucharadita de aceite"
+    ],
+    "preparacion": [
+      "Cocer el arroz con la zanahoria y el pollo.",
+      "Triturar o chafar según tolerancia.",
+      "Añadir aceite al final.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 8,
+    "nombre": "Cena suave de merluza y patata",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Cremosa",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "60 g de merluza sin espinas",
+      "90 g de patata",
+      "50 g de calabacín",
+      "1 cucharadita de aceite"
+    ],
+    "preparacion": [
+      "Cocer la patata y el calabacín.",
+      "Añadir la merluza al final y cocinar bien.",
+      "Revisar cuidadosamente que no haya espinas.",
+      "Triturar o desmenuzar."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 9,
+    "nombre": "Muffins blandos de zanahoria",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "7 meses",
+    "tiempo": "20 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Huevo",
+      "Gluten"
+    ],
+    "ingredientes": [
+      "80 g de zanahoria rallada",
+      "1 huevo",
+      "40 g de harina de avena",
+      "30 ml de leche habitual o agua"
+    ],
+    "preparacion": [
+      "Mezclar todos los ingredientes.",
+      "Repartir en moldes pequeños.",
+      "Hornear a 180 ºC hasta cuajar.",
+      "Enfriar antes de ofrecer."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 10,
+    "nombre": "Revuelto suave de huevo y calabacín",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 huevo",
+      "60 g de calabacín rallado",
+      "1 cucharadita de aceite"
+    ],
+    "preparacion": [
+      "Cocinar el calabacín hasta que esté muy blando.",
+      "Añadir el huevo batido.",
+      "Cuajar bien a fuego bajo.",
+      "Cortar en trozos adecuados."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas o congelar en porciones si los ingredientes lo permiten.",
+    "notas": "Sin sal ni azúcar añadido. Ofrecer siempre bajo supervisión y adaptar la textura a la capacidad del bebé."
+  },
+  {
+    "id": 11,
+    "nombre": "Cena suave de calabacín, patata y merluza",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "25 min",
+    "textura": "Cremosa",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "90 g de calabacín",
+      "60 g de patata",
+      "35 g de merluza",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 12,
+    "nombre": "Potito de plátano y fresa",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "30 min",
+    "textura": "Triturado fino",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de plátano",
+      "1 pieza pequeña de fresa",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 13,
+    "nombre": "Comida completa de huevo, boniato y maíz",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "10 min",
+    "textura": "Desmenuzada",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "45 g de huevo",
+      "90 g de boniato",
+      "30 g de maíz",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar huevo completamente.",
+      "Cocer boniato y maíz hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 14,
+    "nombre": "Puré de patata, guisantes y lentejas rojas",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "35 min",
+    "textura": "Puré fino",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "100 g de patata",
+      "70 g de guisantes",
+      "40 g de lentejas rojas",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear patata y guisantes.",
+      "Cocer junto con lentejas rojas hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 15,
+    "nombre": "Desayuno cremoso de arroz con ciruela",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "20 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de arroz",
+      "1 pieza pequeña de ciruela",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer arroz con el líquido hasta textura cremosa.",
+      "Añadir ciruela machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 16,
+    "nombre": "Snack blando de fresa y avena",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "30 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de fresa",
+      "35 g de avena cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar fresa.",
+      "Mezclar con avena hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 17,
+    "nombre": "Bocados BLW de guisantes y sémola de trigo",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "120 g de guisantes cocido",
+      "35 g de sémola de trigo cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer guisantes hasta que esté muy blando.",
+      "Mezclar con sémola de trigo hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 18,
+    "nombre": "Cena suave de puerro, calabacín y pollo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "20 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "90 g de puerro",
+      "60 g de calabacín",
+      "35 g de pollo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 19,
+    "nombre": "Potito de papaya y mango",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "20 min",
+    "textura": "Compota suave",
+    "raciones": "1-2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de papaya",
+      "1 pieza pequeña de mango",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 20,
+    "nombre": "Comida completa de ternera, calabaza y cuscús",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "20 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "45 g de ternera",
+      "90 g de calabaza",
+      "30 g de cuscús",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar ternera completamente.",
+      "Cocer calabaza y cuscús hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 21,
+    "nombre": "Puré de calabacín, patata y merluza",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "100 g de calabacín",
+      "70 g de patata",
+      "40 g de merluza",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear calabacín y patata.",
+      "Cocer junto con merluza hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 22,
+    "nombre": "Desayuno cremoso de mijo con plátano",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "10 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "30 g de mijo",
+      "1 pieza pequeña de plátano",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer mijo con el líquido hasta textura cremosa.",
+      "Añadir plátano machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 23,
+    "nombre": "Snack blando de mango y arroz",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "30 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de mango",
+      "35 g de arroz cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar mango.",
+      "Mezclar con arroz hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 24,
+    "nombre": "Bocados BLW de patata y avena",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "120 g de patata cocido",
+      "35 g de avena cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer patata hasta que esté muy blando.",
+      "Mezclar con avena hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 25,
+    "nombre": "Cena suave de brócoli, puerro y garbanzos",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "35 min",
+    "textura": "Puré suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "90 g de brócoli",
+      "60 g de puerro",
+      "35 g de garbanzos",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 26,
+    "nombre": "Potito de fresa y manzana",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "10 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de fresa",
+      "1 pieza pequeña de manzana",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 27,
+    "nombre": "Comida completa de conejo, guisantes y quinoa",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "30 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "45 g de conejo",
+      "90 g de guisantes",
+      "30 g de quinoa",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar conejo completamente.",
+      "Cocer guisantes y quinoa hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 28,
+    "nombre": "Puré de puerro, calabacín y pollo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "100 g de puerro",
+      "70 g de calabacín",
+      "40 g de pollo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear puerro y calabacín.",
+      "Cocer junto con pollo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 29,
+    "nombre": "Desayuno cremoso de maíz con papaya",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "35 min",
+    "textura": "Esponjosa",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de maíz",
+      "1 pieza pequeña de papaya",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer maíz con el líquido hasta textura cremosa.",
+      "Añadir papaya machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 30,
+    "nombre": "Snack blando de manzana y mijo",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Fácil de agarrar",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de manzana",
+      "35 g de mijo cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar manzana.",
+      "Mezclar con mijo hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 31,
+    "nombre": "Bocados BLW de calabacín y arroz",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "35 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "120 g de calabacín cocido",
+      "35 g de arroz cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer calabacín hasta que esté muy blando.",
+      "Mezclar con arroz hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 32,
+    "nombre": "Cena suave de zanahoria, brócoli y salmón",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "10 min",
+    "textura": "Cremosa",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "90 g de zanahoria",
+      "60 g de brócoli",
+      "35 g de salmón",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 33,
+    "nombre": "Potito de mango y arándanos",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "30 min",
+    "textura": "Compota suave",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de mango",
+      "1 pieza pequeña de arándanos",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 34,
+    "nombre": "Comida completa de lentejas rojas, patata y pasta pequeña",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "10 min",
+    "textura": "Desmenuzada",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "45 g de lentejas rojas",
+      "90 g de patata",
+      "30 g de pasta pequeña",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar lentejas rojas completamente.",
+      "Cocer patata y pasta pequeña hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 35,
+    "nombre": "Puré de brócoli, puerro y garbanzos",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "10 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "100 g de brócoli",
+      "70 g de puerro",
+      "40 g de garbanzos",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear brócoli y puerro.",
+      "Cocer junto con garbanzos hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 36,
+    "nombre": "Desayuno cremoso de cuscús con fresa",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "10 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "30 g de cuscús",
+      "1 pieza pequeña de fresa",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer cuscús con el líquido hasta textura cremosa.",
+      "Añadir fresa machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 37,
+    "nombre": "Snack blando de arándanos y maíz",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de arándanos",
+      "35 g de maíz cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar arándanos.",
+      "Mezclar con maíz hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 38,
+    "nombre": "Bocados BLW de puerro y mijo",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "20 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de puerro cocido",
+      "35 g de mijo cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer puerro hasta que esté muy blando.",
+      "Mezclar con mijo hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 39,
+    "nombre": "Cena suave de coliflor, zanahoria y pavo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "20 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "90 g de coliflor",
+      "60 g de zanahoria",
+      "35 g de pavo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 40,
+    "nombre": "Potito de manzana y melocotón",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "15 min",
+    "textura": "Compota suave",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de manzana",
+      "1 pieza pequeña de melocotón",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 41,
+    "nombre": "Comida completa de merluza, calabacín y sémola de trigo",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "15 min",
+    "textura": "Desmenuzada",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "45 g de merluza",
+      "90 g de calabacín",
+      "30 g de sémola de trigo",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar merluza completamente.",
+      "Cocer calabacín y sémola de trigo hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 42,
+    "nombre": "Puré de zanahoria, brócoli y salmón",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Puré fino",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "100 g de zanahoria",
+      "70 g de brócoli",
+      "40 g de salmón",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear zanahoria y brócoli.",
+      "Cocer junto con salmón hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 43,
+    "nombre": "Desayuno cremoso de quinoa con mango",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "10 min",
+    "textura": "Esponjosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "30 g de quinoa",
+      "1 pieza pequeña de mango",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer quinoa con el líquido hasta textura cremosa.",
+      "Añadir mango machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 44,
+    "nombre": "Snack blando de melocotón y cuscús",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de melocotón",
+      "35 g de cuscús cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar melocotón.",
+      "Mezclar con cuscús hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 45,
+    "nombre": "Bocados BLW de brócoli y maíz",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de brócoli cocido",
+      "35 g de maíz cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer brócoli hasta que esté muy blando.",
+      "Mezclar con maíz hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 46,
+    "nombre": "Cena suave de judía verde, coliflor y bacalao fresco",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "15 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "90 g de judía verde",
+      "60 g de coliflor",
+      "35 g de bacalao fresco",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 47,
+    "nombre": "Potito de arándanos y pera",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "15 min",
+    "textura": "Triturado fino",
+    "raciones": "1-2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de arándanos",
+      "1 pieza pequeña de pera",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 48,
+    "nombre": "Comida completa de pollo, puerro y avena",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "30 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "45 g de pollo",
+      "90 g de puerro",
+      "30 g de avena",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar pollo completamente.",
+      "Cocer puerro y avena hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 49,
+    "nombre": "Puré de coliflor, zanahoria y pavo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "15 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "100 g de coliflor",
+      "70 g de zanahoria",
+      "40 g de pavo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear coliflor y zanahoria.",
+      "Cocer junto con pavo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 50,
+    "nombre": "Desayuno cremoso de pasta pequeña con manzana",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "30 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "30 g de pasta pequeña",
+      "1 pieza pequeña de manzana",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer pasta pequeña con el líquido hasta textura cremosa.",
+      "Añadir manzana machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 51,
+    "nombre": "Snack blando de pera y quinoa",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "30 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de pera",
+      "35 g de quinoa cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar pera.",
+      "Mezclar con quinoa hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 52,
+    "nombre": "Bocados BLW de zanahoria y cuscús",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Blanda en tiras",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "120 g de zanahoria cocido",
+      "35 g de cuscús cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer zanahoria hasta que esté muy blando.",
+      "Mezclar con cuscús hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 53,
+    "nombre": "Cena suave de boniato, judía verde y huevo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "20 min",
+    "textura": "Puré suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "90 g de boniato",
+      "60 g de judía verde",
+      "35 g de huevo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 54,
+    "nombre": "Potito de melocotón y kiwi",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "30 min",
+    "textura": "Triturado fino",
+    "raciones": "1-2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de melocotón",
+      "1 pieza pequeña de kiwi",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 55,
+    "nombre": "Comida completa de garbanzos, brócoli y arroz",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "25 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "45 g de garbanzos",
+      "90 g de brócoli",
+      "30 g de arroz",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar garbanzos completamente.",
+      "Cocer brócoli y arroz hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 56,
+    "nombre": "Puré de judía verde, coliflor y bacalao fresco",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "100 g de judía verde",
+      "70 g de coliflor",
+      "40 g de bacalao fresco",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear judía verde y coliflor.",
+      "Cocer junto con bacalao fresco hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 57,
+    "nombre": "Desayuno cremoso de sémola de trigo con arándanos",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "15 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "30 g de sémola de trigo",
+      "1 pieza pequeña de arándanos",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer sémola de trigo con el líquido hasta textura cremosa.",
+      "Añadir arándanos machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 58,
+    "nombre": "Snack blando de kiwi y pasta pequeña",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "25 min",
+    "textura": "Fácil de agarrar",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de kiwi",
+      "35 g de pasta pequeña cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar kiwi.",
+      "Mezclar con pasta pequeña hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 59,
+    "nombre": "Bocados BLW de coliflor y quinoa",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de coliflor cocido",
+      "35 g de quinoa cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer coliflor hasta que esté muy blando.",
+      "Mezclar con quinoa hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 60,
+    "nombre": "Cena suave de calabaza, boniato y ternera",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "15 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "90 g de calabaza",
+      "60 g de boniato",
+      "35 g de ternera",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 61,
+    "nombre": "Potito de pera y ciruela",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "10 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de pera",
+      "1 pieza pequeña de ciruela",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 62,
+    "nombre": "Comida completa de salmón, zanahoria y mijo",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "35 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "45 g de salmón",
+      "90 g de zanahoria",
+      "30 g de mijo",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar salmón completamente.",
+      "Cocer zanahoria y mijo hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 63,
+    "nombre": "Puré de boniato, judía verde y huevo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "10 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "100 g de boniato",
+      "70 g de judía verde",
+      "40 g de huevo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear boniato y judía verde.",
+      "Cocer junto con huevo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 64,
+    "nombre": "Desayuno cremoso de avena con melocotón",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "25 min",
+    "textura": "Esponjosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "30 g de avena",
+      "1 pieza pequeña de melocotón",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer avena con el líquido hasta textura cremosa.",
+      "Añadir melocotón machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 65,
+    "nombre": "Snack blando de ciruela y sémola de trigo",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de ciruela",
+      "35 g de sémola de trigo cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar ciruela.",
+      "Mezclar con sémola de trigo hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 66,
+    "nombre": "Bocados BLW de judía verde y pasta pequeña",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "10 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "120 g de judía verde cocido",
+      "35 g de pasta pequeña cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer judía verde hasta que esté muy blando.",
+      "Mezclar con pasta pequeña hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 67,
+    "nombre": "Cena suave de guisantes, calabaza y conejo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "15 min",
+    "textura": "Puré suave",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "90 g de guisantes",
+      "60 g de calabaza",
+      "35 g de conejo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 68,
+    "nombre": "Potito de kiwi y plátano",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "20 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de kiwi",
+      "1 pieza pequeña de plátano",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 69,
+    "nombre": "Comida completa de pavo, coliflor y maíz",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "25 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "45 g de pavo",
+      "90 g de coliflor",
+      "30 g de maíz",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar pavo completamente.",
+      "Cocer coliflor y maíz hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 70,
+    "nombre": "Puré de calabaza, boniato y ternera",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "100 g de calabaza",
+      "70 g de boniato",
+      "40 g de ternera",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear calabaza y boniato.",
+      "Cocer junto con ternera hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 71,
+    "nombre": "Desayuno cremoso de arroz con pera",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "20 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "30 g de arroz",
+      "1 pieza pequeña de pera",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer arroz con el líquido hasta textura cremosa.",
+      "Añadir pera machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 72,
+    "nombre": "Snack blando de plátano y avena",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de plátano",
+      "35 g de avena cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar plátano.",
+      "Mezclar con avena hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 73,
+    "nombre": "Bocados BLW de boniato y sémola de trigo",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "20 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "120 g de boniato cocido",
+      "35 g de sémola de trigo cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer boniato hasta que esté muy blando.",
+      "Mezclar con sémola de trigo hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 74,
+    "nombre": "Cena suave de patata, guisantes y lentejas rojas",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "20 min",
+    "textura": "Puré suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "90 g de patata",
+      "60 g de guisantes",
+      "35 g de lentejas rojas",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 75,
+    "nombre": "Potito de ciruela y papaya",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "20 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de ciruela",
+      "1 pieza pequeña de papaya",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 76,
+    "nombre": "Comida completa de bacalao fresco, judía verde y cuscús",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "10 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "45 g de bacalao fresco",
+      "90 g de judía verde",
+      "30 g de cuscús",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar bacalao fresco completamente.",
+      "Cocer judía verde y cuscús hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 77,
+    "nombre": "Puré de guisantes, calabaza y conejo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "100 g de guisantes",
+      "70 g de calabaza",
+      "40 g de conejo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear guisantes y calabaza.",
+      "Cocer junto con conejo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 78,
+    "nombre": "Desayuno cremoso de mijo con kiwi",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "10 min",
+    "textura": "Esponjosa",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de mijo",
+      "1 pieza pequeña de kiwi",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer mijo con el líquido hasta textura cremosa.",
+      "Añadir kiwi machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 79,
+    "nombre": "Snack blando de papaya y arroz",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de papaya",
+      "35 g de arroz cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar papaya.",
+      "Mezclar con arroz hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 80,
+    "nombre": "Bocados BLW de calabaza y avena",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "120 g de calabaza cocido",
+      "35 g de avena cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer calabaza hasta que esté muy blando.",
+      "Mezclar con avena hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 81,
+    "nombre": "Cena suave de calabacín, patata y merluza",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "30 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "90 g de calabacín",
+      "60 g de patata",
+      "35 g de merluza",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 82,
+    "nombre": "Potito de plátano y fresa",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "35 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de plátano",
+      "1 pieza pequeña de fresa",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 83,
+    "nombre": "Comida completa de huevo, boniato y quinoa",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "30 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "45 g de huevo",
+      "90 g de boniato",
+      "30 g de quinoa",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar huevo completamente.",
+      "Cocer boniato y quinoa hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 84,
+    "nombre": "Puré de patata, guisantes y lentejas rojas",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "10 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "100 g de patata",
+      "70 g de guisantes",
+      "40 g de lentejas rojas",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear patata y guisantes.",
+      "Cocer junto con lentejas rojas hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 85,
+    "nombre": "Desayuno cremoso de maíz con ciruela",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "10 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de maíz",
+      "1 pieza pequeña de ciruela",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer maíz con el líquido hasta textura cremosa.",
+      "Añadir ciruela machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 86,
+    "nombre": "Snack blando de fresa y mijo",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "10 min",
+    "textura": "Fácil de agarrar",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Huevo",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de fresa",
+      "35 g de mijo cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar fresa.",
+      "Mezclar con mijo hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 87,
+    "nombre": "Bocados BLW de guisantes y arroz",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "15 min",
+    "textura": "Blanda en tiras",
+    "raciones": "4-6 bocados",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de guisantes cocido",
+      "35 g de arroz cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer guisantes hasta que esté muy blando.",
+      "Mezclar con arroz hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 88,
+    "nombre": "Cena suave de puerro, calabacín y pollo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "35 min",
+    "textura": "Puré suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "90 g de puerro",
+      "60 g de calabacín",
+      "35 g de pollo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 89,
+    "nombre": "Potito de papaya y mango",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "35 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de papaya",
+      "1 pieza pequeña de mango",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 90,
+    "nombre": "Comida completa de ternera, calabaza y pasta pequeña",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "15 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "45 g de ternera",
+      "90 g de calabaza",
+      "30 g de pasta pequeña",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar ternera completamente.",
+      "Cocer calabaza y pasta pequeña hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 91,
+    "nombre": "Puré de calabacín, patata y merluza",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "10 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "100 g de calabacín",
+      "70 g de patata",
+      "40 g de merluza",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear calabacín y patata.",
+      "Cocer junto con merluza hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 92,
+    "nombre": "Desayuno cremoso de cuscús con plátano",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "30 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "30 g de cuscús",
+      "1 pieza pequeña de plátano",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer cuscús con el líquido hasta textura cremosa.",
+      "Añadir plátano machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 93,
+    "nombre": "Snack blando de mango y maíz",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "30 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de mango",
+      "35 g de maíz cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar mango.",
+      "Mezclar con maíz hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 94,
+    "nombre": "Bocados BLW de patata y mijo",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de patata cocido",
+      "35 g de mijo cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer patata hasta que esté muy blando.",
+      "Mezclar con mijo hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 95,
+    "nombre": "Cena suave de brócoli, puerro y garbanzos",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "25 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "90 g de brócoli",
+      "60 g de puerro",
+      "35 g de garbanzos",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 96,
+    "nombre": "Potito de fresa y manzana",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "35 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de fresa",
+      "1 pieza pequeña de manzana",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 97,
+    "nombre": "Comida completa de conejo, guisantes y sémola de trigo",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "15 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "45 g de conejo",
+      "90 g de guisantes",
+      "30 g de sémola de trigo",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar conejo completamente.",
+      "Cocer guisantes y sémola de trigo hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 98,
+    "nombre": "Puré de puerro, calabacín y pollo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "15 min",
+    "textura": "Puré fino",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "100 g de puerro",
+      "70 g de calabacín",
+      "40 g de pollo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear puerro y calabacín.",
+      "Cocer junto con pollo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 99,
+    "nombre": "Desayuno cremoso de quinoa con papaya",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "35 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de quinoa",
+      "1 pieza pequeña de papaya",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer quinoa con el líquido hasta textura cremosa.",
+      "Añadir papaya machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 100,
+    "nombre": "Snack blando de manzana y cuscús",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de manzana",
+      "35 g de cuscús cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar manzana.",
+      "Mezclar con cuscús hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 101,
+    "nombre": "Bocados BLW de calabacín y maíz",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Blanda en tiras",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "120 g de calabacín cocido",
+      "35 g de maíz cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer calabacín hasta que esté muy blando.",
+      "Mezclar con maíz hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 102,
+    "nombre": "Cena suave de zanahoria, brócoli y salmón",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "25 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "90 g de zanahoria",
+      "60 g de brócoli",
+      "35 g de salmón",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 103,
+    "nombre": "Potito de mango y arándanos",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "35 min",
+    "textura": "Compota suave",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de mango",
+      "1 pieza pequeña de arándanos",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 104,
+    "nombre": "Comida completa de lentejas rojas, patata y avena",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "10 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "45 g de lentejas rojas",
+      "90 g de patata",
+      "30 g de avena",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar lentejas rojas completamente.",
+      "Cocer patata y avena hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 105,
+    "nombre": "Puré de brócoli, puerro y garbanzos",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "10 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "100 g de brócoli",
+      "70 g de puerro",
+      "40 g de garbanzos",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear brócoli y puerro.",
+      "Cocer junto con garbanzos hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 106,
+    "nombre": "Desayuno cremoso de pasta pequeña con fresa",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "25 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "30 g de pasta pequeña",
+      "1 pieza pequeña de fresa",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer pasta pequeña con el líquido hasta textura cremosa.",
+      "Añadir fresa machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 107,
+    "nombre": "Snack blando de arándanos y quinoa",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de arándanos",
+      "35 g de quinoa cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar arándanos.",
+      "Mezclar con quinoa hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 108,
+    "nombre": "Bocados BLW de puerro y cuscús",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "120 g de puerro cocido",
+      "35 g de cuscús cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer puerro hasta que esté muy blando.",
+      "Mezclar con cuscús hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 109,
+    "nombre": "Cena suave de coliflor, zanahoria y pavo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "25 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "90 g de coliflor",
+      "60 g de zanahoria",
+      "35 g de pavo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 110,
+    "nombre": "Potito de manzana y melocotón",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "30 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de manzana",
+      "1 pieza pequeña de melocotón",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 111,
+    "nombre": "Comida completa de merluza, calabacín y arroz",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "20 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "45 g de merluza",
+      "90 g de calabacín",
+      "30 g de arroz",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar merluza completamente.",
+      "Cocer calabacín y arroz hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 112,
+    "nombre": "Puré de zanahoria, brócoli y salmón",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "15 min",
+    "textura": "Puré fino",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "100 g de zanahoria",
+      "70 g de brócoli",
+      "40 g de salmón",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear zanahoria y brócoli.",
+      "Cocer junto con salmón hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 113,
+    "nombre": "Desayuno cremoso de sémola de trigo con mango",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "20 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "30 g de sémola de trigo",
+      "1 pieza pequeña de mango",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer sémola de trigo con el líquido hasta textura cremosa.",
+      "Añadir mango machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 114,
+    "nombre": "Snack blando de melocotón y pasta pequeña",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Fácil de agarrar",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de melocotón",
+      "35 g de pasta pequeña cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar melocotón.",
+      "Mezclar con pasta pequeña hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 115,
+    "nombre": "Bocados BLW de brócoli y quinoa",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de brócoli cocido",
+      "35 g de quinoa cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer brócoli hasta que esté muy blando.",
+      "Mezclar con quinoa hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 116,
+    "nombre": "Cena suave de judía verde, coliflor y bacalao fresco",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "30 min",
+    "textura": "Puré suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "90 g de judía verde",
+      "60 g de coliflor",
+      "35 g de bacalao fresco",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 117,
+    "nombre": "Potito de arándanos y pera",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "10 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de arándanos",
+      "1 pieza pequeña de pera",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 118,
+    "nombre": "Comida completa de pollo, puerro y mijo",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "20 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "45 g de pollo",
+      "90 g de puerro",
+      "30 g de mijo",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar pollo completamente.",
+      "Cocer puerro y mijo hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 119,
+    "nombre": "Puré de coliflor, zanahoria y pavo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "100 g de coliflor",
+      "70 g de zanahoria",
+      "40 g de pavo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear coliflor y zanahoria.",
+      "Cocer junto con pavo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 120,
+    "nombre": "Desayuno cremoso de avena con manzana",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "20 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "30 g de avena",
+      "1 pieza pequeña de manzana",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer avena con el líquido hasta textura cremosa.",
+      "Añadir manzana machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 121,
+    "nombre": "Snack blando de pera y sémola de trigo",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "15 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de pera",
+      "35 g de sémola de trigo cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar pera.",
+      "Mezclar con sémola de trigo hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 122,
+    "nombre": "Bocados BLW de zanahoria y pasta pequeña",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "120 g de zanahoria cocido",
+      "35 g de pasta pequeña cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer zanahoria hasta que esté muy blando.",
+      "Mezclar con pasta pequeña hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 123,
+    "nombre": "Cena suave de boniato, judía verde y huevo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "10 min",
+    "textura": "Cremosa",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "90 g de boniato",
+      "60 g de judía verde",
+      "35 g de huevo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 124,
+    "nombre": "Potito de melocotón y kiwi",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "10 min",
+    "textura": "Triturado fino",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de melocotón",
+      "1 pieza pequeña de kiwi",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 125,
+    "nombre": "Comida completa de garbanzos, brócoli y maíz",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "10 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "45 g de garbanzos",
+      "90 g de brócoli",
+      "30 g de maíz",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar garbanzos completamente.",
+      "Cocer brócoli y maíz hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 126,
+    "nombre": "Puré de judía verde, coliflor y bacalao fresco",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "100 g de judía verde",
+      "70 g de coliflor",
+      "40 g de bacalao fresco",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear judía verde y coliflor.",
+      "Cocer junto con bacalao fresco hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 127,
+    "nombre": "Desayuno cremoso de arroz con arándanos",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "20 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de arroz",
+      "1 pieza pequeña de arándanos",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer arroz con el líquido hasta textura cremosa.",
+      "Añadir arándanos machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 128,
+    "nombre": "Snack blando de kiwi y avena",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de kiwi",
+      "35 g de avena cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar kiwi.",
+      "Mezclar con avena hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 129,
+    "nombre": "Bocados BLW de coliflor y sémola de trigo",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "15 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "120 g de coliflor cocido",
+      "35 g de sémola de trigo cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer coliflor hasta que esté muy blando.",
+      "Mezclar con sémola de trigo hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 130,
+    "nombre": "Cena suave de calabaza, boniato y ternera",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "15 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "90 g de calabaza",
+      "60 g de boniato",
+      "35 g de ternera",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 131,
+    "nombre": "Potito de pera y ciruela",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "25 min",
+    "textura": "Compota suave",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de pera",
+      "1 pieza pequeña de ciruela",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 132,
+    "nombre": "Comida completa de salmón, zanahoria y cuscús",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "20 min",
+    "textura": "Desmenuzada",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "45 g de salmón",
+      "90 g de zanahoria",
+      "30 g de cuscús",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar salmón completamente.",
+      "Cocer zanahoria y cuscús hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 133,
+    "nombre": "Puré de boniato, judía verde y huevo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "100 g de boniato",
+      "70 g de judía verde",
+      "40 g de huevo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear boniato y judía verde.",
+      "Cocer junto con huevo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 134,
+    "nombre": "Desayuno cremoso de mijo con melocotón",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "35 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de mijo",
+      "1 pieza pequeña de melocotón",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer mijo con el líquido hasta textura cremosa.",
+      "Añadir melocotón machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 135,
+    "nombre": "Snack blando de ciruela y arroz",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de ciruela",
+      "35 g de arroz cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar ciruela.",
+      "Mezclar con arroz hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 136,
+    "nombre": "Bocados BLW de judía verde y avena",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "20 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "120 g de judía verde cocido",
+      "35 g de avena cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer judía verde hasta que esté muy blando.",
+      "Mezclar con avena hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 137,
+    "nombre": "Cena suave de guisantes, calabaza y conejo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "10 min",
+    "textura": "Puré suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "90 g de guisantes",
+      "60 g de calabaza",
+      "35 g de conejo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 138,
+    "nombre": "Potito de kiwi y plátano",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "30 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de kiwi",
+      "1 pieza pequeña de plátano",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 139,
+    "nombre": "Comida completa de pavo, coliflor y quinoa",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "20 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "45 g de pavo",
+      "90 g de coliflor",
+      "30 g de quinoa",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar pavo completamente.",
+      "Cocer coliflor y quinoa hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 140,
+    "nombre": "Puré de calabaza, boniato y ternera",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "20 min",
+    "textura": "Puré con textura suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "100 g de calabaza",
+      "70 g de boniato",
+      "40 g de ternera",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear calabaza y boniato.",
+      "Cocer junto con ternera hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 141,
+    "nombre": "Desayuno cremoso de maíz con pera",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "35 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "30 g de maíz",
+      "1 pieza pequeña de pera",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer maíz con el líquido hasta textura cremosa.",
+      "Añadir pera machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 142,
+    "nombre": "Snack blando de plátano y mijo",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "25 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Huevo",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de plátano",
+      "35 g de mijo cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar plátano.",
+      "Mezclar con mijo hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 143,
+    "nombre": "Bocados BLW de boniato y arroz",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "120 g de boniato cocido",
+      "35 g de arroz cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer boniato hasta que esté muy blando.",
+      "Mezclar con arroz hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 144,
+    "nombre": "Cena suave de patata, guisantes y lentejas rojas",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "30 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "90 g de patata",
+      "60 g de guisantes",
+      "35 g de lentejas rojas",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 145,
+    "nombre": "Potito de ciruela y papaya",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "30 min",
+    "textura": "Triturado fino",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de ciruela",
+      "1 pieza pequeña de papaya",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 146,
+    "nombre": "Comida completa de bacalao fresco, judía verde y pasta pequeña",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "35 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "45 g de bacalao fresco",
+      "90 g de judía verde",
+      "30 g de pasta pequeña",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar bacalao fresco completamente.",
+      "Cocer judía verde y pasta pequeña hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 147,
+    "nombre": "Puré de guisantes, calabaza y conejo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "15 min",
+    "textura": "Puré fino",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "100 g de guisantes",
+      "70 g de calabaza",
+      "40 g de conejo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear guisantes y calabaza.",
+      "Cocer junto con conejo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 148,
+    "nombre": "Desayuno cremoso de cuscús con kiwi",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "35 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "30 g de cuscús",
+      "1 pieza pequeña de kiwi",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer cuscús con el líquido hasta textura cremosa.",
+      "Añadir kiwi machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 149,
+    "nombre": "Snack blando de papaya y maíz",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "15 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de papaya",
+      "35 g de maíz cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar papaya.",
+      "Mezclar con maíz hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 150,
+    "nombre": "Bocados BLW de calabaza y mijo",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "35 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de calabaza cocido",
+      "35 g de mijo cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer calabaza hasta que esté muy blando.",
+      "Mezclar con mijo hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 151,
+    "nombre": "Cena suave de calabacín, patata y merluza",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "15 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "90 g de calabacín",
+      "60 g de patata",
+      "35 g de merluza",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 152,
+    "nombre": "Potito de plátano y fresa",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "15 min",
+    "textura": "Compota suave",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de plátano",
+      "1 pieza pequeña de fresa",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 153,
+    "nombre": "Comida completa de huevo, boniato y sémola de trigo",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "30 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "45 g de huevo",
+      "90 g de boniato",
+      "30 g de sémola de trigo",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar huevo completamente.",
+      "Cocer boniato y sémola de trigo hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 154,
+    "nombre": "Puré de patata, guisantes y lentejas rojas",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Puré fino",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "100 g de patata",
+      "70 g de guisantes",
+      "40 g de lentejas rojas",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear patata y guisantes.",
+      "Cocer junto con lentejas rojas hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 155,
+    "nombre": "Desayuno cremoso de quinoa con ciruela",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "15 min",
+    "textura": "Esponjosa",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de quinoa",
+      "1 pieza pequeña de ciruela",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer quinoa con el líquido hasta textura cremosa.",
+      "Añadir ciruela machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 156,
+    "nombre": "Snack blando de fresa y cuscús",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "30 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de fresa",
+      "35 g de cuscús cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar fresa.",
+      "Mezclar con cuscús hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 157,
+    "nombre": "Bocados BLW de guisantes y maíz",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de guisantes cocido",
+      "35 g de maíz cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer guisantes hasta que esté muy blando.",
+      "Mezclar con maíz hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 158,
+    "nombre": "Cena suave de puerro, calabacín y pollo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "25 min",
+    "textura": "Cremosa",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "90 g de puerro",
+      "60 g de calabacín",
+      "35 g de pollo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 159,
+    "nombre": "Potito de papaya y mango",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "20 min",
+    "textura": "Triturado fino",
+    "raciones": "1-2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de papaya",
+      "1 pieza pequeña de mango",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 160,
+    "nombre": "Comida completa de ternera, calabaza y avena",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "10 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "45 g de ternera",
+      "90 g de calabaza",
+      "30 g de avena",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar ternera completamente.",
+      "Cocer calabaza y avena hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 161,
+    "nombre": "Puré de calabacín, patata y merluza",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "100 g de calabacín",
+      "70 g de patata",
+      "40 g de merluza",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear calabacín y patata.",
+      "Cocer junto con merluza hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 162,
+    "nombre": "Desayuno cremoso de pasta pequeña con plátano",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "15 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "30 g de pasta pequeña",
+      "1 pieza pequeña de plátano",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer pasta pequeña con el líquido hasta textura cremosa.",
+      "Añadir plátano machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 163,
+    "nombre": "Snack blando de mango y quinoa",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "10 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de mango",
+      "35 g de quinoa cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar mango.",
+      "Mezclar con quinoa hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 164,
+    "nombre": "Bocados BLW de patata y cuscús",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Bocados blandos",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "120 g de patata cocido",
+      "35 g de cuscús cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer patata hasta que esté muy blando.",
+      "Mezclar con cuscús hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 165,
+    "nombre": "Cena suave de brócoli, puerro y garbanzos",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "10 min",
+    "textura": "Cremosa",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "90 g de brócoli",
+      "60 g de puerro",
+      "35 g de garbanzos",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 166,
+    "nombre": "Potito de fresa y manzana",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "10 min",
+    "textura": "Compota suave",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de fresa",
+      "1 pieza pequeña de manzana",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 167,
+    "nombre": "Comida completa de conejo, guisantes y arroz",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "25 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "45 g de conejo",
+      "90 g de guisantes",
+      "30 g de arroz",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar conejo completamente.",
+      "Cocer guisantes y arroz hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 168,
+    "nombre": "Puré de puerro, calabacín y pollo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "35 min",
+    "textura": "Puré fino",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "100 g de puerro",
+      "70 g de calabacín",
+      "40 g de pollo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear puerro y calabacín.",
+      "Cocer junto con pollo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 169,
+    "nombre": "Desayuno cremoso de sémola de trigo con papaya",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "10 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "30 g de sémola de trigo",
+      "1 pieza pequeña de papaya",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer sémola de trigo con el líquido hasta textura cremosa.",
+      "Añadir papaya machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 170,
+    "nombre": "Snack blando de manzana y pasta pequeña",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "15 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de manzana",
+      "35 g de pasta pequeña cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar manzana.",
+      "Mezclar con pasta pequeña hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 171,
+    "nombre": "Bocados BLW de calabacín y quinoa",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "35 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "120 g de calabacín cocido",
+      "35 g de quinoa cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer calabacín hasta que esté muy blando.",
+      "Mezclar con quinoa hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 172,
+    "nombre": "Cena suave de zanahoria, brócoli y salmón",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "25 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "90 g de zanahoria",
+      "60 g de brócoli",
+      "35 g de salmón",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 173,
+    "nombre": "Potito de mango y arándanos",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "15 min",
+    "textura": "Triturado fino",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de mango",
+      "1 pieza pequeña de arándanos",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 174,
+    "nombre": "Comida completa de lentejas rojas, patata y mijo",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "25 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "45 g de lentejas rojas",
+      "90 g de patata",
+      "30 g de mijo",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar lentejas rojas completamente.",
+      "Cocer patata y mijo hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 175,
+    "nombre": "Puré de brócoli, puerro y garbanzos",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "20 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "100 g de brócoli",
+      "70 g de puerro",
+      "40 g de garbanzos",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear brócoli y puerro.",
+      "Cocer junto con garbanzos hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 176,
+    "nombre": "Desayuno cremoso de avena con fresa",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "10 min",
+    "textura": "Blanda",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "30 g de avena",
+      "1 pieza pequeña de fresa",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer avena con el líquido hasta textura cremosa.",
+      "Añadir fresa machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 177,
+    "nombre": "Snack blando de arándanos y sémola de trigo",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "20 min",
+    "textura": "Fácil de agarrar",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de arándanos",
+      "35 g de sémola de trigo cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar arándanos.",
+      "Mezclar con sémola de trigo hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 178,
+    "nombre": "Bocados BLW de puerro y pasta pequeña",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "15 min",
+    "textura": "Blanda en tiras",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "120 g de puerro cocido",
+      "35 g de pasta pequeña cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer puerro hasta que esté muy blando.",
+      "Mezclar con pasta pequeña hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 179,
+    "nombre": "Cena suave de coliflor, zanahoria y pavo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "25 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "90 g de coliflor",
+      "60 g de zanahoria",
+      "35 g de pavo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 180,
+    "nombre": "Potito de manzana y melocotón",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "15 min",
+    "textura": "Compota suave",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de manzana",
+      "1 pieza pequeña de melocotón",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 181,
+    "nombre": "Comida completa de merluza, calabacín y maíz",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "25 min",
+    "textura": "Triturado",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "45 g de merluza",
+      "90 g de calabacín",
+      "30 g de maíz",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar merluza completamente.",
+      "Cocer calabacín y maíz hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 182,
+    "nombre": "Puré de zanahoria, brócoli y salmón",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "20 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "100 g de zanahoria",
+      "70 g de brócoli",
+      "40 g de salmón",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear zanahoria y brócoli.",
+      "Cocer junto con salmón hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 183,
+    "nombre": "Desayuno cremoso de arroz con mango",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "25 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "30 g de arroz",
+      "1 pieza pequeña de mango",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer arroz con el líquido hasta textura cremosa.",
+      "Añadir mango machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 184,
+    "nombre": "Snack blando de melocotón y avena",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "25 min",
+    "textura": "Fácil de agarrar",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de melocotón",
+      "35 g de avena cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar melocotón.",
+      "Mezclar con avena hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 185,
+    "nombre": "Bocados BLW de brócoli y sémola de trigo",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "35 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "120 g de brócoli cocido",
+      "35 g de sémola de trigo cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer brócoli hasta que esté muy blando.",
+      "Mezclar con sémola de trigo hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 186,
+    "nombre": "Cena suave de judía verde, coliflor y bacalao fresco",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "20 min",
+    "textura": "Puré suave",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "90 g de judía verde",
+      "60 g de coliflor",
+      "35 g de bacalao fresco",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 187,
+    "nombre": "Potito de arándanos y pera",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "30 min",
+    "textura": "Triturado fino",
+    "raciones": "1-2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "1 pieza pequeña de arándanos",
+      "1 pieza pequeña de pera",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 188,
+    "nombre": "Comida completa de pollo, puerro y cuscús",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "15 min",
+    "textura": "Desmenuzada",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "45 g de pollo",
+      "90 g de puerro",
+      "30 g de cuscús",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar pollo completamente.",
+      "Cocer puerro y cuscús hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 189,
+    "nombre": "Puré de coliflor, zanahoria y pavo",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "30 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "100 g de coliflor",
+      "70 g de zanahoria",
+      "40 g de pavo",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear coliflor y zanahoria.",
+      "Cocer junto con pavo hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 190,
+    "nombre": "Desayuno cremoso de mijo con manzana",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "35 min",
+    "textura": "Cremosa",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de mijo",
+      "1 pieza pequeña de manzana",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer mijo con el líquido hasta textura cremosa.",
+      "Añadir manzana machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 191,
+    "nombre": "Snack blando de pera y arroz",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "35 min",
+    "textura": "Esponjosa",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Pescado"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de pera",
+      "35 g de arroz cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar pera.",
+      "Mezclar con arroz hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 192,
+    "nombre": "Bocados BLW de zanahoria y avena",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "25 min",
+    "textura": "Blanda en tiras",
+    "raciones": "4-6 bocados",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "120 g de zanahoria cocido",
+      "35 g de avena cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer zanahoria hasta que esté muy blando.",
+      "Mezclar con avena hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 193,
+    "nombre": "Cena suave de boniato, judía verde y huevo",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "10 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Huevo"
+    ],
+    "ingredientes": [
+      "90 g de boniato",
+      "60 g de judía verde",
+      "35 g de huevo",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 194,
+    "nombre": "Potito de melocotón y kiwi",
+    "tipo": "Potito fruta",
+    "categoria": "Potito fruta",
+    "edad_minima": "9 meses",
+    "tiempo": "35 min",
+    "textura": "Machacado",
+    "raciones": "1-2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de melocotón",
+      "1 pieza pequeña de kiwi",
+      "20-40 ml de agua o leche habitual del bebé"
+    ],
+    "preparacion": [
+      "Pelar y trocear la fruta.",
+      "Cocer unos minutos si se quiere textura más suave.",
+      "Triturar o machacar según la edad.",
+      "Servir al momento para conservar mejor el sabor."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 195,
+    "nombre": "Comida completa de garbanzos, brócoli y quinoa",
+    "tipo": "Comida",
+    "categoria": "Comida",
+    "edad_minima": "7 meses",
+    "tiempo": "35 min",
+    "textura": "Blanda",
+    "raciones": "2 raciones",
+    "alergenos": [],
+    "ingredientes": [
+      "45 g de garbanzos",
+      "90 g de brócoli",
+      "30 g de quinoa",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocinar garbanzos completamente.",
+      "Cocer brócoli y quinoa hasta textura blanda.",
+      "Triturar, chafar o desmenuzar según edad.",
+      "Añadir aceite al final."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 196,
+    "nombre": "Puré de judía verde, coliflor y bacalao fresco",
+    "tipo": "Puré",
+    "categoria": "Puré",
+    "edad_minima": "6 meses",
+    "tiempo": "20 min",
+    "textura": "Puré cremoso",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten",
+      "Pescado"
+    ],
+    "ingredientes": [
+      "100 g de judía verde",
+      "70 g de coliflor",
+      "40 g de bacalao fresco",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Agua hasta cubrir"
+    ],
+    "preparacion": [
+      "Lavar, pelar si procede y trocear judía verde y coliflor.",
+      "Cocer junto con bacalao fresco hasta que esté muy tierno.",
+      "Triturar con parte del agua de cocción hasta lograr textura segura.",
+      "Añadir el aceite al final y servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 197,
+    "nombre": "Desayuno cremoso de maíz con arándanos",
+    "tipo": "Desayuno",
+    "categoria": "Desayuno",
+    "edad_minima": "10 meses",
+    "tiempo": "25 min",
+    "textura": "Esponjosa",
+    "raciones": "1 ración",
+    "alergenos": [],
+    "ingredientes": [
+      "30 g de maíz",
+      "1 pieza pequeña de arándanos",
+      "120 ml de agua o leche habitual del bebé",
+      "Canela opcional a partir de tolerancia"
+    ],
+    "preparacion": [
+      "Cocer maíz con el líquido hasta textura cremosa.",
+      "Añadir arándanos machacado o cocido.",
+      "Mezclar y ajustar textura.",
+      "Servir templado."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 198,
+    "nombre": "Snack blando de kiwi y mijo",
+    "tipo": "Snack",
+    "categoria": "Snack",
+    "edad_minima": "8 meses",
+    "tiempo": "20 min",
+    "textura": "Bocado blando",
+    "raciones": "4 unidades",
+    "alergenos": [
+      "Huevo"
+    ],
+    "ingredientes": [
+      "1 pieza pequeña de kiwi",
+      "35 g de mijo cocido o molido",
+      "1 huevo opcional si ya está introducido"
+    ],
+    "preparacion": [
+      "Machacar kiwi.",
+      "Mezclar con mijo hasta formar masa blanda.",
+      "Formar pequeñas porciones.",
+      "Hornear o cocinar en sartén a fuego bajo."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 199,
+    "nombre": "Bocados BLW de coliflor y arroz",
+    "tipo": "BLW",
+    "categoria": "BLW",
+    "edad_minima": "6 meses",
+    "tiempo": "15 min",
+    "textura": "Formato fácil de agarrar",
+    "raciones": "4-6 bocados",
+    "alergenos": [],
+    "ingredientes": [
+      "120 g de coliflor cocido",
+      "35 g de arroz cocido",
+      "1 cucharadita de aceite de oliva virgen extra"
+    ],
+    "preparacion": [
+      "Cocer coliflor hasta que esté muy blando.",
+      "Mezclar con arroz hasta formar una masa manejable.",
+      "Formar bastones o bolitas grandes y blandas.",
+      "Hornear o marcar en sartén hasta que mantengan forma."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  },
+  {
+    "id": 200,
+    "nombre": "Cena suave de calabaza, boniato y ternera",
+    "tipo": "Cena",
+    "categoria": "Cena",
+    "edad_minima": "12 meses",
+    "tiempo": "15 min",
+    "textura": "Cremosa",
+    "raciones": "2 raciones",
+    "alergenos": [
+      "Gluten"
+    ],
+    "ingredientes": [
+      "90 g de calabaza",
+      "60 g de boniato",
+      "35 g de ternera",
+      "Agua o caldo casero sin sal"
+    ],
+    "preparacion": [
+      "Cocer todos los ingredientes hasta que queden blandos.",
+      "Desmenuzar bien la proteína.",
+      "Triturar o chafar hasta textura cómoda.",
+      "Servir templado, sin sal."
+    ],
+    "conservacion": "Conservar en nevera máximo 24 horas. Congelar solo si todos los ingredientes lo permiten y recalentar completamente.",
+    "notas": "Sin sal, sin azúcar añadido y sin miel antes de los 12 meses. Adaptar corte y textura para reducir riesgo de atragantamiento."
+  }
+]

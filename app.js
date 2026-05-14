@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       splash.style.display = "none";
       app.classList.remove("hidden");
     }, 1200);
+
   }, 3200);
 
   async function loadRecipes() {
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function calculateAge(birthDate) {
     if (!birthDate) return "Pendiente";
+
     const birth = new Date(birthDate);
     const today = new Date();
 
@@ -82,6 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     if (months < 0) return "Pendiente";
+
     return `${months} meses y ${days} días`;
   }
 
@@ -99,6 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function showDashboard() {
     babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
+
     const diary = JSON.parse(localStorage.getItem("foodDiary")) || [];
     const lastEntries = diary.slice().reverse().slice(0, 3);
 
@@ -170,57 +174,119 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  function showRecipes(filter = "Todas") {
-    const categories = ["Todas", "Puré", "Potito fruta", "BLW", "Desayuno", "Comida", "Cena", "Snack"];
-    const filtered = filter === "Todas" ? recipes : recipes.filter(r => r.tipo === filter || r.categoria === filter);
+  function showRecipes(filter = "Todas", ageFilter = "Todas") {
+    const categories = [
+      "Todas",
+      "Puré",
+      "Potito fruta",
+      "BLW",
+      "Desayuno",
+      "Comida",
+      "Cena",
+      "Snack"
+    ];
+
+    const ages = [
+      "Todas",
+      "6 meses",
+      "7 meses",
+      "8 meses",
+      "9 meses",
+      "10 meses",
+      "12 meses"
+    ];
+
+    const filtered = recipes.filter(recipe => {
+      const categoryMatch =
+        filter === "Todas" ||
+        recipe.tipo === filter ||
+        recipe.categoria === filter;
+
+      const ageMatch =
+        ageFilter === "Todas" ||
+        recipe.edad_minima === ageFilter;
+
+      return categoryMatch && ageMatch;
+    });
 
     content.innerHTML = `
       <section>
         <h2 class="section-title">Recetas</h2>
-        <p class="section-subtitle">${recipes.length} recetas con cantidades, edad, textura, alérgenos y preparación.</p>
+        <p class="section-subtitle">${filtered.length} recetas encontradas.</p>
 
-        <div class="tag-row" style="margin-bottom: 16px;">
-          ${categories.map(cat => `
-            <button class="tag recipe-filter ${cat === filter ? "warning-tag" : ""}" data-filter="${cat}">${cat}</button>
-          `).join("")}
+        <div class="card compact">
+          <label for="age-filter">Filtrar por edad</label>
+          <select id="age-filter">
+            ${ages.map(age => `
+              <option value="${age}" ${age === ageFilter ? "selected" : ""}>${age}</option>
+            `).join("")}
+          </select>
+
+          <label for="category-filter">Filtrar por tipo</label>
+          <select id="category-filter">
+            ${categories.map(cat => `
+              <option value="${cat}" ${cat === filter ? "selected" : ""}>${cat}</option>
+            `).join("")}
+          </select>
         </div>
 
         ${
-          filtered.map((recipe) => `
-            <div class="card">
-              <h2>${recipe.nombre}</h2>
-              <p><strong>Tipo:</strong> ${recipe.tipo}</p>
-              <p><strong>Edad:</strong> ${recipe.edad_minima}</p>
-              <p><strong>Tiempo:</strong> ${recipe.tiempo}</p>
-              <p><strong>Textura:</strong> ${recipe.textura}</p>
+          filtered.length
+            ? filtered.map(recipe => `
+              <div class="card">
+                <h2>${recipe.nombre}</h2>
+                <p><strong>Tipo:</strong> ${recipe.tipo}</p>
+                <p><strong>Edad:</strong> ${recipe.edad_minima}</p>
+                <p><strong>Tiempo:</strong> ${recipe.tiempo}</p>
+                <p><strong>Textura:</strong> ${recipe.textura}</p>
 
-              <div class="tag-row">
-                ${
-                  recipe.alergenos && recipe.alergenos.length
-                    ? recipe.alergenos.map(a => `<span class="tag warning-tag">${a}</span>`).join("")
-                    : `<span class="tag">Sin alérgenos principales</span>`
-                }
+                <div class="tag-row">
+                  ${
+                    recipe.alergenos && recipe.alergenos.length
+                      ? recipe.alergenos.map(a => `<span class="tag warning-tag">${a}</span>`).join("")
+                      : `<span class="tag">Sin alérgenos principales</span>`
+                  }
+                </div>
+
+                <button class="secondary-btn recipe-detail-btn" data-id="${recipe.id}">Ver receta completa</button>
               </div>
-
-              <button class="secondary-btn recipe-detail-btn" data-id="${recipe.id}">Ver receta completa</button>
-            </div>
-          `).join("")
+            `).join("")
+            : `
+              <div class="card">
+                <h2>No hay recetas para este filtro</h2>
+                <p>Prueba con otra edad o categoría.</p>
+              </div>
+            `
         }
       </section>
     `;
 
-    document.querySelectorAll(".recipe-filter").forEach(button => {
-      button.addEventListener("click", () => showRecipes(button.dataset.filter));
+    document.getElementById("age-filter").addEventListener("change", (event) => {
+      const selectedAge = event.target.value;
+      const selectedCategory = document.getElementById("category-filter").value;
+      showRecipes(selectedCategory, selectedAge);
+    });
+
+    document.getElementById("category-filter").addEventListener("change", (event) => {
+      const selectedCategory = event.target.value;
+      const selectedAge = document.getElementById("age-filter").value;
+      showRecipes(selectedCategory, selectedAge);
     });
 
     document.querySelectorAll(".recipe-detail-btn").forEach(button => {
-      button.addEventListener("click", () => showRecipeDetail(Number(button.dataset.id)));
+      button.addEventListener("click", () => {
+        showRecipeDetail(Number(button.dataset.id));
+      });
     });
   }
 
   function showRecipeDetail(id) {
     const recipe = recipes.find(r => Number(r.id) === Number(id));
-    if (!recipe) return showRecipes();
+
+    if (!recipe) {
+      showRecipes();
+      return;
+    }
 
     content.innerHTML = `
       <section>
@@ -265,7 +331,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       </section>
     `;
 
-    document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
+    document.getElementById("back-recipes").addEventListener("click", () => {
+      showRecipes();
+    });
+
     document.getElementById("register-recipe").addEventListener("click", () => {
       showFoodForm(recipe.nombre);
     });
@@ -282,6 +351,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div class="allergen-grid">
           ${allergens.map(allergen => {
             const info = allergenDiary[allergen];
+
             return `
               <div class="card compact allergen-card">
                 <div>
@@ -336,6 +406,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           </div>
 
           <button id="save-profile" class="primary-btn">Guardar perfil</button>
+          <button id="delete-profile" class="danger-btn" style="margin-top:12px;">Borrar perfil y datos</button>
         </div>
 
         <div class="card">
@@ -348,6 +419,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     `;
 
     document.getElementById("save-profile").addEventListener("click", saveProfile);
+    document.getElementById("delete-profile").addEventListener("click", showDeleteProfileModal);
   }
 
   function saveProfile() {
@@ -362,9 +434,48 @@ document.addEventListener("DOMContentLoaded", async () => {
     localStorage.setItem("babyProfile", JSON.stringify(updatedProfile));
     babyProfile = updatedProfile;
 
-    alert("Perfil guardado correctamente.");
     showDashboard();
     setActive("inicio");
+  }
+
+  function showDeleteProfileModal() {
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay";
+
+    modal.innerHTML = `
+      <div class="modal-box">
+        <h2>Borrar perfil</h2>
+        <p>Vas a borrar el perfil del bebé, el diario de comidas y el control de alérgenos guardado en este dispositivo. Esta acción no se puede deshacer.</p>
+
+        <div class="modal-actions">
+          <button id="cancel-delete" class="secondary-btn">Cancelar</button>
+          <button id="confirm-delete" class="danger-btn">Borrar</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    document.getElementById("cancel-delete").addEventListener("click", () => {
+      modal.remove();
+    });
+
+    document.getElementById("confirm-delete").addEventListener("click", () => {
+      localStorage.removeItem("babyProfile");
+      localStorage.removeItem("foodDiary");
+      localStorage.removeItem("allergenDiary");
+
+      localStorage.setItem("babyProfile", JSON.stringify(defaultProfile));
+      localStorage.setItem("foodDiary", JSON.stringify([]));
+      localStorage.setItem("allergenDiary", JSON.stringify({}));
+
+      babyProfile = JSON.parse(localStorage.getItem("babyProfile"));
+
+      modal.remove();
+
+      setActive("perfil");
+      showProfile();
+    });
   }
 
   function showFoodForm(prefilledFood = "") {
@@ -452,12 +563,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (allergen) {
       const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
+
       allergenDiary[allergen] = {
         food,
         reaction,
         date: entry.date,
         notes: entry.notes
       };
+
       localStorage.setItem("allergenDiary", JSON.stringify(allergenDiary));
     }
 

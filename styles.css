@@ -888,3 +888,45 @@ section {
 #content {
   padding-top: 4px !important;
 }
+/* PLAN PREMIUM COMPACTO */
+
+.plan-top-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px !important;
+}
+
+.plan-tab {
+  padding: 8px 12px !important;
+  font-size: 0.85rem !important;
+  min-height: auto !important;
+}
+
+.weekly-calendar-nav {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px !important;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.calendar-day-btn {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 0.8rem !important;
+  min-width: 34px;
+}
+
+.quick-actions {
+  gap: 8px !important;
+  margin-bottom: 10px !important;
+}
+
+.quick-actions button {
+  padding: 10px 12px !important;
+  font-size: 0.82rem !important;
+}
+
+.weekly-day-card {
+  margin-top: 6px !important;
+}

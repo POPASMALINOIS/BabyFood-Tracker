@@ -635,3 +635,84 @@ section > .quick-actions {
 section {
   padding-bottom: 34px;
 }
+/* FIX DEFINITIVO ESPACIADOS Y HISTORIAL PESO */
+
+/* Más separación entre bloques de botones y tarjetas */
+.quick-actions {
+  margin-bottom: 22px !important;
+}
+
+.quick-actions + .card {
+  margin-top: 8px !important;
+}
+
+/* Botones más respirados */
+.quick-actions {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px !important;
+}
+
+.quick-actions button {
+  min-height: 72px !important;
+  border-radius: 24px !important;
+  padding: 18px 14px !important;
+  white-space: normal !important;
+}
+
+/* Evitar solapamiento de inputs */
+.form-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 20px !important;
+  width: 100% !important;
+}
+
+.form-row .form-group {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+.form-row input,
+.form-row select {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Corrección específica para fecha y peso */
+#weight-date,
+#weight-value {
+  height: 62px !important;
+  padding: 14px 12px !important;
+  font-size: 0.9rem !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+}
+
+/* En iPhone estrecho, fecha y peso en columna */
+@media (max-width: 430px) {
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  #weight-date,
+  #weight-value {
+    font-size: 1rem !important;
+  }
+}
+
+/* Separación del historial de peso */
+#save-weight {
+  margin-top: 18px !important;
+  margin-bottom: 22px !important;
+  min-height: 62px !important;
+  border-radius: 22px !important;
+}
+
+/* Evitar que la última tarjeta quede pegada a la isla */
+section {
+  padding-bottom: 90px !important;
+}

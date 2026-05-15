@@ -57,12 +57,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function calculateAge(birthDate) {
     if (!birthDate) return "Pendiente";
+
     const birth = new Date(birthDate);
     const today = new Date();
+
     if (Number.isNaN(birth.getTime())) return "Pendiente";
 
     let months = (today.getFullYear() - birth.getFullYear()) * 12;
     months += today.getMonth() - birth.getMonth();
+
     let days = today.getDate() - birth.getDate();
 
     if (days < 0) {
@@ -72,6 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     if (months < 0) return "Pendiente";
+
     return `${months} meses y ${days} días`;
   }
 
@@ -176,12 +180,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("quick-plan").addEventListener("click", () => {
       setActive("plan");
-      showWeeklyPlan();
+      showPlanSemana();
     });
 
     document.getElementById("quick-shopping").addEventListener("click", () => {
-      setActive("recetas");
-      showShoppingList();
+      setActive("plan");
+      showPlanCompra();
     });
   }
 
@@ -195,6 +199,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const ingredients = Array.isArray(recipe.ingredientes) ? recipe.ingredientes.join(" ") : "";
       const categoryMatch = filter === "Todas" || recipe.tipo === filter || recipe.categoria === filter;
       const ageMatch = ageFilter === "Todas" || recipe.edad_minima === ageFilter;
+
       const searchMatch =
         !normalizedSearch ||
         recipe.nombre.toLowerCase().includes(normalizedSearch) ||
@@ -234,6 +239,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           filtered.length
             ? filtered.map(recipe => {
               const isFavorite = favorites.includes(Number(recipe.id));
+
               return `
                 <div class="card">
                   <h2>${recipe.nombre}</h2>
@@ -294,7 +300,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     document.getElementById("show-favorites").addEventListener("click", showFavorites);
-    document.getElementById("show-shopping").addEventListener("click", showShoppingList);
+    document.getElementById("show-shopping").addEventListener("click", () => {
+      setActive("plan");
+      showPlanCompra();
+    });
 
     document.querySelectorAll(".recipe-detail-btn").forEach(button => {
       button.addEventListener("click", () => showRecipeDetail(Number(button.dataset.id)));
@@ -445,7 +454,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("add-shopping").addEventListener("click", () => {
       addRecipeToShoppingList(recipe);
-      showShoppingList();
+      setActive("plan");
+      showPlanCompra();
     });
 
     document.getElementById("add-plan").addEventListener("click", () => {
@@ -500,7 +510,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       modal.remove();
       setActive("plan");
-      showWeeklyPlan();
+      showPlanSemana(day);
     });
   }
 
@@ -597,99 +607,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
   }
 
-  function showShoppingList() {
-    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
-    const categories = ["Fruta", "Verdura", "Proteína", "Pescado", "Cereales", "Legumbres", "Otros"];
-    const totalItems = shoppingList.length;
-    const checkedItems = shoppingList.filter(item => item.checked).length;
-
-    content.innerHTML = `
-      <section>
-        <h2 class="section-title">Lista de compra</h2>
-        <p class="section-subtitle">${totalItems} productos · ${checkedItems} comprados</p>
-
-        <button id="back-recipes" class="secondary-btn">← Volver a recetas</button>
-
-        ${
-          totalItems
-            ? categories.map(category => {
-              const items = shoppingList.filter(item => (item.category || "Otros") === category);
-              if (!items.length) return "";
-
-              return `
-                <div class="card">
-                  <h2>${category}</h2>
-
-                  ${items.map(item => `
-                    <div class="shopping-item">
-                      <label>
-                        <input type="checkbox" class="shopping-check" data-id="${item.id}" ${item.checked ? "checked" : ""}>
-                        <span style="${item.checked ? "text-decoration: line-through; opacity: .55;" : ""}">
-                          ${item.text}
-                        </span>
-                      </label>
-                      <p><small>Añadido desde: ${item.recipe}</small></p>
-                    </div>
-                  `).join("")}
-                </div>
-              `;
-            }).join("")
-            : `
-              <div class="card">
-                <h2>Lista vacía</h2>
-                <p>Entra en una receta o en el plan semanal y añade ingredientes a la lista de compra.</p>
-              </div>
-            `
-        }
-
-        ${
-          totalItems
-            ? `
-              <div class="quick-actions">
-                <button id="clear-checked" class="secondary-btn">Borrar comprados</button>
-                <button id="clear-shopping" class="danger-btn">Vaciar todo</button>
-              </div>
-            `
-            : ""
-        }
-      </section>
-    `;
-
-    document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
-
-    document.querySelectorAll(".shopping-check").forEach(check => {
-      check.addEventListener("change", () => {
-        toggleShoppingItem(check.dataset.id);
-        showShoppingList();
-      });
-    });
-
-    const clearCheckedBtn = document.getElementById("clear-checked");
-    if (clearCheckedBtn) {
-      clearCheckedBtn.addEventListener("click", () => {
-        const updatedList = shoppingList.filter(item => !item.checked);
-        localStorage.setItem("shoppingList", JSON.stringify(updatedList));
-        showShoppingList();
-      });
-    }
-
-    const clearBtn = document.getElementById("clear-shopping");
-    if (clearBtn) {
-      clearBtn.addEventListener("click", () => {
-        localStorage.setItem("shoppingList", JSON.stringify([]));
-        showShoppingList();
-      });
-    }
-  }
-
   function toggleShoppingItem(id) {
     const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+
     const updated = shoppingList.map(item => {
       if (String(item.id) === String(id)) return { ...item, checked: !item.checked };
       return item;
     });
 
     localStorage.setItem("shoppingList", JSON.stringify(updated));
+  }
+
+  function renderPlanTopNav(activeTab) {
+    return `
+      <div class="plan-top-nav">
+        <button class="plan-tab ${activeTab === "semana" ? "active-plan-tab" : ""}" id="tab-semana">Semana</button>
+        <button class="plan-tab ${activeTab === "batch" ? "active-plan-tab" : ""}" id="tab-batch">Batch</button>
+        <button class="plan-tab ${activeTab === "compra" ? "active-plan-tab" : ""}" id="tab-compra">Compra</button>
+      </div>
+    `;
+  }
+
+  function attachPlanTopNav() {
+    document.getElementById("tab-semana").addEventListener("click", () => showPlanSemana());
+    document.getElementById("tab-batch").addEventListener("click", showPlanBatch);
+    document.getElementById("tab-compra").addEventListener("click", showPlanCompra);
   }
 
   function getEmptyWeeklyPlan() {
@@ -719,300 +661,479 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function getRecipeById(id) {
-  return recipes.find(item => String(item.id) === String(id));
-}
+    return recipes.find(item => String(item.id) === String(id));
+  }
 
-function getRecipeNameById(id) {
-  const recipe = getRecipeById(id);
-  return recipe ? recipe.nombre : "";
-}
+  function showPlanSemana(selectedDay = "Lunes") {
+    const plan = getWeeklyPlan();
+    const selectedPlan = plan[selectedDay];
 
-function showWeeklyPlan(selectedDay = "Lunes") {
-  const plan = getWeeklyPlan();
-  const selectedPlan = plan[selectedDay];
+    content.innerHTML = `
+      <section>
+        <h2 class="section-title">Plan</h2>
+        <p class="section-subtitle">Centro semanal para organizar comidas, batch cooking y compra.</p>
 
-  content.innerHTML = `
-    <section>
-      <h2 class="section-title">Plan semanal</h2>
-      <p class="section-subtitle">Consulta rápidamente cada día y organiza la semana de forma visual.</p>
+        ${renderPlanTopNav("semana")}
 
-      <div class="weekly-calendar-nav">
-        ${weekDays.map(day => `
-          <button class="calendar-day-btn ${day === selectedDay ? "active-day" : ""}" data-day="${day}">
-            ${day.charAt(0)}
-          </button>
-        `).join("")}
+        <div class="weekly-calendar-nav">
+          ${weekDays.map(day => `
+            <button class="calendar-day-btn ${day === selectedDay ? "active-day" : ""}" data-day="${day}">
+              ${day.charAt(0)}
+            </button>
+          `).join("")}
+        </div>
+
+        <div class="quick-actions">
+          <button id="weekly-shopping" class="secondary-btn">Añadir compra semanal</button>
+          <button id="clear-weekly-plan" class="danger-btn">Borrar plan</button>
+        </div>
+
+        <div class="card weekly-day-card">
+          <h2>${selectedDay}</h2>
+
+          ${mealSlots.map(slot => {
+            const recipeId = selectedPlan[slot];
+            const recipe = getRecipeById(recipeId);
+
+            return `
+              <div class="weekly-slot">
+                <div class="weekly-slot-header">
+                  <strong>${slot}</strong>
+                  ${recipe ? `<span>${recipe.edad_minima}</span>` : `<span>Pendiente</span>`}
+                </div>
+
+                ${
+                  recipe
+                    ? `
+                      <p class="weekly-recipe-name">${recipe.nombre}</p>
+                      <p class="weekly-recipe-meta">${recipe.tipo} · ${recipe.tiempo} · ${recipe.textura}</p>
+
+                      <div class="weekly-actions">
+                        <button class="secondary-btn weekly-view" data-id="${recipe.id}">Ver</button>
+                        <button class="secondary-btn weekly-change" data-day="${selectedDay}" data-slot="${slot}">Cambiar</button>
+                        <button class="danger-btn weekly-remove" data-day="${selectedDay}" data-slot="${slot}">Eliminar</button>
+                      </div>
+                    `
+                    : `
+                      <p class="weekly-empty">Sin receta asignada</p>
+                      <button class="secondary-btn weekly-change" data-day="${selectedDay}" data-slot="${slot}">Añadir receta</button>
+                    `
+                }
+              </div>
+            `;
+          }).join("")}
+        </div>
+      </section>
+    `;
+
+    attachPlanTopNav();
+
+    document.querySelectorAll(".calendar-day-btn").forEach(button => {
+      button.addEventListener("click", () => showPlanSemana(button.dataset.day));
+    });
+
+    document.getElementById("weekly-shopping").addEventListener("click", () => {
+      addWeeklyPlanToShoppingList();
+      showPlanCompra();
+    });
+
+    document.getElementById("clear-weekly-plan").addEventListener("click", () => {
+      localStorage.setItem("weeklyPlan", JSON.stringify(getEmptyWeeklyPlan()));
+      showPlanSemana(selectedDay);
+    });
+
+    document.querySelectorAll(".weekly-view").forEach(button => {
+      button.addEventListener("click", () => showRecipeDetail(Number(button.dataset.id)));
+    });
+
+    document.querySelectorAll(".weekly-change").forEach(button => {
+      button.addEventListener("click", () => {
+        showChangePlanSlotModal(button.dataset.day, button.dataset.slot);
+      });
+    });
+
+    document.querySelectorAll(".weekly-remove").forEach(button => {
+      button.addEventListener("click", () => {
+        const updatedPlan = getWeeklyPlan();
+        updatedPlan[button.dataset.day][button.dataset.slot] = "";
+        localStorage.setItem("weeklyPlan", JSON.stringify(updatedPlan));
+        showPlanSemana(button.dataset.day);
+      });
+    });
+  }
+
+  function showChangePlanSlotModal(day, slot) {
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay";
+
+    modal.innerHTML = `
+      <div class="modal-box">
+        <h2>${day} · ${slot}</h2>
+        <p>Selecciona una receta para este momento del día.</p>
+
+        <div class="form-group" style="text-align:left;">
+          <label for="plan-recipe-select">Receta</label>
+          <select id="plan-recipe-select">
+            <option value="">Sin asignar</option>
+            ${recipes.map(recipe => `
+              <option value="${recipe.id}">${recipe.nombre} · ${recipe.edad_minima}</option>
+            `).join("")}
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button id="cancel-change-plan" class="secondary-btn">Cancelar</button>
+          <button id="confirm-change-plan" class="primary-btn">Guardar</button>
+        </div>
       </div>
+    `;
 
-      <div class="quick-actions">
-        <button id="weekly-shopping" class="secondary-btn">Añadir compra semanal</button>
-        <button id="clear-weekly-plan" class="danger-btn">Borrar plan</button>
-      </div>
+    document.body.appendChild(modal);
 
-      <div class="card weekly-day-card">
-        <h2>${selectedDay}</h2>
+    document.getElementById("cancel-change-plan").addEventListener("click", () => modal.remove());
 
-        ${mealSlots.map(slot => {
-          const recipeId = selectedPlan[slot];
-          const recipe = getRecipeById(recipeId);
+    document.getElementById("confirm-change-plan").addEventListener("click", () => {
+      const plan = getWeeklyPlan();
+      plan[day][slot] = document.getElementById("plan-recipe-select").value;
+      localStorage.setItem("weeklyPlan", JSON.stringify(plan));
+      modal.remove();
+      showPlanSemana(day);
+    });
+  }
 
-          return `
-            <div class="weekly-slot">
-              <div class="weekly-slot-header">
-                <strong>${slot}</strong>
-                ${recipe ? `<span>${recipe.edad_minima}</span>` : `<span>Pendiente</span>`}
+  function addWeeklyPlanToShoppingList() {
+    const plan = getWeeklyPlan();
+    const selectedIds = [];
+
+    weekDays.forEach(day => {
+      mealSlots.forEach(slot => {
+        const id = plan[day][slot];
+        if (id && !selectedIds.includes(id)) selectedIds.push(id);
+      });
+    });
+
+    selectedIds.forEach(id => {
+      const recipe = getRecipeById(id);
+      if (recipe) addRecipeToShoppingList(recipe);
+    });
+  }
+
+  function showPlanBatch() {
+    const plan = getWeeklyPlan();
+    const selectedRecipes = [];
+
+    weekDays.forEach(day => {
+      mealSlots.forEach(slot => {
+        const id = plan[day][slot];
+        const recipe = getRecipeById(id);
+        if (recipe && !selectedRecipes.some(item => item.id === recipe.id)) {
+          selectedRecipes.push(recipe);
+        }
+      });
+    });
+
+    const ingredientMap = {};
+    const typeMap = {};
+
+    selectedRecipes.forEach(recipe => {
+      if (!typeMap[recipe.tipo]) typeMap[recipe.tipo] = [];
+      typeMap[recipe.tipo].push(recipe.nombre);
+
+      recipe.ingredientes.forEach(ingredient => {
+        const product = getProductDataFromIngredient(ingredient);
+        if (!product) return;
+
+        if (!ingredientMap[product.category]) {
+          ingredientMap[product.category] = [];
+        }
+
+        if (!ingredientMap[product.category].includes(product.name)) {
+          ingredientMap[product.category].push(product.name);
+        }
+      });
+    });
+
+    content.innerHTML = `
+      <section>
+        <h2 class="section-title">Plan</h2>
+        <p class="section-subtitle">Batch cooking automático según tu planificación semanal.</p>
+
+        ${renderPlanTopNav("batch")}
+
+        ${
+          selectedRecipes.length
+            ? `
+              <div class="card">
+                <h2>Recetas planificadas</h2>
+                <p>${selectedRecipes.length} recetas distintas esta semana.</p>
               </div>
 
-              ${
-                recipe
-                  ? `
-                    <p class="weekly-recipe-name">${recipe.nombre}</p>
-                    <p class="weekly-recipe-meta">${recipe.tipo} · ${recipe.tiempo} · ${recipe.textura}</p>
+              ${Object.keys(typeMap).map(type => `
+                <div class="card">
+                  <h2>${type}</h2>
+                  ${typeMap[type].map(item => `<p>• ${item}</p>`).join("")}
+                </div>
+              `).join("")}
 
-                    <div class="weekly-actions">
-                      <button class="secondary-btn weekly-view" data-id="${recipe.id}">Ver</button>
-                      <button class="secondary-btn weekly-change" data-day="${selectedDay}" data-slot="${slot}">Cambiar</button>
-                      <button class="danger-btn weekly-remove" data-day="${selectedDay}" data-slot="${slot}">Eliminar</button>
+              ${Object.keys(ingredientMap).map(category => `
+                <div class="card">
+                  <h2>${category}</h2>
+                  ${ingredientMap[category].map(item => `<p>• ${item}</p>`).join("")}
+                </div>
+              `).join("")}
+
+              <div class="card">
+                <h2>Preparación recomendada</h2>
+                <p>1. Cocina las verduras base en lote.</p>
+                <p>2. Prepara proteínas por separado.</p>
+                <p>3. Tritura o adapta texturas según edad.</p>
+                <p>4. Guarda en nevera 24-48 h o congela por raciones.</p>
+              </div>
+
+              <button id="batch-shopping" class="primary-btn">Añadir ingredientes a compra</button>
+            `
+            : `
+              <div class="card">
+                <h2>Sin recetas planificadas</h2>
+                <p>Añade recetas al plan semanal para generar el batch cooking.</p>
+              </div>
+            `
+        }
+      </section>
+    `;
+
+    attachPlanTopNav();
+
+    const batchShopping = document.getElementById("batch-shopping");
+    if (batchShopping) {
+      batchShopping.addEventListener("click", () => {
+        addWeeklyPlanToShoppingList();
+        showPlanCompra();
+      });
+    }
+  }
+
+  function showPlanCompra() {
+    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+    const categories = ["Fruta", "Verdura", "Proteína", "Pescado", "Cereales", "Legumbres", "Otros"];
+    const totalItems = shoppingList.length;
+    const checkedItems = shoppingList.filter(item => item.checked).length;
+
+    content.innerHTML = `
+      <section>
+        <h2 class="section-title">Plan</h2>
+        <p class="section-subtitle">Lista de compra inteligente vinculada al plan y recetas.</p>
+
+        ${renderPlanTopNav("compra")}
+
+        <div class="card">
+          <h2>Resumen compra</h2>
+          <p><strong>${totalItems}</strong> productos · <strong>${checkedItems}</strong> comprados</p>
+        </div>
+
+        ${
+          totalItems
+            ? categories.map(category => {
+              const items = shoppingList.filter(item => (item.category || "Otros") === category);
+              if (!items.length) return "";
+
+              return `
+                <div class="card">
+                  <h2>${category}</h2>
+
+                  ${items.map(item => `
+                    <div class="shopping-item">
+                      <label>
+                        <input type="checkbox" class="shopping-check" data-id="${item.id}" ${item.checked ? "checked" : ""}>
+                        <span style="${item.checked ? "text-decoration: line-through; opacity: .55;" : ""}">
+                          ${item.text}
+                        </span>
+                      </label>
+                      <p><small>Añadido desde: ${item.recipe}</small></p>
                     </div>
-                  `
-                  : `
-                    <p class="weekly-empty">Sin receta asignada</p>
-                    <button class="secondary-btn weekly-change" data-day="${selectedDay}" data-slot="${slot}">Añadir receta</button>
-                  `
-              }
-            </div>
-          `;
-        }).join("")}
-      </div>
-    </section>
-  `;
+                  `).join("")}
+                </div>
+              `;
+            }).join("")
+            : `
+              <div class="card">
+                <h2>Lista vacía</h2>
+                <p>Añade ingredientes desde una receta o desde el plan semanal.</p>
+              </div>
+            `
+        }
 
-  document.querySelectorAll(".calendar-day-btn").forEach(button => {
-    button.addEventListener("click", () => {
-      showWeeklyPlan(button.dataset.day);
+        ${
+          totalItems
+            ? `
+              <div class="quick-actions">
+                <button id="clear-checked" class="secondary-btn">Borrar comprados</button>
+                <button id="clear-shopping" class="danger-btn">Vaciar todo</button>
+              </div>
+            `
+            : ""
+        }
+      </section>
+    `;
+
+    attachPlanTopNav();
+
+    document.querySelectorAll(".shopping-check").forEach(check => {
+      check.addEventListener("change", () => {
+        toggleShoppingItem(check.dataset.id);
+        showPlanCompra();
+      });
     });
-  });
 
-  document.getElementById("weekly-shopping").addEventListener("click", addWeeklyPlanToShoppingList);
+    const clearCheckedBtn = document.getElementById("clear-checked");
+    if (clearCheckedBtn) {
+      clearCheckedBtn.addEventListener("click", () => {
+        const updatedList = shoppingList.filter(item => !item.checked);
+        localStorage.setItem("shoppingList", JSON.stringify(updatedList));
+        showPlanCompra();
+      });
+    }
 
-  document.getElementById("clear-weekly-plan").addEventListener("click", () => {
-    localStorage.setItem("weeklyPlan", JSON.stringify(getEmptyWeeklyPlan()));
-    showWeeklyPlan();
-  });
+    const clearBtn = document.getElementById("clear-shopping");
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
+        localStorage.setItem("shoppingList", JSON.stringify([]));
+        showPlanCompra();
+      });
+    }
+  }
 
-  document.querySelectorAll(".weekly-view").forEach(button => {
-    button.addEventListener("click", () => {
-      showRecipeDetail(Number(button.dataset.id));
-    });
-  });
-
-  document.querySelectorAll(".weekly-change").forEach(button => {
-    button.addEventListener("click", () => {
-      showChangePlanSlotModal(button.dataset.day, button.dataset.slot);
-    });
-  });
-
-  document.querySelectorAll(".weekly-remove").forEach(button => {
-    button.addEventListener("click", () => {
-      const updatedPlan = getWeeklyPlan();
-      updatedPlan[button.dataset.day][button.dataset.slot] = "";
-      localStorage.setItem("weeklyPlan", JSON.stringify(updatedPlan));
-      showWeeklyPlan(button.dataset.day);
-    });
-  });
-}
-
-function showChangePlanSlotModal(day, slot) {
-  const modal = document.createElement("div");
-  modal.className = "modal-overlay";
-
-  modal.innerHTML = `
-    <div class="modal-box">
-      <h2>${day} · ${slot}</h2>
-      <p>Selecciona una receta para este momento del día.</p>
-
-      <div class="form-group" style="text-align:left;">
-        <label for="plan-recipe-select">Receta</label>
-        <select id="plan-recipe-select">
-          <option value="">Sin asignar</option>
-          ${recipes.map(recipe => `
-            <option value="${recipe.id}">${recipe.nombre} · ${recipe.edad_minima}</option>
-          `).join("")}
-        </select>
-      </div>
-
-      <div class="modal-actions">
-        <button id="cancel-change-plan" class="secondary-btn">Cancelar</button>
-        <button id="confirm-change-plan" class="primary-btn">Guardar</button>
-      </div>
-    </div>
-  `;
-
-  document.body.appendChild(modal);
-
-  document.getElementById("cancel-change-plan").addEventListener("click", () => {
-    modal.remove();
-  });
-
-  document.getElementById("confirm-change-plan").addEventListener("click", () => {
-    const plan = getWeeklyPlan();
-    plan[day][slot] = document.getElementById("plan-recipe-select").value;
-    localStorage.setItem("weeklyPlan", JSON.stringify(plan));
-    modal.remove();
-    showWeeklyPlan();
-  });
-}
-
-function saveWeeklyPlan() {
-  localStorage.setItem("weeklyPlan", JSON.stringify(getWeeklyPlan()));
-  showWeeklyPlan();
-}
-
-function addWeeklyPlanToShoppingList() {
-  const plan = getWeeklyPlan();
-  const selectedIds = [];
-
-  weekDays.forEach(day => {
-    mealSlots.forEach(slot => {
-      const id = plan[day][slot];
-      if (id && !selectedIds.includes(id)) selectedIds.push(id);
-    });
-  });
-
-  selectedIds.forEach(id => {
-    const recipe = getRecipeById(id);
-    if (recipe) addRecipeToShoppingList(recipe);
-  });
-
-  showShoppingList();
-}
+  function showShoppingList() {
+    setActive("plan");
+    showPlanCompra();
+  }
 
   function showAllergens() {
-  const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
+    const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
 
-  content.innerHTML = `
-    <section>
-      <button id="back-profile" class="secondary-btn">← Volver al perfil</button>
+    content.innerHTML = `
+      <section>
+        <button id="back-profile" class="secondary-btn">← Volver al perfil</button>
 
-      <h2 class="section-title">Alérgenos</h2>
-      <p class="section-subtitle">Control de exposición: qué tomó, cuándo y reacción observada.</p>
+        <h2 class="section-title">Alérgenos</h2>
+        <p class="section-subtitle">Control de exposición: qué tomó, cuándo y reacción observada.</p>
 
-      <div class="allergen-grid">
-        ${allergens.map(allergen => {
-          const info = allergenDiary[allergen];
+        <div class="allergen-grid">
+          ${allergens.map(allergen => {
+            const info = allergenDiary[allergen];
 
-          return `
-            <div class="card compact allergen-card">
-              <div>
-                <h2>${allergen}</h2>
-                <p>${info ? `Último: ${info.date}` : "Sin introducir"}</p>
-                <p>${info ? `Comida: ${info.food}` : "Pendiente de registrar"}</p>
-                <p>${info ? `Reacción: ${info.reaction}` : ""}</p>
+            return `
+              <div class="card compact allergen-card">
+                <div>
+                  <h2>${allergen}</h2>
+                  <p>${info ? `Último: ${info.date}` : "Sin introducir"}</p>
+                  <p>${info ? `Comida: ${info.food}` : "Pendiente de registrar"}</p>
+                  <p>${info ? `Reacción: ${info.reaction}` : ""}</p>
+                </div>
+                <span class="allergen-status">${info ? "Probado" : "Pendiente"}</span>
               </div>
-              <span class="allergen-status">${info ? "Probado" : "Pendiente"}</span>
-            </div>
-          `;
-        }).join("")}
-      </div>
-    </section>
-  `;
+            `;
+          }).join("")}
+        </div>
+      </section>
+    `;
 
-  document.getElementById("back-profile").addEventListener("click", () => {
-    setActive("perfil");
-    showProfile();
-  });
-}
-  
+    document.getElementById("back-profile").addEventListener("click", () => {
+      setActive("perfil");
+      showProfile();
+    });
+  }
+
   function showProfile() {
-  babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
-  const weightHistory = JSON.parse(localStorage.getItem("weightHistory")) || [];
-  const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
-  const testedAllergens = Object.keys(allergenDiary).length;
+    babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
+    const weightHistory = JSON.parse(localStorage.getItem("weightHistory")) || [];
+    const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
+    const testedAllergens = Object.keys(allergenDiary).length;
 
-  content.innerHTML = `
-    <section>
-      <h2 class="section-title">Perfil</h2>
-      <p class="section-subtitle">Datos del bebé, peso, evolución y control de alérgenos.</p>
+    content.innerHTML = `
+      <section>
+        <h2 class="section-title">Perfil</h2>
+        <p class="section-subtitle">Datos del bebé, peso, evolución y control de alérgenos.</p>
 
-      <div class="card form-card">
-        <div class="form-group">
-          <label for="profile-name">Nombre del bebé</label>
-          <input id="profile-name" type="text" placeholder="Ej. Lucas" value="${babyProfile.name || ""}">
-        </div>
-
-        <div class="form-group">
-          <label for="profile-birth">Fecha de nacimiento</label>
-          <input id="profile-birth" type="date" value="${babyProfile.birthDate || ""}">
-        </div>
-
-        <div class="form-row">
+        <div class="card form-card">
           <div class="form-group">
-            <label for="profile-weight">Peso actual</label>
-            <input id="profile-weight" type="text" placeholder="Ej. 7,8 kg" value="${babyProfile.currentWeight || ""}">
+            <label for="profile-name">Nombre del bebé</label>
+            <input id="profile-name" type="text" placeholder="Ej. Lucas" value="${babyProfile.name || ""}">
           </div>
 
           <div class="form-group">
-            <label for="profile-height">Talla actual</label>
-            <input id="profile-height" type="text" placeholder="Ej. 68 cm" value="${babyProfile.currentHeight || ""}">
+            <label for="profile-birth">Fecha de nacimiento</label>
+            <input id="profile-birth" type="date" value="${babyProfile.birthDate || ""}">
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="profile-notes">Observaciones</label>
-          <textarea id="profile-notes" placeholder="Ej. lactancia, preferencias, recomendaciones pediatra...">${babyProfile.notes || ""}</textarea>
-        </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="profile-weight">Peso actual</label>
+              <input id="profile-weight" type="text" placeholder="Ej. 7,8 kg" value="${babyProfile.currentWeight || ""}">
+            </div>
 
-        <button id="save-profile" class="primary-btn">Guardar perfil</button>
-        <button id="delete-profile" class="danger-btn" style="margin-top:12px;">Borrar perfil y datos</button>
-      </div>
-
-      <div class="card">
-        <h2>Resumen</h2>
-        <p><strong>Edad:</strong> ${calculateAge(babyProfile.birthDate)}</p>
-        <p><strong>Peso:</strong> ${babyProfile.currentWeight || "Pendiente"}</p>
-        <p><strong>Talla:</strong> ${babyProfile.currentHeight || "Pendiente"}</p>
-      </div>
-
-      <div class="card">
-        <h2>Control de alérgenos</h2>
-        <p><strong>Probados:</strong> ${testedAllergens} de ${allergens.length}</p>
-        <p>Consulta qué alérgenos se han introducido, cuándo y con qué reacción.</p>
-        <button id="open-allergens" class="secondary-btn">Ver alérgenos</button>
-      </div>
-
-      <div class="card form-card">
-        <h2>Historial de peso</h2>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="weight-date">Fecha</label>
-            <input id="weight-date" type="date" value="${new Date().toISOString().split("T")[0]}">
+            <div class="form-group">
+              <label for="profile-height">Talla actual</label>
+              <input id="profile-height" type="text" placeholder="Ej. 68 cm" value="${babyProfile.currentHeight || ""}">
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="weight-value">Peso</label>
-            <input id="weight-value" type="text" placeholder="Ej. 7,8 kg">
+            <label for="profile-notes">Observaciones</label>
+            <textarea id="profile-notes" placeholder="Ej. lactancia, preferencias, recomendaciones pediatra...">${babyProfile.notes || ""}</textarea>
+          </div>
+
+          <button id="save-profile" class="primary-btn">Guardar perfil</button>
+          <button id="delete-profile" class="danger-btn" style="margin-top:12px;">Borrar perfil y datos</button>
+        </div>
+
+        <div class="card">
+          <h2>Resumen</h2>
+          <p><strong>Edad:</strong> ${calculateAge(babyProfile.birthDate)}</p>
+          <p><strong>Peso:</strong> ${babyProfile.currentWeight || "Pendiente"}</p>
+          <p><strong>Talla:</strong> ${babyProfile.currentHeight || "Pendiente"}</p>
+        </div>
+
+        <div class="card">
+          <h2>Control de alérgenos</h2>
+          <p><strong>Probados:</strong> ${testedAllergens} de ${allergens.length}</p>
+          <p>Consulta qué alérgenos se han introducido, cuándo y con qué reacción.</p>
+          <button id="open-allergens" class="secondary-btn">Ver alérgenos</button>
+        </div>
+
+        <div class="card form-card">
+          <h2>Historial de peso</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="weight-date">Fecha</label>
+              <input id="weight-date" type="date" value="${new Date().toISOString().split("T")[0]}">
+            </div>
+
+            <div class="form-group">
+              <label for="weight-value">Peso</label>
+              <input id="weight-value" type="text" placeholder="Ej. 7,8 kg">
+            </div>
+          </div>
+
+          <button id="save-weight" class="secondary-btn">Añadir peso</button>
+
+          <div style="margin-top: 16px;">
+            ${
+              weightHistory.length
+                ? weightHistory.slice().reverse().map(item => `<p><strong>${item.weight}</strong> · ${item.date}</p>`).join("")
+                : `<p>No hay pesos registrados.</p>`
+            }
           </div>
         </div>
+      </section>
+    `;
 
-        <button id="save-weight" class="secondary-btn">Añadir peso</button>
-
-        <div style="margin-top: 16px;">
-          ${
-            weightHistory.length
-              ? weightHistory.slice().reverse().map(item => `<p><strong>${item.weight}</strong> · ${item.date}</p>`).join("")
-              : `<p>No hay pesos registrados.</p>`
-          }
-        </div>
-      </div>
-    </section>
-  `;
-
-  document.getElementById("save-profile").addEventListener("click", saveProfile);
-  document.getElementById("delete-profile").addEventListener("click", showDeleteProfileModal);
-  document.getElementById("save-weight").addEventListener("click", saveWeight);
-  document.getElementById("open-allergens").addEventListener("click", showAllergens);
-}
+    document.getElementById("save-profile").addEventListener("click", saveProfile);
+    document.getElementById("delete-profile").addEventListener("click", showDeleteProfileModal);
+    document.getElementById("save-weight").addEventListener("click", saveWeight);
+    document.getElementById("open-allergens").addEventListener("click", showAllergens);
+  }
 
   function saveProfile() {
     const updatedProfile = {
@@ -1192,7 +1313,7 @@ function addWeeklyPlanToShoppingList() {
 
       if (section === "inicio") showDashboard();
       if (section === "recetas") showRecipes();
-      if (section === "plan") showWeeklyPlan();
+      if (section === "plan") showPlanSemana();
       if (section === "perfil") showProfile();
     });
   });

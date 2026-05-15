@@ -1,4 +1,4 @@
-const CACHE_NAME = "babyfood-tracker-v16";
+const CACHE_NAME = "babyfood-tracker-v17";
 
 const FILES_TO_CACHE = [
   "./",

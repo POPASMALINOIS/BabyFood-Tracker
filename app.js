@@ -425,7 +425,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           <button id="favorite-recipe" class="secondary-btn">${isFavorite ? "★ Favorita" : "☆ Favorito"}</button>
         </div>
 
-        <button id="add-shopping" class="secondary-btn">Añadir ingredientes a lista de compra</button>
+        <div class="quick-actions">
+          <button id="add-plan" class="primary-btn">Añadir al plan</button>
+          <button id="add-shopping" class="secondary-btn">Añadir a compra</button>
+        </div>
       </section>
     `;
 
@@ -444,20 +447,70 @@ document.addEventListener("DOMContentLoaded", async () => {
       addRecipeToShoppingList(recipe);
       showShoppingList();
     });
+
+    document.getElementById("add-plan").addEventListener("click", () => {
+      showAddRecipeToPlanModal(recipe);
+    });
+  }
+
+  function showAddRecipeToPlanModal(recipe) {
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay";
+
+    modal.innerHTML = `
+      <div class="modal-box">
+        <h2>Añadir al plan</h2>
+        <p><strong>${recipe.nombre}</strong></p>
+        <p>Elige el día y el momento en el que quieres incluir esta receta.</p>
+
+        <div class="form-group" style="text-align:left;">
+          <label for="plan-day">Día</label>
+          <select id="plan-day">
+            ${weekDays.map(day => `<option value="${day}">${day}</option>`).join("")}
+          </select>
+        </div>
+
+        <div class="form-group" style="text-align:left;">
+          <label for="plan-slot">Momento</label>
+          <select id="plan-slot">
+            ${mealSlots.map(slot => `<option value="${slot}">${slot}</option>`).join("")}
+          </select>
+        </div>
+
+        <div class="modal-actions">
+          <button id="cancel-plan" class="secondary-btn">Cancelar</button>
+          <button id="confirm-plan" class="primary-btn">Guardar</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    document.getElementById("cancel-plan").addEventListener("click", () => {
+      modal.remove();
+    });
+
+    document.getElementById("confirm-plan").addEventListener("click", () => {
+      const day = document.getElementById("plan-day").value;
+      const slot = document.getElementById("plan-slot").value;
+      const plan = getWeeklyPlan();
+
+      plan[day][slot] = String(recipe.id);
+      localStorage.setItem("weeklyPlan", JSON.stringify(plan));
+
+      modal.remove();
+      setActive("plan");
+      showWeeklyPlan();
+    });
   }
 
   function getProductDataFromIngredient(ingredient) {
     const lower = ingredient.toLowerCase();
 
     const ignoredItems = [
-      "agua",
-      "agua hasta cubrir",
-      "agua o caldo casero sin sal",
-      "caldo casero sin sal",
-      "aceite",
-      "aceite de oliva virgen extra",
-      "canela opcional",
-      "leche habitual del bebé"
+      "agua", "agua hasta cubrir", "agua o caldo casero sin sal",
+      "caldo casero sin sal", "aceite", "aceite de oliva virgen extra",
+      "canela opcional", "leche habitual del bebé"
     ];
 
     if (ignoredItems.some(item => lower.includes(item))) return null;
@@ -631,11 +684,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function toggleShoppingItem(id) {
     const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
-
     const updated = shoppingList.map(item => {
-      if (String(item.id) === String(id)) {
-        return { ...item, checked: !item.checked };
-      }
+      if (String(item.id) === String(id)) return { ...item, checked: !item.checked };
       return item;
     });
 
@@ -668,12 +718,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     return base;
   }
 
+  function getRecipeNameById(id) {
+    const recipe = recipes.find(item => String(item.id) === String(id));
+    return recipe ? recipe.nombre : "";
+  }
+
   function showWeeklyPlan() {
     const plan = getWeeklyPlan();
-
-    const recipeOptions = recipes.map(recipe => `
-      <option value="${recipe.id}">${recipe.nombre}</option>
-    `).join("");
+    const recipeOptions = recipes.map(recipe => `<option value="${recipe.id}">${recipe.nombre}</option>`).join("");
 
     content.innerHTML = `
       <section>
@@ -696,6 +748,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                   <option value="">Sin asignar</option>
                   ${recipeOptions}
                 </select>
+                ${plan[day][slot] ? `<p><small>Actual: ${getRecipeNameById(plan[day][slot])}</small></p>` : ""}
               </div>
             `).join("")}
           </div>
@@ -741,9 +794,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     weekDays.forEach(day => {
       mealSlots.forEach(slot => {
         const id = plan[day][slot];
-        if (id && !selectedIds.includes(id)) {
-          selectedIds.push(id);
-        }
+        if (id && !selectedIds.includes(id)) selectedIds.push(id);
       });
     });
 
@@ -753,35 +804,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     showShoppingList();
-  }
-
-  function showAllergens() {
-    const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
-
-    content.innerHTML = `
-      <section>
-        <h2 class="section-title">Alérgenos</h2>
-        <p class="section-subtitle">Control de exposición: qué tomó, cuándo y reacción observada.</p>
-
-        <div class="allergen-grid">
-          ${allergens.map(allergen => {
-            const info = allergenDiary[allergen];
-
-            return `
-              <div class="card compact allergen-card">
-                <div>
-                  <h2>${allergen}</h2>
-                  <p>${info ? `Último: ${info.date}` : "Sin introducir"}</p>
-                  <p>${info ? `Comida: ${info.food}` : "Pendiente de registrar"}</p>
-                  <p>${info ? `Reacción: ${info.reaction}` : ""}</p>
-                </div>
-                <span class="allergen-status">${info ? "Probado" : "Pendiente"}</span>
-              </div>
-            `;
-          }).join("")}
-        </div>
-      </section>
-    `;
   }
 
   function showProfile() {
@@ -852,9 +874,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <div style="margin-top: 16px;">
             ${
               weightHistory.length
-                ? weightHistory.slice().reverse().map(item => `
-                  <p><strong>${item.weight}</strong> · ${item.date}</p>
-                `).join("")
+                ? weightHistory.slice().reverse().map(item => `<p><strong>${item.weight}</strong> · ${item.date}</p>`).join("")
                 : `<p>No hay pesos registrados.</p>`
             }
           </div>
@@ -920,9 +940,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.body.appendChild(modal);
 
-    document.getElementById("cancel-delete").addEventListener("click", () => {
-      modal.remove();
-    });
+    document.getElementById("cancel-delete").addEventListener("click", () => modal.remove());
 
     document.getElementById("confirm-delete").addEventListener("click", () => {
       localStorage.removeItem("babyProfile");
@@ -935,7 +953,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       initStorage();
       babyProfile = JSON.parse(localStorage.getItem("babyProfile"));
-
       modal.remove();
 
       setActive("perfil");
@@ -1028,14 +1045,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (allergen) {
       const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
-
       allergenDiary[allergen] = {
         food,
         reaction,
         date: entry.date,
         notes: entry.notes
       };
-
       localStorage.setItem("allergenDiary", JSON.stringify(allergenDiary));
     }
 

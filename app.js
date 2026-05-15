@@ -14,44 +14,21 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const allergens = [
-    "Huevo",
-    "Leche",
-    "Gluten",
-    "Pescado",
-    "Marisco",
-    "Frutos secos",
-    "Cacahuete",
-    "Soja",
-    "Sésamo",
-    "Apio",
-    "Mostaza",
-    "Sulfitos"
+    "Huevo", "Leche", "Gluten", "Pescado", "Marisco", "Frutos secos",
+    "Cacahuete", "Soja", "Sésamo", "Apio", "Mostaza", "Sulfitos"
   ];
 
+  const weekDays = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+  const mealSlots = ["Desayuno", "Comida", "Cena", "Snack"];
+
   function initStorage() {
-    if (!localStorage.getItem("babyProfile")) {
-      localStorage.setItem("babyProfile", JSON.stringify(defaultProfile));
-    }
-
-    if (!localStorage.getItem("foodDiary")) {
-      localStorage.setItem("foodDiary", JSON.stringify([]));
-    }
-
-    if (!localStorage.getItem("allergenDiary")) {
-      localStorage.setItem("allergenDiary", JSON.stringify({}));
-    }
-
-    if (!localStorage.getItem("favoriteRecipes")) {
-      localStorage.setItem("favoriteRecipes", JSON.stringify([]));
-    }
-
-    if (!localStorage.getItem("shoppingList")) {
-      localStorage.setItem("shoppingList", JSON.stringify([]));
-    }
-
-    if (!localStorage.getItem("weightHistory")) {
-      localStorage.setItem("weightHistory", JSON.stringify([]));
-    }
+    if (!localStorage.getItem("babyProfile")) localStorage.setItem("babyProfile", JSON.stringify(defaultProfile));
+    if (!localStorage.getItem("foodDiary")) localStorage.setItem("foodDiary", JSON.stringify([]));
+    if (!localStorage.getItem("allergenDiary")) localStorage.setItem("allergenDiary", JSON.stringify({}));
+    if (!localStorage.getItem("favoriteRecipes")) localStorage.setItem("favoriteRecipes", JSON.stringify([]));
+    if (!localStorage.getItem("shoppingList")) localStorage.setItem("shoppingList", JSON.stringify([]));
+    if (!localStorage.getItem("weightHistory")) localStorage.setItem("weightHistory", JSON.stringify([]));
+    if (!localStorage.getItem("weeklyPlan")) localStorage.setItem("weeklyPlan", JSON.stringify({}));
   }
 
   initStorage();
@@ -60,7 +37,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   setTimeout(() => {
     splash.classList.add("fade-out");
-
     setTimeout(() => {
       splash.style.display = "none";
       app.classList.remove("hidden");
@@ -81,15 +57,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function calculateAge(birthDate) {
     if (!birthDate) return "Pendiente";
-
     const birth = new Date(birthDate);
     const today = new Date();
-
     if (Number.isNaN(birth.getTime())) return "Pendiente";
 
     let months = (today.getFullYear() - birth.getFullYear()) * 12;
     months += today.getMonth() - birth.getMonth();
-
     let days = today.getDate() - birth.getDate();
 
     if (days < 0) {
@@ -99,7 +72,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     if (months < 0) return "Pendiente";
-
     return `${months} meses y ${days} días`;
   }
 
@@ -127,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     content.innerHTML = `
       <section>
         <h2 class="section-title">Inicio</h2>
-        <p class="section-subtitle">Resumen rápido de alimentación, perfil, favoritos y evolución.</p>
+        <p class="section-subtitle">Resumen rápido de alimentación, perfil, favoritos y planificación.</p>
 
         ${!babyProfile.name || !babyProfile.birthDate ? `
           <div class="card">
@@ -160,7 +132,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
 
         <div class="quick-actions">
-          <button id="quick-favorites" class="secondary-btn">Favoritos (${favorites.length})</button>
+          <button id="quick-plan" class="secondary-btn">Plan semanal</button>
           <button id="quick-shopping" class="secondary-btn">Compra (${shoppingList.length})</button>
         </div>
 
@@ -177,14 +149,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
 
         <div class="card">
-          <h2>Últimos pesos</h2>
-          ${
-            weightHistory.length
-              ? weightHistory.slice().reverse().slice(0, 3).map(item => `
-                <p><strong>${item.weight}</strong> · ${item.date}</p>
-              `).join("")
-              : `<p>No hay pesos registrados todavía.</p>`
-          }
+          <h2>Favoritos y peso</h2>
+          <p><strong>Recetas favoritas:</strong> ${favorites.length}</p>
+          <p><strong>Últimos pesos:</strong> ${weightHistory.length}</p>
         </div>
       </section>
     `;
@@ -207,9 +174,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       showRecipes();
     });
 
-    document.getElementById("quick-favorites").addEventListener("click", () => {
-      setActive("recetas");
-      showFavorites();
+    document.getElementById("quick-plan").addEventListener("click", () => {
+      setActive("plan");
+      showWeeklyPlan();
     });
 
     document.getElementById("quick-shopping").addEventListener("click", () => {
@@ -228,7 +195,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       const ingredients = Array.isArray(recipe.ingredientes) ? recipe.ingredientes.join(" ") : "";
       const categoryMatch = filter === "Todas" || recipe.tipo === filter || recipe.categoria === filter;
       const ageMatch = ageFilter === "Todas" || recipe.edad_minima === ageFilter;
-
       const searchMatch =
         !normalizedSearch ||
         recipe.nombre.toLowerCase().includes(normalizedSearch) ||
@@ -268,7 +234,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           filtered.length
             ? filtered.map(recipe => {
               const isFavorite = favorites.includes(Number(recipe.id));
-
               return `
                 <div class="card">
                   <h2>${recipe.nombre}</h2>
@@ -332,9 +297,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("show-shopping").addEventListener("click", showShoppingList);
 
     document.querySelectorAll(".recipe-detail-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        showRecipeDetail(Number(button.dataset.id));
-      });
+      button.addEventListener("click", () => showRecipeDetail(Number(button.dataset.id)));
     });
 
     document.querySelectorAll(".favorite-btn").forEach(button => {
@@ -483,8 +446,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  function addRecipeToShoppingList(recipe) {
-    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+  function getProductDataFromIngredient(ingredient) {
+    const lower = ingredient.toLowerCase();
 
     const ignoredItems = [
       "agua",
@@ -493,11 +456,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       "caldo casero sin sal",
       "aceite",
       "aceite de oliva virgen extra",
-      "1 cucharadita de aceite",
-      "1 cucharadita de aceite de oliva virgen extra",
       "canela opcional",
       "leche habitual del bebé"
     ];
+
+    if (ignoredItems.some(item => lower.includes(item))) return null;
 
     const productMap = {
       "calabaza": { name: "Calabaza", category: "Verdura" },
@@ -545,27 +508,27 @@ document.addEventListener("DOMContentLoaded", async () => {
       "garbanzos": { name: "Garbanzos", category: "Legumbres" }
     };
 
+    for (const key of Object.keys(productMap)) {
+      if (lower.includes(key)) return productMap[key];
+    }
+
+    return null;
+  }
+
+  function addRecipeToShoppingList(recipe) {
+    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
     const productsToAdd = [];
 
     recipe.ingredientes.forEach(ingredient => {
-      const lowerIngredient = ingredient.toLowerCase();
+      const product = getProductDataFromIngredient(ingredient);
+      if (!product) return;
 
-      if (ignoredItems.some(item => lowerIngredient.includes(item))) {
-        return;
+      const alreadyInBatch = productsToAdd.some(item => item.name === product.name);
+      const alreadyInList = shoppingList.some(item => item.text === product.name);
+
+      if (!alreadyInBatch && !alreadyInList) {
+        productsToAdd.push(product);
       }
-
-      Object.keys(productMap).forEach(key => {
-        if (lowerIngredient.includes(key)) {
-          const product = productMap[key];
-
-          const alreadyInBatch = productsToAdd.some(item => item.name === product.name);
-          const alreadyInList = shoppingList.some(item => item.text === product.name);
-
-          if (!alreadyInBatch && !alreadyInList) {
-            productsToAdd.push(product);
-          }
-        }
-      });
     });
 
     productsToAdd.forEach(product => {
@@ -583,17 +546,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   function showShoppingList() {
     const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
-
-    const categories = [
-      "Fruta",
-      "Verdura",
-      "Proteína",
-      "Pescado",
-      "Cereales",
-      "Legumbres",
-      "Otros"
-    ];
-
+    const categories = ["Fruta", "Verdura", "Proteína", "Pescado", "Cereales", "Legumbres", "Otros"];
     const totalItems = shoppingList.length;
     const checkedItems = shoppingList.filter(item => item.checked).length;
 
@@ -608,7 +561,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           totalItems
             ? categories.map(category => {
               const items = shoppingList.filter(item => (item.category || "Otros") === category);
-
               if (!items.length) return "";
 
               return `
@@ -632,7 +584,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             : `
               <div class="card">
                 <h2>Lista vacía</h2>
-                <p>Entra en una receta y pulsa “Añadir ingredientes a lista de compra”.</p>
+                <p>Entra en una receta o en el plan semanal y añade ingredientes a la lista de compra.</p>
               </div>
             `
         }
@@ -684,11 +636,123 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (String(item.id) === String(id)) {
         return { ...item, checked: !item.checked };
       }
-
       return item;
     });
 
     localStorage.setItem("shoppingList", JSON.stringify(updated));
+  }
+
+  function getEmptyWeeklyPlan() {
+    const plan = {};
+    weekDays.forEach(day => {
+      plan[day] = {};
+      mealSlots.forEach(slot => {
+        plan[day][slot] = "";
+      });
+    });
+    return plan;
+  }
+
+  function getWeeklyPlan() {
+    const saved = JSON.parse(localStorage.getItem("weeklyPlan")) || {};
+    const base = getEmptyWeeklyPlan();
+
+    weekDays.forEach(day => {
+      mealSlots.forEach(slot => {
+        if (saved[day] && saved[day][slot]) {
+          base[day][slot] = saved[day][slot];
+        }
+      });
+    });
+
+    return base;
+  }
+
+  function showWeeklyPlan() {
+    const plan = getWeeklyPlan();
+
+    const recipeOptions = recipes.map(recipe => `
+      <option value="${recipe.id}">${recipe.nombre}</option>
+    `).join("");
+
+    content.innerHTML = `
+      <section>
+        <h2 class="section-title">Plan semanal</h2>
+        <p class="section-subtitle">Organiza desayunos, comidas, cenas y snacks de toda la semana.</p>
+
+        <div class="quick-actions">
+          <button id="save-weekly-plan" class="primary-btn">Guardar plan</button>
+          <button id="weekly-shopping" class="secondary-btn">Añadir compra semanal</button>
+        </div>
+
+        ${weekDays.map(day => `
+          <div class="card">
+            <h2>${day}</h2>
+
+            ${mealSlots.map(slot => `
+              <div class="form-group">
+                <label>${slot}</label>
+                <select class="weekly-select" data-day="${day}" data-slot="${slot}">
+                  <option value="">Sin asignar</option>
+                  ${recipeOptions}
+                </select>
+              </div>
+            `).join("")}
+          </div>
+        `).join("")}
+
+        <button id="clear-weekly-plan" class="danger-btn">Borrar plan semanal</button>
+      </section>
+    `;
+
+    document.querySelectorAll(".weekly-select").forEach(select => {
+      const day = select.dataset.day;
+      const slot = select.dataset.slot;
+      select.value = plan[day][slot] || "";
+    });
+
+    document.getElementById("save-weekly-plan").addEventListener("click", saveWeeklyPlan);
+    document.getElementById("weekly-shopping").addEventListener("click", addWeeklyPlanToShoppingList);
+    document.getElementById("clear-weekly-plan").addEventListener("click", () => {
+      localStorage.setItem("weeklyPlan", JSON.stringify(getEmptyWeeklyPlan()));
+      showWeeklyPlan();
+    });
+  }
+
+  function saveWeeklyPlan() {
+    const plan = getEmptyWeeklyPlan();
+
+    document.querySelectorAll(".weekly-select").forEach(select => {
+      const day = select.dataset.day;
+      const slot = select.dataset.slot;
+      plan[day][slot] = select.value;
+    });
+
+    localStorage.setItem("weeklyPlan", JSON.stringify(plan));
+    showWeeklyPlan();
+  }
+
+  function addWeeklyPlanToShoppingList() {
+    saveWeeklyPlan();
+
+    const plan = getWeeklyPlan();
+    const selectedIds = [];
+
+    weekDays.forEach(day => {
+      mealSlots.forEach(slot => {
+        const id = plan[day][slot];
+        if (id && !selectedIds.includes(id)) {
+          selectedIds.push(id);
+        }
+      });
+    });
+
+    selectedIds.forEach(id => {
+      const recipe = recipes.find(item => String(item.id) === String(id));
+      if (recipe) addRecipeToShoppingList(recipe);
+    });
+
+    showShoppingList();
   }
 
   function showAllergens() {
@@ -845,7 +909,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     modal.innerHTML = `
       <div class="modal-box">
         <h2>Borrar perfil</h2>
-        <p>Vas a borrar el perfil del bebé, el diario de comidas, favoritos, lista de compra, pesos y alérgenos guardados en este dispositivo. Esta acción no se puede deshacer.</p>
+        <p>Vas a borrar el perfil del bebé, el diario de comidas, favoritos, lista de compra, pesos, plan semanal y alérgenos guardados en este dispositivo. Esta acción no se puede deshacer.</p>
 
         <div class="modal-actions">
           <button id="cancel-delete" class="secondary-btn">Cancelar</button>
@@ -867,6 +931,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       localStorage.removeItem("favoriteRecipes");
       localStorage.removeItem("shoppingList");
       localStorage.removeItem("weightHistory");
+      localStorage.removeItem("weeklyPlan");
 
       initStorage();
       babyProfile = JSON.parse(localStorage.getItem("babyProfile"));
@@ -985,7 +1050,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (section === "inicio") showDashboard();
       if (section === "recetas") showRecipes();
-      if (section === "alergenos") showAllergens();
+      if (section === "plan") showWeeklyPlan();
       if (section === "perfil") showProfile();
     });
   });

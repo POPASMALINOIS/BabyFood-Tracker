@@ -716,3 +716,39 @@ section {
 section {
   padding-bottom: 90px !important;
 }
+/* FIX FINAL HISTORIAL DE PESO */
+#weight-date,
+#weight-value {
+  display: block !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+}
+
+#weight-date,
+#weight-value {
+  height: 64px !important;
+  box-sizing: border-box !important;
+}
+
+#weight-date:parent,
+#weight-value:parent {
+  width: 100% !important;
+}
+
+/* Forzar solo la fila del historial de peso a una columna */
+#weight-date,
+#weight-value {
+  grid-column: 1 / -1 !important;
+}
+
+#weight-date {
+  margin-bottom: 14px !important;
+}
+
+.card.form-card .form-row:has(#weight-date),
+.card.form-card .form-row:has(#weight-value) {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 14px !important;
+}

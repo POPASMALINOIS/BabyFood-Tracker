@@ -91,6 +91,70 @@ document.addEventListener("DOMContentLoaded", async () => {
     return diary[diary.length - 1].food;
   }
 
+  function getEmptyWeeklyPlan() {
+    const plan = {};
+    weekDays.forEach(day => {
+      plan[day] = {};
+      mealSlots.forEach(slot => {
+        plan[day][slot] = "";
+      });
+    });
+    return plan;
+  }
+
+  function getWeeklyPlan() {
+    const saved = JSON.parse(localStorage.getItem("weeklyPlan")) || {};
+    const base = getEmptyWeeklyPlan();
+
+    weekDays.forEach(day => {
+      mealSlots.forEach(slot => {
+        if (saved[day] && saved[day][slot]) {
+          base[day][slot] = saved[day][slot];
+        }
+      });
+    });
+
+    return base;
+  }
+
+  function getRecipeById(id) {
+    return recipes.find(item => String(item.id) === String(id));
+  }
+
+  function getPlannedRecipes() {
+    const plan = getWeeklyPlan();
+    const selectedRecipes = [];
+
+    weekDays.forEach(day => {
+      mealSlots.forEach(slot => {
+        const id = plan[day][slot];
+        const recipe = getRecipeById(id);
+
+        if (recipe && !selectedRecipes.some(item => item.id === recipe.id)) {
+          selectedRecipes.push(recipe);
+        }
+      });
+    });
+
+    return selectedRecipes;
+  }
+
+  function renderPlanTopNav(activeTab) {
+    return `
+      <div class="plan-top-nav">
+        <button class="plan-tab ${activeTab === "semana" ? "active-plan-tab" : ""}" id="tab-semana">Semana</button>
+        <button class="plan-tab ${activeTab === "batch" ? "active-plan-tab" : ""}" id="tab-batch">Batch</button>
+        <button class="plan-tab ${activeTab === "compra" ? "active-plan-tab" : ""}" id="tab-compra">Compra</button>
+      </div>
+    `;
+  }
+
+  function attachPlanTopNav() {
+    document.getElementById("tab-semana").addEventListener("click", () => showPlanSemana());
+    document.getElementById("tab-batch").addEventListener("click", showPlanBatch);
+    document.getElementById("tab-compra").addEventListener("click", showPlanCompra);
+  }
+  
   function showDashboard() {
     babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
 
@@ -378,7 +442,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
   }
-
+  
   function showRecipeDetail(id) {
     const recipe = recipes.find(r => Number(r.id) === Number(id));
 
@@ -618,52 +682,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     localStorage.setItem("shoppingList", JSON.stringify(updated));
   }
 
-  function renderPlanTopNav(activeTab) {
-    return `
-      <div class="plan-top-nav">
-        <button class="plan-tab ${activeTab === "semana" ? "active-plan-tab" : ""}" id="tab-semana">Semana</button>
-        <button class="plan-tab ${activeTab === "batch" ? "active-plan-tab" : ""}" id="tab-batch">Batch</button>
-        <button class="plan-tab ${activeTab === "compra" ? "active-plan-tab" : ""}" id="tab-compra">Compra</button>
-      </div>
-    `;
-  }
-
-  function attachPlanTopNav() {
-    document.getElementById("tab-semana").addEventListener("click", () => showPlanSemana());
-    document.getElementById("tab-batch").addEventListener("click", showPlanBatch);
-    document.getElementById("tab-compra").addEventListener("click", showPlanCompra);
-  }
-
-  function getEmptyWeeklyPlan() {
-    const plan = {};
-    weekDays.forEach(day => {
-      plan[day] = {};
-      mealSlots.forEach(slot => {
-        plan[day][slot] = "";
-      });
-    });
-    return plan;
-  }
-
-  function getWeeklyPlan() {
-    const saved = JSON.parse(localStorage.getItem("weeklyPlan")) || {};
-    const base = getEmptyWeeklyPlan();
-
-    weekDays.forEach(day => {
-      mealSlots.forEach(slot => {
-        if (saved[day] && saved[day][slot]) {
-          base[day][slot] = saved[day][slot];
-        }
-      });
-    });
-
-    return base;
-  }
-
-  function getRecipeById(id) {
-    return recipes.find(item => String(item.id) === String(id));
-  }
-
   function showPlanSemana(selectedDay = "Lunes") {
     const plan = getWeeklyPlan();
     const selectedPlan = plan[selectedDay];
@@ -800,7 +818,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       showPlanSemana(day);
     });
   }
-
+  
   function addWeeklyPlanToShoppingList() {
     const plan = getWeeklyPlan();
     const selectedIds = [];
@@ -819,21 +837,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function showPlanBatch() {
-    const plan = getWeeklyPlan();
-    const selectedRecipes = [];
-
-    weekDays.forEach(day => {
-      mealSlots.forEach(slot => {
-        const id = plan[day][slot];
-        const recipe = getRecipeById(id);
-        if (recipe && !selectedRecipes.some(item => item.id === recipe.id)) {
-          selectedRecipes.push(recipe);
-        }
-      });
-    });
+    const selectedRecipes = getPlannedRecipes();
 
     const ingredientMap = {};
     const typeMap = {};
+    const phaseMap = {
+      "Verduras base": [],
+      "Proteínas": [],
+      "Cereales y legumbres": [],
+      "Frutas": []
+    };
 
     selectedRecipes.forEach(recipe => {
       if (!typeMap[recipe.tipo]) typeMap[recipe.tipo] = [];
@@ -843,12 +856,25 @@ document.addEventListener("DOMContentLoaded", async () => {
         const product = getProductDataFromIngredient(ingredient);
         if (!product) return;
 
-        if (!ingredientMap[product.category]) {
-          ingredientMap[product.category] = [];
-        }
-
+        if (!ingredientMap[product.category]) ingredientMap[product.category] = [];
         if (!ingredientMap[product.category].includes(product.name)) {
           ingredientMap[product.category].push(product.name);
+        }
+
+        if (product.category === "Verdura" && !phaseMap["Verduras base"].includes(product.name)) {
+          phaseMap["Verduras base"].push(product.name);
+        }
+
+        if ((product.category === "Proteína" || product.category === "Pescado") && !phaseMap["Proteínas"].includes(product.name)) {
+          phaseMap["Proteínas"].push(product.name);
+        }
+
+        if ((product.category === "Cereales" || product.category === "Legumbres") && !phaseMap["Cereales y legumbres"].includes(product.name)) {
+          phaseMap["Cereales y legumbres"].push(product.name);
+        }
+
+        if (product.category === "Fruta" && !phaseMap["Frutas"].includes(product.name)) {
+          phaseMap["Frutas"].push(product.name);
         }
       });
     });
@@ -864,30 +890,61 @@ document.addEventListener("DOMContentLoaded", async () => {
           selectedRecipes.length
             ? `
               <div class="card">
-                <h2>Recetas planificadas</h2>
-                <p>${selectedRecipes.length} recetas distintas esta semana.</p>
+                <h2>Resumen semanal</h2>
+                <p><strong>${selectedRecipes.length}</strong> recetas distintas planificadas.</p>
+                <p>Organiza la preparación por bloques para ahorrar tiempo durante la semana.</p>
               </div>
 
-              ${Object.keys(typeMap).map(type => `
-                <div class="card">
-                  <h2>${type}</h2>
-                  ${typeMap[type].map(item => `<p>• ${item}</p>`).join("")}
-                </div>
-              `).join("")}
-
-              ${Object.keys(ingredientMap).map(category => `
-                <div class="card">
-                  <h2>${category}</h2>
-                  ${ingredientMap[category].map(item => `<p>• ${item}</p>`).join("")}
-                </div>
-              `).join("")}
+              <div class="card">
+                <h2>Fase 1 · Verduras base</h2>
+                ${
+                  phaseMap["Verduras base"].length
+                    ? phaseMap["Verduras base"].map(item => `<p>• Cocer o asar ${item}</p>`).join("")
+                    : `<p>No hay verduras base planificadas.</p>`
+                }
+              </div>
 
               <div class="card">
-                <h2>Preparación recomendada</h2>
-                <p>1. Cocina las verduras base en lote.</p>
-                <p>2. Prepara proteínas por separado.</p>
-                <p>3. Tritura o adapta texturas según edad.</p>
-                <p>4. Guarda en nevera 24-48 h o congela por raciones.</p>
+                <h2>Fase 2 · Proteínas</h2>
+                ${
+                  phaseMap["Proteínas"].length
+                    ? phaseMap["Proteínas"].map(item => `<p>• Cocinar ${item} por separado</p>`).join("")
+                    : `<p>No hay proteínas planificadas.</p>`
+                }
+              </div>
+
+              <div class="card">
+                <h2>Fase 3 · Cereales y legumbres</h2>
+                ${
+                  phaseMap["Cereales y legumbres"].length
+                    ? phaseMap["Cereales y legumbres"].map(item => `<p>• Cocer ${item} y separar por raciones</p>`).join("")
+                    : `<p>No hay cereales o legumbres planificados.</p>`
+                }
+              </div>
+
+              <div class="card">
+                <h2>Fase 4 · Frutas</h2>
+                ${
+                  phaseMap["Frutas"].length
+                    ? phaseMap["Frutas"].map(item => `<p>• Preparar ${item} el mismo día o en compota</p>`).join("")
+                    : `<p>No hay frutas planificadas.</p>`
+                }
+              </div>
+
+              <div class="card">
+                <h2>Recetas del plan</h2>
+                ${Object.keys(typeMap).map(type => `
+                  <p><strong>${type}</strong></p>
+                  ${typeMap[type].map(item => `<p>• ${item}</p>`).join("")}
+                `).join("")}
+              </div>
+
+              <div class="card">
+                <h2>Conservación</h2>
+                <p>• Nevera: consumir preferentemente en 24-48h.</p>
+                <p>• Congelación: separar en raciones y etiquetar.</p>
+                <p>• Frutas frescas: mejor preparar en el día.</p>
+                <p>• Revisar siempre textura según edad del bebé.</p>
               </div>
 
               <button id="batch-shopping" class="primary-btn">Añadir ingredientes a compra</button>
@@ -1331,3 +1388,4 @@ document.addEventListener("DOMContentLoaded", async () => {
       .catch(error => console.log("Error Service Worker:", error));
   }
 });
+  

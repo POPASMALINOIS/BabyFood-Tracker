@@ -464,7 +464,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  function addRecipeToShoppingList(recipe) {
+ function addRecipeToShoppingList(recipe) {
   const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 
   const ignoredItems = [
@@ -472,53 +472,93 @@ document.addEventListener("DOMContentLoaded", async () => {
     "agua hasta cubrir",
     "agua o caldo casero sin sal",
     "caldo casero sin sal",
+    "aceite",
+    "aceite de oliva virgen extra",
     "1 cucharadita de aceite",
     "1 cucharadita de aceite de oliva virgen extra",
-    "aceite de oliva virgen extra",
-    "aceite",
-    "canela opcional a partir de tolerancia"
+    "canela opcional a partir de tolerancia",
+    "leche habitual del bebé"
   ];
 
   const productMap = {
-    "calabaza": "Calabaza",
-    "patata": "Patatas",
-    "pollo": "Pollo",
-    "calabacín": "Calabacines",
-    "zanahoria": "Zanahorias",
-    "pavo": "Pavo",
-    "manzana": "Manzanas",
-    "pera": "Peras",
-    "plátano": "Plátanos",
-    "aguacate": "Aguacates",
-    "huevo": "Huevos",
-    "avena": "Avena",
-    "boniato": "Boniatos",
-    "arroz": "Arroz",
-    "merluza": "Merluza",
-    "salmón": "Salmón",
-    "brócoli": "Brócoli",
-    "judía verde": "Judías verdes",
-    "guisantes": "Guisantes",
-    "puerro": "Puerros",
-    "coliflor": "Coliflor",
-    "ternera": "Ternera",
-    "lentejas": "Lentejas",
-    "garbanzos": "Garbanzos",
-    "bacalao": "Bacalao fresco",
-    "conejo": "Conejo",
-    "mango": "Mango",
-    "melocotón": "Melocotones",
-    "ciruela": "Ciruelas",
-    "fresa": "Fresas",
-    "arándanos": "Arándanos",
-    "kiwi": "Kiwis",
-    "papaya": "Papaya",
-    "quinoa": "Quinoa",
-    "cuscús": "Cuscús",
-    "maíz": "Maíz",
-    "mijo": "Mijo",
-    "pasta": "Pasta pequeña"
+    "calabaza": { name: "Calabaza", category: "Verdura" },
+    "patata": { name: "Patatas", category: "Verdura" },
+    "boniato": { name: "Boniatos", category: "Verdura" },
+    "calabacín": { name: "Calabacines", category: "Verdura" },
+    "zanahoria": { name: "Zanahorias", category: "Verdura" },
+    "brócoli": { name: "Brócoli", category: "Verdura" },
+    "judía verde": { name: "Judías verdes", category: "Verdura" },
+    "guisantes": { name: "Guisantes", category: "Verdura" },
+    "puerro": { name: "Puerros", category: "Verdura" },
+    "coliflor": { name: "Coliflor", category: "Verdura" },
+
+    "manzana": { name: "Manzanas", category: "Fruta" },
+    "pera": { name: "Peras", category: "Fruta" },
+    "plátano": { name: "Plátanos", category: "Fruta" },
+    "aguacate": { name: "Aguacates", category: "Fruta" },
+    "mango": { name: "Mango", category: "Fruta" },
+    "melocotón": { name: "Melocotones", category: "Fruta" },
+    "ciruela": { name: "Ciruelas", category: "Fruta" },
+    "fresa": { name: "Fresas", category: "Fruta" },
+    "arándanos": { name: "Arándanos", category: "Fruta" },
+    "kiwi": { name: "Kiwis", category: "Fruta" },
+    "papaya": { name: "Papaya", category: "Fruta" },
+
+    "pollo": { name: "Pollo", category: "Proteína" },
+    "pavo": { name: "Pavo", category: "Proteína" },
+    "ternera": { name: "Ternera", category: "Proteína" },
+    "conejo": { name: "Conejo", category: "Proteína" },
+    "huevo": { name: "Huevos", category: "Proteína" },
+    "merluza": { name: "Merluza", category: "Pescado" },
+    "salmón": { name: "Salmón", category: "Pescado" },
+    "bacalao": { name: "Bacalao fresco", category: "Pescado" },
+
+    "arroz": { name: "Arroz", category: "Cereales" },
+    "avena": { name: "Avena", category: "Cereales" },
+    "quinoa": { name: "Quinoa", category: "Cereales" },
+    "cuscús": { name: "Cuscús", category: "Cereales" },
+    "maíz": { name: "Maíz", category: "Cereales" },
+    "mijo": { name: "Mijo", category: "Cereales" },
+    "pasta": { name: "Pasta pequeña", category: "Cereales" },
+    "sémola": { name: "Sémola de trigo", category: "Cereales" },
+
+    "lentejas": { name: "Lentejas", category: "Legumbres" },
+    "garbanzos": { name: "Garbanzos", category: "Legumbres" }
   };
+
+  const productsToAdd = [];
+
+  recipe.ingredientes.forEach(ingredient => {
+    const lowerIngredient = ingredient.toLowerCase();
+
+    if (ignoredItems.some(item => lowerIngredient.includes(item))) return;
+
+    Object.keys(productMap).forEach(key => {
+      if (lowerIngredient.includes(key)) {
+        const product = productMap[key];
+
+        const alreadyInBatch = productsToAdd.some(item => item.name === product.name);
+        const alreadyInList = shoppingList.some(item => item.text === product.name);
+
+        if (!alreadyInBatch && !alreadyInList) {
+          productsToAdd.push(product);
+        }
+      }
+    });
+  });
+
+  productsToAdd.forEach(product => {
+    shoppingList.push({
+      id: Date.now() + Math.random(),
+      text: product.name,
+      category: product.category,
+      recipe: recipe.nombre,
+      checked: false
+    });
+  });
+
+  localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+} 
 
   function normalizeIngredient(ingredient) {
     let text = ingredient.toLowerCase();

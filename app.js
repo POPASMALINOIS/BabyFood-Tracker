@@ -14,9 +14,45 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const allergens = [
-    "Huevo", "Leche", "Gluten", "Pescado", "Marisco", "Frutos secos",
-    "Cacahuete", "Soja", "Sésamo", "Apio", "Mostaza", "Sulfitos"
+    "Huevo",
+    "Leche",
+    "Gluten",
+    "Pescado",
+    "Marisco",
+    "Frutos secos",
+    "Cacahuete",
+    "Soja",
+    "Sésamo",
+    "Apio",
+    "Mostaza",
+    "Sulfitos"
   ];
+
+  function initStorage() {
+    if (!localStorage.getItem("babyProfile")) {
+      localStorage.setItem("babyProfile", JSON.stringify(defaultProfile));
+    }
+
+    if (!localStorage.getItem("foodDiary")) {
+      localStorage.setItem("foodDiary", JSON.stringify([]));
+    }
+
+    if (!localStorage.getItem("allergenDiary")) {
+      localStorage.setItem("allergenDiary", JSON.stringify({}));
+    }
+
+    if (!localStorage.getItem("favoriteRecipes")) {
+      localStorage.setItem("favoriteRecipes", JSON.stringify([]));
+    }
+
+    if (!localStorage.getItem("shoppingList")) {
+      localStorage.setItem("shoppingList", JSON.stringify([]));
+    }
+
+    if (!localStorage.getItem("weightHistory")) {
+      localStorage.setItem("weightHistory", JSON.stringify([]));
+    }
+  }
 
   initStorage();
 
@@ -24,6 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   setTimeout(() => {
     splash.classList.add("fade-out");
+
     setTimeout(() => {
       splash.style.display = "none";
       app.classList.remove("hidden");
@@ -41,27 +78,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   await loadRecipes();
-
-  function initStorage() {
-    if (!localStorage.getItem("babyProfile")) {
-      localStorage.setItem("babyProfile", JSON.stringify(defaultProfile));
-    }
-    if (!localStorage.getItem("foodDiary")) {
-      localStorage.setItem("foodDiary", JSON.stringify([]));
-    }
-    if (!localStorage.getItem("allergenDiary")) {
-      localStorage.setItem("allergenDiary", JSON.stringify({}));
-    }
-    if (!localStorage.getItem("favoriteRecipes")) {
-      localStorage.setItem("favoriteRecipes", JSON.stringify([]));
-    }
-    if (!localStorage.getItem("shoppingList")) {
-      localStorage.setItem("shoppingList", JSON.stringify([]));
-    }
-    if (!localStorage.getItem("weightHistory")) {
-      localStorage.setItem("weightHistory", JSON.stringify([]));
-    }
-  }
 
   function calculateAge(birthDate) {
     if (!birthDate) return "Pendiente";
@@ -206,10 +222,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const categories = ["Todas", "Puré", "Potito fruta", "BLW", "Desayuno", "Comida", "Cena", "Snack"];
     const ages = ["Todas", "6 meses", "7 meses", "8 meses", "9 meses", "10 meses", "12 meses"];
     const favorites = JSON.parse(localStorage.getItem("favoriteRecipes")) || [];
-
     const normalizedSearch = searchTerm.toLowerCase().trim();
 
     const filtered = recipes.filter(recipe => {
+      const ingredients = Array.isArray(recipe.ingredientes) ? recipe.ingredientes.join(" ") : "";
       const categoryMatch = filter === "Todas" || recipe.tipo === filter || recipe.categoria === filter;
       const ageMatch = ageFilter === "Todas" || recipe.edad_minima === ageFilter;
 
@@ -218,7 +234,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         recipe.nombre.toLowerCase().includes(normalizedSearch) ||
         recipe.tipo.toLowerCase().includes(normalizedSearch) ||
         recipe.edad_minima.toLowerCase().includes(normalizedSearch) ||
-        recipe.ingredientes.join(" ").toLowerCase().includes(normalizedSearch);
+        ingredients.toLowerCase().includes(normalizedSearch);
 
       return categoryMatch && ageMatch && searchMatch;
     });
@@ -252,6 +268,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           filtered.length
             ? filtered.map(recipe => {
               const isFavorite = favorites.includes(Number(recipe.id));
+
               return `
                 <div class="card">
                   <h2>${recipe.nombre}</h2>
@@ -315,7 +332,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("show-shopping").addEventListener("click", showShoppingList);
 
     document.querySelectorAll(".recipe-detail-btn").forEach(button => {
-      button.addEventListener("click", () => showRecipeDetail(Number(button.dataset.id)));
+      button.addEventListener("click", () => {
+        showRecipeDetail(Number(button.dataset.id));
+      });
     });
 
     document.querySelectorAll(".favorite-btn").forEach(button => {
@@ -464,204 +483,131 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
- function addRecipeToShoppingList(recipe) {
-  const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+  function addRecipeToShoppingList(recipe) {
+    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 
-  const ignoredItems = [
-    "agua",
-    "agua hasta cubrir",
-    "agua o caldo casero sin sal",
-    "caldo casero sin sal",
-    "aceite",
-    "aceite de oliva virgen extra",
-    "1 cucharadita de aceite",
-    "1 cucharadita de aceite de oliva virgen extra",
-    "canela opcional a partir de tolerancia",
-    "leche habitual del bebé"
-  ];
+    const ignoredItems = [
+      "agua",
+      "agua hasta cubrir",
+      "agua o caldo casero sin sal",
+      "caldo casero sin sal",
+      "aceite",
+      "aceite de oliva virgen extra",
+      "1 cucharadita de aceite",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "canela opcional",
+      "leche habitual del bebé"
+    ];
 
-  const productMap = {
-    "calabaza": { name: "Calabaza", category: "Verdura" },
-    "patata": { name: "Patatas", category: "Verdura" },
-    "boniato": { name: "Boniatos", category: "Verdura" },
-    "calabacín": { name: "Calabacines", category: "Verdura" },
-    "zanahoria": { name: "Zanahorias", category: "Verdura" },
-    "brócoli": { name: "Brócoli", category: "Verdura" },
-    "judía verde": { name: "Judías verdes", category: "Verdura" },
-    "guisantes": { name: "Guisantes", category: "Verdura" },
-    "puerro": { name: "Puerros", category: "Verdura" },
-    "coliflor": { name: "Coliflor", category: "Verdura" },
+    const productMap = {
+      "calabaza": { name: "Calabaza", category: "Verdura" },
+      "patata": { name: "Patatas", category: "Verdura" },
+      "boniato": { name: "Boniatos", category: "Verdura" },
+      "calabacín": { name: "Calabacines", category: "Verdura" },
+      "zanahoria": { name: "Zanahorias", category: "Verdura" },
+      "brócoli": { name: "Brócoli", category: "Verdura" },
+      "judía verde": { name: "Judías verdes", category: "Verdura" },
+      "guisantes": { name: "Guisantes", category: "Verdura" },
+      "puerro": { name: "Puerros", category: "Verdura" },
+      "coliflor": { name: "Coliflor", category: "Verdura" },
 
-    "manzana": { name: "Manzanas", category: "Fruta" },
-    "pera": { name: "Peras", category: "Fruta" },
-    "plátano": { name: "Plátanos", category: "Fruta" },
-    "aguacate": { name: "Aguacates", category: "Fruta" },
-    "mango": { name: "Mango", category: "Fruta" },
-    "melocotón": { name: "Melocotones", category: "Fruta" },
-    "ciruela": { name: "Ciruelas", category: "Fruta" },
-    "fresa": { name: "Fresas", category: "Fruta" },
-    "arándanos": { name: "Arándanos", category: "Fruta" },
-    "kiwi": { name: "Kiwis", category: "Fruta" },
-    "papaya": { name: "Papaya", category: "Fruta" },
+      "manzana": { name: "Manzanas", category: "Fruta" },
+      "pera": { name: "Peras", category: "Fruta" },
+      "plátano": { name: "Plátanos", category: "Fruta" },
+      "aguacate": { name: "Aguacates", category: "Fruta" },
+      "mango": { name: "Mango", category: "Fruta" },
+      "melocotón": { name: "Melocotones", category: "Fruta" },
+      "ciruela": { name: "Ciruelas", category: "Fruta" },
+      "fresa": { name: "Fresas", category: "Fruta" },
+      "arándanos": { name: "Arándanos", category: "Fruta" },
+      "kiwi": { name: "Kiwis", category: "Fruta" },
+      "papaya": { name: "Papaya", category: "Fruta" },
 
-    "pollo": { name: "Pollo", category: "Proteína" },
-    "pavo": { name: "Pavo", category: "Proteína" },
-    "ternera": { name: "Ternera", category: "Proteína" },
-    "conejo": { name: "Conejo", category: "Proteína" },
-    "huevo": { name: "Huevos", category: "Proteína" },
-    "merluza": { name: "Merluza", category: "Pescado" },
-    "salmón": { name: "Salmón", category: "Pescado" },
-    "bacalao": { name: "Bacalao fresco", category: "Pescado" },
+      "pollo": { name: "Pollo", category: "Proteína" },
+      "pavo": { name: "Pavo", category: "Proteína" },
+      "ternera": { name: "Ternera", category: "Proteína" },
+      "conejo": { name: "Conejo", category: "Proteína" },
+      "huevo": { name: "Huevos", category: "Proteína" },
+      "merluza": { name: "Merluza", category: "Pescado" },
+      "salmón": { name: "Salmón", category: "Pescado" },
+      "bacalao": { name: "Bacalao fresco", category: "Pescado" },
 
-    "arroz": { name: "Arroz", category: "Cereales" },
-    "avena": { name: "Avena", category: "Cereales" },
-    "quinoa": { name: "Quinoa", category: "Cereales" },
-    "cuscús": { name: "Cuscús", category: "Cereales" },
-    "maíz": { name: "Maíz", category: "Cereales" },
-    "mijo": { name: "Mijo", category: "Cereales" },
-    "pasta": { name: "Pasta pequeña", category: "Cereales" },
-    "sémola": { name: "Sémola de trigo", category: "Cereales" },
+      "arroz": { name: "Arroz", category: "Cereales" },
+      "avena": { name: "Avena", category: "Cereales" },
+      "quinoa": { name: "Quinoa", category: "Cereales" },
+      "cuscús": { name: "Cuscús", category: "Cereales" },
+      "maíz": { name: "Maíz", category: "Cereales" },
+      "mijo": { name: "Mijo", category: "Cereales" },
+      "pasta": { name: "Pasta pequeña", category: "Cereales" },
+      "sémola": { name: "Sémola de trigo", category: "Cereales" },
 
-    "lentejas": { name: "Lentejas", category: "Legumbres" },
-    "garbanzos": { name: "Garbanzos", category: "Legumbres" }
-  };
+      "lentejas": { name: "Lentejas", category: "Legumbres" },
+      "garbanzos": { name: "Garbanzos", category: "Legumbres" }
+    };
 
-  const productsToAdd = [];
+    const productsToAdd = [];
 
-  recipe.ingredientes.forEach(ingredient => {
-    const lowerIngredient = ingredient.toLowerCase();
+    recipe.ingredientes.forEach(ingredient => {
+      const lowerIngredient = ingredient.toLowerCase();
 
-    if (ignoredItems.some(item => lowerIngredient.includes(item))) return;
-
-    Object.keys(productMap).forEach(key => {
-      if (lowerIngredient.includes(key)) {
-        const product = productMap[key];
-
-        const alreadyInBatch = productsToAdd.some(item => item.name === product.name);
-        const alreadyInList = shoppingList.some(item => item.text === product.name);
-
-        if (!alreadyInBatch && !alreadyInList) {
-          productsToAdd.push(product);
-        }
+      if (ignoredItems.some(item => lowerIngredient.includes(item))) {
+        return;
       }
-    });
-  });
 
-  productsToAdd.forEach(product => {
-    shoppingList.push({
-      id: Date.now() + Math.random(),
-      text: product.name,
-      category: product.category,
-      recipe: recipe.nombre,
-      checked: false
-    });
-  });
+      Object.keys(productMap).forEach(key => {
+        if (lowerIngredient.includes(key)) {
+          const product = productMap[key];
 
-  localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
-} 
+          const alreadyInBatch = productsToAdd.some(item => item.name === product.name);
+          const alreadyInList = shoppingList.some(item => item.text === product.name);
 
-  function normalizeIngredient(ingredient) {
-    let text = ingredient.toLowerCase();
-
-    text = text
-      .replace(/\d+/g, "")
-      .replace(/g de/g, "")
-      .replace(/ml de/g, "")
-      .replace(/pieza pequeña de/g, "")
-      .replace(/piezas pequeñas de/g, "")
-      .replace(/1\/2/g, "")
-      .replace(/1\/4/g, "")
-      .replace(/cocido/g, "")
-      .replace(/cocida/g, "")
-      .replace(/cocidos/g, "")
-      .replace(/cocidas/g, "")
-      .replace(/molida/g, "")
-      .replace(/rallada/g, "")
-      .replace(/rallado/g, "")
-      .replace(/sin espinas/g, "")
-      .replace(/pequeña/g, "")
-      .replace(/pequeño/g, "")
-      .replace(/mediano/g, "")
-      .replace(/maduro/g, "")
-      .replace(/habitual del bebé/g, "")
-      .replace(/o agua/g, "")
-      .replace(/de /g, "")
-      .trim();
-
-    return text;
-  }
-
-  const productsToAdd = [];
-
-  recipe.ingredientes.forEach(ingredient => {
-    const lowerIngredient = ingredient.toLowerCase();
-
-    if (ignoredItems.some(item => lowerIngredient.includes(item))) {
-      return;
-    }
-
-    const normalized = normalizeIngredient(ingredient);
-
-    Object.keys(productMap).forEach(key => {
-      if (normalized.includes(key) || lowerIngredient.includes(key)) {
-        if (!productsToAdd.includes(productMap[key])) {
-          productsToAdd.push(productMap[key]);
+          if (!alreadyInBatch && !alreadyInList) {
+            productsToAdd.push(product);
+          }
         }
-      }
+      });
     });
-  });
 
-  productsToAdd.forEach(product => {
-    const alreadyExists = shoppingList.some(item =>
-      item.text.toLowerCase() === product.toLowerCase()
-    );
-
-    if (!alreadyExists) {
+    productsToAdd.forEach(product => {
       shoppingList.push({
         id: Date.now() + Math.random(),
-        text: product,
+        text: product.name,
+        category: product.category,
         recipe: recipe.nombre,
         checked: false
       });
-    }
-  });
+    });
 
-  localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
-}
+    localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+  }
 
   function showShoppingList() {
-  const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 
-  const categories = [
-    "Fruta",
-    "Verdura",
-    "Proteína",
-    "Pescado",
-    "Cereales",
-    "Legumbres",
-    "Otros"
-  ];
+    const categories = [
+      "Fruta",
+      "Verdura",
+      "Proteína",
+      "Pescado",
+      "Cereales",
+      "Legumbres",
+      "Otros"
+    ];
 
-  const grouped = {};
+    const totalItems = shoppingList.length;
+    const checkedItems = shoppingList.filter(item => item.checked).length;
 
-  categories.forEach(category => {
-    grouped[category] = shoppingList.filter(item => (item.category || "Otros") === category);
-  });
+    content.innerHTML = `
+      <section>
+        <h2 class="section-title">Lista de compra</h2>
+        <p class="section-subtitle">${totalItems} productos · ${checkedItems} comprados</p>
 
-  const totalItems = shoppingList.length;
-  const checkedItems = shoppingList.filter(item => item.checked).length;
+        <button id="back-recipes" class="secondary-btn">← Volver a recetas</button>
 
-  content.innerHTML = `
-    <section>
-      <h2 class="section-title">Lista de compra</h2>
-      <p class="section-subtitle">${totalItems} productos · ${checkedItems} comprados</p>
-
-      <button id="back-recipes" class="secondary-btn">← Volver a recetas</button>
-
-      ${
-        totalItems
-          ? categories.map(category => {
-              const items = grouped[category];
+        ${
+          totalItems
+            ? categories.map(category => {
+              const items = shoppingList.filter(item => (item.category || "Otros") === category);
 
               if (!items.length) return "";
 
@@ -683,53 +629,53 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
               `;
             }).join("")
-          : `
-            <div class="card">
-              <h2>Lista vacía</h2>
-              <p>Entra en una receta y pulsa “Añadir ingredientes a lista de compra”.</p>
-            </div>
-          `
-      }
+            : `
+              <div class="card">
+                <h2>Lista vacía</h2>
+                <p>Entra en una receta y pulsa “Añadir ingredientes a lista de compra”.</p>
+              </div>
+            `
+        }
 
-      ${
-        totalItems
-          ? `
-            <div class="quick-actions">
-              <button id="clear-checked" class="secondary-btn">Borrar comprados</button>
-              <button id="clear-shopping" class="danger-btn">Vaciar todo</button>
-            </div>
-          `
-          : ""
-      }
-    </section>
-  `;
+        ${
+          totalItems
+            ? `
+              <div class="quick-actions">
+                <button id="clear-checked" class="secondary-btn">Borrar comprados</button>
+                <button id="clear-shopping" class="danger-btn">Vaciar todo</button>
+              </div>
+            `
+            : ""
+        }
+      </section>
+    `;
 
-  document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
+    document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
 
-  document.querySelectorAll(".shopping-check").forEach(check => {
-    check.addEventListener("change", () => {
-      toggleShoppingItem(check.dataset.id);
-      showShoppingList();
+    document.querySelectorAll(".shopping-check").forEach(check => {
+      check.addEventListener("change", () => {
+        toggleShoppingItem(check.dataset.id);
+        showShoppingList();
+      });
     });
-  });
 
-  const clearCheckedBtn = document.getElementById("clear-checked");
-  if (clearCheckedBtn) {
-    clearCheckedBtn.addEventListener("click", () => {
-      const updatedList = shoppingList.filter(item => !item.checked);
-      localStorage.setItem("shoppingList", JSON.stringify(updatedList));
-      showShoppingList();
-    });
+    const clearCheckedBtn = document.getElementById("clear-checked");
+    if (clearCheckedBtn) {
+      clearCheckedBtn.addEventListener("click", () => {
+        const updatedList = shoppingList.filter(item => !item.checked);
+        localStorage.setItem("shoppingList", JSON.stringify(updatedList));
+        showShoppingList();
+      });
+    }
+
+    const clearBtn = document.getElementById("clear-shopping");
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
+        localStorage.setItem("shoppingList", JSON.stringify([]));
+        showShoppingList();
+      });
+    }
   }
-
-  const clearBtn = document.getElementById("clear-shopping");
-  if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-      localStorage.setItem("shoppingList", JSON.stringify([]));
-      showShoppingList();
-    });
-  }
-}
 
   function toggleShoppingItem(id) {
     const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
@@ -738,6 +684,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (String(item.id) === String(id)) {
         return { ...item, checked: !item.checked };
       }
+
       return item;
     });
 

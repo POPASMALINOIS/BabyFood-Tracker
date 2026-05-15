@@ -866,3 +866,25 @@ section {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: white;
 }
+/* HEADER COMPACTO PREMIUM */
+.top-header {
+  padding: 18px 20px 8px !important;
+  margin-bottom: 6px !important;
+}
+
+.top-header .app-pill {
+  display: none !important;
+}
+
+.top-header h1 {
+  font-size: 1.35rem !important;
+  margin-bottom: 2px !important;
+}
+
+.top-header p {
+  display: none !important;
+}
+
+#content {
+  padding-top: 4px !important;
+}

@@ -843,3 +843,26 @@ section {
 .weekly-day-card {
   margin-top: 10px;
 }
+/* PLAN TOP NAV PREMIUM */
+.plan-top-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.plan-tab {
+  min-height: 56px;
+  border: none;
+  border-radius: 18px;
+  font-weight: 900;
+  font-size: 0.95rem;
+  background: rgba(255,255,255,0.68);
+  color: var(--primary-dark);
+  cursor: pointer;
+}
+
+.active-plan-tab {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+}

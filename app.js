@@ -630,61 +630,106 @@ document.addEventListener("DOMContentLoaded", async () => {
 }
 
   function showShoppingList() {
-    const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+  const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 
-    content.innerHTML = `
-      <section>
-        <h2 class="section-title">Lista de compra</h2>
-        <p class="section-subtitle">Ingredientes añadidos desde recetas.</p>
+  const categories = [
+    "Fruta",
+    "Verdura",
+    "Proteína",
+    "Pescado",
+    "Cereales",
+    "Legumbres",
+    "Otros"
+  ];
 
-        <button id="back-recipes" class="secondary-btn">← Volver a recetas</button>
+  const grouped = {};
 
-        ${
-          shoppingList.length
-            ? `
-              <div class="card">
-                ${shoppingList.map(item => `
-                  <div class="shopping-item">
-                    <label>
-                      <input type="checkbox" class="shopping-check" data-id="${item.id}" ${item.checked ? "checked" : ""}>
-                      <span style="${item.checked ? "text-decoration: line-through; opacity: .6;" : ""}">
-                        ${item.text}
-                      </span>
-                    </label>
-                    <p><small>${item.recipe}</small></p>
-                  </div>
-                `).join("")}
-              </div>
+  categories.forEach(category => {
+    grouped[category] = shoppingList.filter(item => (item.category || "Otros") === category);
+  });
 
-              <button id="clear-shopping" class="danger-btn">Vaciar lista de compra</button>
-            `
-            : `
-              <div class="card">
-                <h2>Lista vacía</h2>
-                <p>Entra en una receta y pulsa “Añadir ingredientes a lista de compra”.</p>
-              </div>
-            `
-        }
-      </section>
-    `;
+  const totalItems = shoppingList.length;
+  const checkedItems = shoppingList.filter(item => item.checked).length;
 
-    document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
+  content.innerHTML = `
+    <section>
+      <h2 class="section-title">Lista de compra</h2>
+      <p class="section-subtitle">${totalItems} productos · ${checkedItems} comprados</p>
 
-    document.querySelectorAll(".shopping-check").forEach(check => {
-      check.addEventListener("change", () => {
-        toggleShoppingItem(check.dataset.id);
-        showShoppingList();
-      });
+      <button id="back-recipes" class="secondary-btn">← Volver a recetas</button>
+
+      ${
+        totalItems
+          ? categories.map(category => {
+              const items = grouped[category];
+
+              if (!items.length) return "";
+
+              return `
+                <div class="card">
+                  <h2>${category}</h2>
+
+                  ${items.map(item => `
+                    <div class="shopping-item">
+                      <label>
+                        <input type="checkbox" class="shopping-check" data-id="${item.id}" ${item.checked ? "checked" : ""}>
+                        <span style="${item.checked ? "text-decoration: line-through; opacity: .55;" : ""}">
+                          ${item.text}
+                        </span>
+                      </label>
+                      <p><small>Añadido desde: ${item.recipe}</small></p>
+                    </div>
+                  `).join("")}
+                </div>
+              `;
+            }).join("")
+          : `
+            <div class="card">
+              <h2>Lista vacía</h2>
+              <p>Entra en una receta y pulsa “Añadir ingredientes a lista de compra”.</p>
+            </div>
+          `
+      }
+
+      ${
+        totalItems
+          ? `
+            <div class="quick-actions">
+              <button id="clear-checked" class="secondary-btn">Borrar comprados</button>
+              <button id="clear-shopping" class="danger-btn">Vaciar todo</button>
+            </div>
+          `
+          : ""
+      }
+    </section>
+  `;
+
+  document.getElementById("back-recipes").addEventListener("click", () => showRecipes());
+
+  document.querySelectorAll(".shopping-check").forEach(check => {
+    check.addEventListener("change", () => {
+      toggleShoppingItem(check.dataset.id);
+      showShoppingList();
     });
+  });
 
-    const clearBtn = document.getElementById("clear-shopping");
-    if (clearBtn) {
-      clearBtn.addEventListener("click", () => {
-        localStorage.setItem("shoppingList", JSON.stringify([]));
-        showShoppingList();
-      });
-    }
+  const clearCheckedBtn = document.getElementById("clear-checked");
+  if (clearCheckedBtn) {
+    clearCheckedBtn.addEventListener("click", () => {
+      const updatedList = shoppingList.filter(item => !item.checked);
+      localStorage.setItem("shoppingList", JSON.stringify(updatedList));
+      showShoppingList();
+    });
   }
+
+  const clearBtn = document.getElementById("clear-shopping");
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      localStorage.setItem("shoppingList", JSON.stringify([]));
+      showShoppingList();
+    });
+  }
+}
 
   function toggleShoppingItem(id) {
     const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];

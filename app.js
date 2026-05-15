@@ -875,85 +875,95 @@ function addWeeklyPlanToShoppingList() {
 }
 
   function showProfile() {
-    babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
-    const weightHistory = JSON.parse(localStorage.getItem("weightHistory")) || [];
+  babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
+  const weightHistory = JSON.parse(localStorage.getItem("weightHistory")) || [];
+  const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
+  const testedAllergens = Object.keys(allergenDiary).length;
 
-    content.innerHTML = `
-      <section>
-        <h2 class="section-title">Perfil</h2>
-        <p class="section-subtitle">Datos del bebé guardados solo en este dispositivo.</p>
+  content.innerHTML = `
+    <section>
+      <h2 class="section-title">Perfil</h2>
+      <p class="section-subtitle">Datos del bebé, peso, evolución y control de alérgenos.</p>
 
-        <div class="card form-card">
+      <div class="card form-card">
+        <div class="form-group">
+          <label for="profile-name">Nombre del bebé</label>
+          <input id="profile-name" type="text" placeholder="Ej. Lucas" value="${babyProfile.name || ""}">
+        </div>
+
+        <div class="form-group">
+          <label for="profile-birth">Fecha de nacimiento</label>
+          <input id="profile-birth" type="date" value="${babyProfile.birthDate || ""}">
+        </div>
+
+        <div class="form-row">
           <div class="form-group">
-            <label for="profile-name">Nombre del bebé</label>
-            <input id="profile-name" type="text" placeholder="Ej. Lucas" value="${babyProfile.name || ""}">
-          </div>
-
-          <div class="form-group">
-            <label for="profile-birth">Fecha de nacimiento</label>
-            <input id="profile-birth" type="date" value="${babyProfile.birthDate || ""}">
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="profile-weight">Peso actual</label>
-              <input id="profile-weight" type="text" placeholder="Ej. 7,8 kg" value="${babyProfile.currentWeight || ""}">
-            </div>
-
-            <div class="form-group">
-              <label for="profile-height">Talla actual</label>
-              <input id="profile-height" type="text" placeholder="Ej. 68 cm" value="${babyProfile.currentHeight || ""}">
-            </div>
+            <label for="profile-weight">Peso actual</label>
+            <input id="profile-weight" type="text" placeholder="Ej. 7,8 kg" value="${babyProfile.currentWeight || ""}">
           </div>
 
           <div class="form-group">
-            <label for="profile-notes">Observaciones</label>
-            <textarea id="profile-notes" placeholder="Ej. lactancia, preferencias, recomendaciones pediatra...">${babyProfile.notes || ""}</textarea>
-          </div>
-
-          <button id="save-profile" class="primary-btn">Guardar perfil</button>
-          <button id="delete-profile" class="danger-btn" style="margin-top:12px;">Borrar perfil y datos</button>
-        </div>
-
-        <div class="card">
-          <h2>Resumen</h2>
-          <p><strong>Edad:</strong> ${calculateAge(babyProfile.birthDate)}</p>
-          <p><strong>Peso:</strong> ${babyProfile.currentWeight || "Pendiente"}</p>
-          <p><strong>Talla:</strong> ${babyProfile.currentHeight || "Pendiente"}</p>
-        </div>
-
-        <div class="card form-card">
-          <h2>Historial de peso</h2>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="weight-date">Fecha</label>
-              <input id="weight-date" type="date" value="${new Date().toISOString().split("T")[0]}">
-            </div>
-
-            <div class="form-group">
-              <label for="weight-value">Peso</label>
-              <input id="weight-value" type="text" placeholder="Ej. 7,8 kg">
-            </div>
-          </div>
-
-          <button id="save-weight" class="secondary-btn">Añadir peso</button>
-
-          <div style="margin-top: 16px;">
-            ${
-              weightHistory.length
-                ? weightHistory.slice().reverse().map(item => `<p><strong>${item.weight}</strong> · ${item.date}</p>`).join("")
-                : `<p>No hay pesos registrados.</p>`
-            }
+            <label for="profile-height">Talla actual</label>
+            <input id="profile-height" type="text" placeholder="Ej. 68 cm" value="${babyProfile.currentHeight || ""}">
           </div>
         </div>
-      </section>
-    `;
 
-    document.getElementById("save-profile").addEventListener("click", saveProfile);
-    document.getElementById("delete-profile").addEventListener("click", showDeleteProfileModal);
-    document.getElementById("save-weight").addEventListener("click", saveWeight);
-  }
+        <div class="form-group">
+          <label for="profile-notes">Observaciones</label>
+          <textarea id="profile-notes" placeholder="Ej. lactancia, preferencias, recomendaciones pediatra...">${babyProfile.notes || ""}</textarea>
+        </div>
+
+        <button id="save-profile" class="primary-btn">Guardar perfil</button>
+        <button id="delete-profile" class="danger-btn" style="margin-top:12px;">Borrar perfil y datos</button>
+      </div>
+
+      <div class="card">
+        <h2>Resumen</h2>
+        <p><strong>Edad:</strong> ${calculateAge(babyProfile.birthDate)}</p>
+        <p><strong>Peso:</strong> ${babyProfile.currentWeight || "Pendiente"}</p>
+        <p><strong>Talla:</strong> ${babyProfile.currentHeight || "Pendiente"}</p>
+      </div>
+
+      <div class="card">
+        <h2>Control de alérgenos</h2>
+        <p><strong>Probados:</strong> ${testedAllergens} de ${allergens.length}</p>
+        <p>Consulta qué alérgenos se han introducido, cuándo y con qué reacción.</p>
+        <button id="open-allergens" class="secondary-btn">Ver alérgenos</button>
+      </div>
+
+      <div class="card form-card">
+        <h2>Historial de peso</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="weight-date">Fecha</label>
+            <input id="weight-date" type="date" value="${new Date().toISOString().split("T")[0]}">
+          </div>
+
+          <div class="form-group">
+            <label for="weight-value">Peso</label>
+            <input id="weight-value" type="text" placeholder="Ej. 7,8 kg">
+          </div>
+        </div>
+
+        <button id="save-weight" class="secondary-btn">Añadir peso</button>
+
+        <div style="margin-top: 16px;">
+          ${
+            weightHistory.length
+              ? weightHistory.slice().reverse().map(item => `<p><strong>${item.weight}</strong> · ${item.date}</p>`).join("")
+              : `<p>No hay pesos registrados.</p>`
+          }
+        </div>
+      </div>
+    </section>
+  `;
+
+  document.getElementById("save-profile").addEventListener("click", saveProfile);
+  document.getElementById("delete-profile").addEventListener("click", showDeleteProfileModal);
+  document.getElementById("save-weight").addEventListener("click", saveWeight);
+  document.getElementById("open-allergens").addEventListener("click", showAllergens);
+}
 
   function saveProfile() {
     const updatedProfile = {

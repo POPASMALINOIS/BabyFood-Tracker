@@ -727,58 +727,71 @@ function getRecipeNameById(id) {
   return recipe ? recipe.nombre : "";
 }
 
-function showWeeklyPlan() {
+function showWeeklyPlan(selectedDay = "Lunes") {
   const plan = getWeeklyPlan();
+  const selectedPlan = plan[selectedDay];
 
   content.innerHTML = `
     <section>
       <h2 class="section-title">Plan semanal</h2>
-      <p class="section-subtitle">Planifica la semana viendo cada comida de forma clara.</p>
+      <p class="section-subtitle">Consulta rápidamente cada día y organiza la semana de forma visual.</p>
+
+      <div class="weekly-calendar-nav">
+        ${weekDays.map(day => `
+          <button class="calendar-day-btn ${day === selectedDay ? "active-day" : ""}" data-day="${day}">
+            ${day.charAt(0)}
+          </button>
+        `).join("")}
+      </div>
 
       <div class="quick-actions">
         <button id="weekly-shopping" class="secondary-btn">Añadir compra semanal</button>
         <button id="clear-weekly-plan" class="danger-btn">Borrar plan</button>
       </div>
 
-      ${weekDays.map(day => `
-        <div class="card weekly-day-card">
-          <h2>${day}</h2>
+      <div class="card weekly-day-card">
+        <h2>${selectedDay}</h2>
 
-          ${mealSlots.map(slot => {
-            const recipeId = plan[day][slot];
-            const recipe = getRecipeById(recipeId);
+        ${mealSlots.map(slot => {
+          const recipeId = selectedPlan[slot];
+          const recipe = getRecipeById(recipeId);
 
-            return `
-              <div class="weekly-slot">
-                <div class="weekly-slot-header">
-                  <strong>${slot}</strong>
-                  ${recipe ? `<span>${recipe.edad_minima}</span>` : `<span>Pendiente</span>`}
-                </div>
-
-                ${
-                  recipe
-                    ? `
-                      <p class="weekly-recipe-name">${recipe.nombre}</p>
-                      <p class="weekly-recipe-meta">${recipe.tipo} · ${recipe.tiempo} · ${recipe.textura}</p>
-
-                      <div class="weekly-actions">
-                        <button class="secondary-btn weekly-view" data-id="${recipe.id}">Ver</button>
-                        <button class="secondary-btn weekly-change" data-day="${day}" data-slot="${slot}">Cambiar</button>
-                        <button class="danger-btn weekly-remove" data-day="${day}" data-slot="${slot}">Eliminar</button>
-                      </div>
-                    `
-                    : `
-                      <p class="weekly-empty">Sin receta asignada</p>
-                      <button class="secondary-btn weekly-change" data-day="${day}" data-slot="${slot}">Añadir receta</button>
-                    `
-                }
+          return `
+            <div class="weekly-slot">
+              <div class="weekly-slot-header">
+                <strong>${slot}</strong>
+                ${recipe ? `<span>${recipe.edad_minima}</span>` : `<span>Pendiente</span>`}
               </div>
-            `;
-          }).join("")}
-        </div>
-      `).join("")}
+
+              ${
+                recipe
+                  ? `
+                    <p class="weekly-recipe-name">${recipe.nombre}</p>
+                    <p class="weekly-recipe-meta">${recipe.tipo} · ${recipe.tiempo} · ${recipe.textura}</p>
+
+                    <div class="weekly-actions">
+                      <button class="secondary-btn weekly-view" data-id="${recipe.id}">Ver</button>
+                      <button class="secondary-btn weekly-change" data-day="${selectedDay}" data-slot="${slot}">Cambiar</button>
+                      <button class="danger-btn weekly-remove" data-day="${selectedDay}" data-slot="${slot}">Eliminar</button>
+                    </div>
+                  `
+                  : `
+                    <p class="weekly-empty">Sin receta asignada</p>
+                    <button class="secondary-btn weekly-change" data-day="${selectedDay}" data-slot="${slot}">Añadir receta</button>
+                  `
+              }
+            </div>
+          `;
+        }).join("")}
+      </div>
     </section>
   `;
+
+  document.querySelectorAll(".calendar-day-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      showWeeklyPlan(button.dataset.day);
+    });
+  });
 
   document.getElementById("weekly-shopping").addEventListener("click", addWeeklyPlanToShoppingList);
 
@@ -801,10 +814,10 @@ function showWeeklyPlan() {
 
   document.querySelectorAll(".weekly-remove").forEach(button => {
     button.addEventListener("click", () => {
-      const plan = getWeeklyPlan();
-      plan[button.dataset.day][button.dataset.slot] = "";
-      localStorage.setItem("weeklyPlan", JSON.stringify(plan));
-      showWeeklyPlan();
+      const updatedPlan = getWeeklyPlan();
+      updatedPlan[button.dataset.day][button.dataset.slot] = "";
+      localStorage.setItem("weeklyPlan", JSON.stringify(updatedPlan));
+      showWeeklyPlan(button.dataset.day);
     });
   });
 }

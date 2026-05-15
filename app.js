@@ -718,93 +718,161 @@ document.addEventListener("DOMContentLoaded", async () => {
     return base;
   }
 
-  function getRecipeNameById(id) {
-    const recipe = recipes.find(item => String(item.id) === String(id));
-    return recipe ? recipe.nombre : "";
-  }
+  function getRecipeById(id) {
+  return recipes.find(item => String(item.id) === String(id));
+}
 
-  function showWeeklyPlan() {
-    const plan = getWeeklyPlan();
-    const recipeOptions = recipes.map(recipe => `<option value="${recipe.id}">${recipe.nombre}</option>`).join("");
+function getRecipeNameById(id) {
+  const recipe = getRecipeById(id);
+  return recipe ? recipe.nombre : "";
+}
 
-    content.innerHTML = `
-      <section>
-        <h2 class="section-title">Plan semanal</h2>
-        <p class="section-subtitle">Organiza desayunos, comidas, cenas y snacks de toda la semana.</p>
+function showWeeklyPlan() {
+  const plan = getWeeklyPlan();
 
-        <div class="quick-actions">
-          <button id="save-weekly-plan" class="primary-btn">Guardar plan</button>
-          <button id="weekly-shopping" class="secondary-btn">Añadir compra semanal</button>
-        </div>
+  content.innerHTML = `
+    <section>
+      <h2 class="section-title">Plan semanal</h2>
+      <p class="section-subtitle">Planifica la semana viendo cada comida de forma clara.</p>
 
-        ${weekDays.map(day => `
-          <div class="card">
-            <h2>${day}</h2>
+      <div class="quick-actions">
+        <button id="weekly-shopping" class="secondary-btn">Añadir compra semanal</button>
+        <button id="clear-weekly-plan" class="danger-btn">Borrar plan</button>
+      </div>
 
-            ${mealSlots.map(slot => `
-              <div class="form-group">
-                <label>${slot}</label>
-                <select class="weekly-select" data-day="${day}" data-slot="${slot}">
-                  <option value="">Sin asignar</option>
-                  ${recipeOptions}
-                </select>
-                ${plan[day][slot] ? `<p><small>Actual: ${getRecipeNameById(plan[day][slot])}</small></p>` : ""}
+      ${weekDays.map(day => `
+        <div class="card weekly-day-card">
+          <h2>${day}</h2>
+
+          ${mealSlots.map(slot => {
+            const recipeId = plan[day][slot];
+            const recipe = getRecipeById(recipeId);
+
+            return `
+              <div class="weekly-slot">
+                <div class="weekly-slot-header">
+                  <strong>${slot}</strong>
+                  ${recipe ? `<span>${recipe.edad_minima}</span>` : `<span>Pendiente</span>`}
+                </div>
+
+                ${
+                  recipe
+                    ? `
+                      <p class="weekly-recipe-name">${recipe.nombre}</p>
+                      <p class="weekly-recipe-meta">${recipe.tipo} · ${recipe.tiempo} · ${recipe.textura}</p>
+
+                      <div class="weekly-actions">
+                        <button class="secondary-btn weekly-view" data-id="${recipe.id}">Ver</button>
+                        <button class="secondary-btn weekly-change" data-day="${day}" data-slot="${slot}">Cambiar</button>
+                        <button class="danger-btn weekly-remove" data-day="${day}" data-slot="${slot}">Eliminar</button>
+                      </div>
+                    `
+                    : `
+                      <p class="weekly-empty">Sin receta asignada</p>
+                      <button class="secondary-btn weekly-change" data-day="${day}" data-slot="${slot}">Añadir receta</button>
+                    `
+                }
               </div>
-            `).join("")}
-          </div>
-        `).join("")}
+            `;
+          }).join("")}
+        </div>
+      `).join("")}
+    </section>
+  `;
 
-        <button id="clear-weekly-plan" class="danger-btn">Borrar plan semanal</button>
-      </section>
-    `;
+  document.getElementById("weekly-shopping").addEventListener("click", addWeeklyPlanToShoppingList);
 
-    document.querySelectorAll(".weekly-select").forEach(select => {
-      const day = select.dataset.day;
-      const slot = select.dataset.slot;
-      select.value = plan[day][slot] || "";
+  document.getElementById("clear-weekly-plan").addEventListener("click", () => {
+    localStorage.setItem("weeklyPlan", JSON.stringify(getEmptyWeeklyPlan()));
+    showWeeklyPlan();
+  });
+
+  document.querySelectorAll(".weekly-view").forEach(button => {
+    button.addEventListener("click", () => {
+      showRecipeDetail(Number(button.dataset.id));
     });
+  });
 
-    document.getElementById("save-weekly-plan").addEventListener("click", saveWeeklyPlan);
-    document.getElementById("weekly-shopping").addEventListener("click", addWeeklyPlanToShoppingList);
-    document.getElementById("clear-weekly-plan").addEventListener("click", () => {
-      localStorage.setItem("weeklyPlan", JSON.stringify(getEmptyWeeklyPlan()));
+  document.querySelectorAll(".weekly-change").forEach(button => {
+    button.addEventListener("click", () => {
+      showChangePlanSlotModal(button.dataset.day, button.dataset.slot);
+    });
+  });
+
+  document.querySelectorAll(".weekly-remove").forEach(button => {
+    button.addEventListener("click", () => {
+      const plan = getWeeklyPlan();
+      plan[button.dataset.day][button.dataset.slot] = "";
+      localStorage.setItem("weeklyPlan", JSON.stringify(plan));
       showWeeklyPlan();
     });
-  }
+  });
+}
 
-  function saveWeeklyPlan() {
-    const plan = getEmptyWeeklyPlan();
+function showChangePlanSlotModal(day, slot) {
+  const modal = document.createElement("div");
+  modal.className = "modal-overlay";
 
-    document.querySelectorAll(".weekly-select").forEach(select => {
-      const day = select.dataset.day;
-      const slot = select.dataset.slot;
-      plan[day][slot] = select.value;
-    });
+  modal.innerHTML = `
+    <div class="modal-box">
+      <h2>${day} · ${slot}</h2>
+      <p>Selecciona una receta para este momento del día.</p>
 
-    localStorage.setItem("weeklyPlan", JSON.stringify(plan));
-    showWeeklyPlan();
-  }
+      <div class="form-group" style="text-align:left;">
+        <label for="plan-recipe-select">Receta</label>
+        <select id="plan-recipe-select">
+          <option value="">Sin asignar</option>
+          ${recipes.map(recipe => `
+            <option value="${recipe.id}">${recipe.nombre} · ${recipe.edad_minima}</option>
+          `).join("")}
+        </select>
+      </div>
 
-  function addWeeklyPlanToShoppingList() {
-    saveWeeklyPlan();
+      <div class="modal-actions">
+        <button id="cancel-change-plan" class="secondary-btn">Cancelar</button>
+        <button id="confirm-change-plan" class="primary-btn">Guardar</button>
+      </div>
+    </div>
+  `;
 
+  document.body.appendChild(modal);
+
+  document.getElementById("cancel-change-plan").addEventListener("click", () => {
+    modal.remove();
+  });
+
+  document.getElementById("confirm-change-plan").addEventListener("click", () => {
     const plan = getWeeklyPlan();
-    const selectedIds = [];
+    plan[day][slot] = document.getElementById("plan-recipe-select").value;
+    localStorage.setItem("weeklyPlan", JSON.stringify(plan));
+    modal.remove();
+    showWeeklyPlan();
+  });
+}
 
-    weekDays.forEach(day => {
-      mealSlots.forEach(slot => {
-        const id = plan[day][slot];
-        if (id && !selectedIds.includes(id)) selectedIds.push(id);
-      });
+function saveWeeklyPlan() {
+  localStorage.setItem("weeklyPlan", JSON.stringify(getWeeklyPlan()));
+  showWeeklyPlan();
+}
+
+function addWeeklyPlanToShoppingList() {
+  const plan = getWeeklyPlan();
+  const selectedIds = [];
+
+  weekDays.forEach(day => {
+    mealSlots.forEach(slot => {
+      const id = plan[day][slot];
+      if (id && !selectedIds.includes(id)) selectedIds.push(id);
     });
+  });
 
-    selectedIds.forEach(id => {
-      const recipe = recipes.find(item => String(item.id) === String(id));
-      if (recipe) addRecipeToShoppingList(recipe);
-    });
+  selectedIds.forEach(id => {
+    const recipe = getRecipeById(id);
+    if (recipe) addRecipeToShoppingList(recipe);
+  });
 
-    showShoppingList();
-  }
+  showShoppingList();
+}
 
   function showProfile() {
     babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;

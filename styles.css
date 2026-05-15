@@ -752,3 +752,61 @@ section {
   grid-template-columns: 1fr !important;
   gap: 14px !important;
 }
+/* PLAN SEMANAL VISUAL PREMIUM */
+.weekly-day-card {
+  padding: 22px;
+}
+
+.weekly-slot {
+  background: rgba(255,255,255,0.62);
+  border: 1px solid rgba(143,163,131,0.14);
+  border-radius: 22px;
+  padding: 16px;
+  margin-top: 14px;
+}
+
+.weekly-slot-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--primary-dark);
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.weekly-slot-header span {
+  font-size: 0.78rem;
+  background: rgba(143,163,131,0.14);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.weekly-recipe-name {
+  font-weight: 900;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.weekly-recipe-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.weekly-empty {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.weekly-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.weekly-actions button {
+  min-height: 50px;
+  border-radius: 18px;
+  padding: 10px;
+  font-size: 0.88rem;
+}

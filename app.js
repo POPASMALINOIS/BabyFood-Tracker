@@ -874,6 +874,42 @@ function addWeeklyPlanToShoppingList() {
   showShoppingList();
 }
 
+  function showAllergens() {
+  const allergenDiary = JSON.parse(localStorage.getItem("allergenDiary")) || {};
+
+  content.innerHTML = `
+    <section>
+      <button id="back-profile" class="secondary-btn">← Volver al perfil</button>
+
+      <h2 class="section-title">Alérgenos</h2>
+      <p class="section-subtitle">Control de exposición: qué tomó, cuándo y reacción observada.</p>
+
+      <div class="allergen-grid">
+        ${allergens.map(allergen => {
+          const info = allergenDiary[allergen];
+
+          return `
+            <div class="card compact allergen-card">
+              <div>
+                <h2>${allergen}</h2>
+                <p>${info ? `Último: ${info.date}` : "Sin introducir"}</p>
+                <p>${info ? `Comida: ${info.food}` : "Pendiente de registrar"}</p>
+                <p>${info ? `Reacción: ${info.reaction}` : ""}</p>
+              </div>
+              <span class="allergen-status">${info ? "Probado" : "Pendiente"}</span>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+
+  document.getElementById("back-profile").addEventListener("click", () => {
+    setActive("perfil");
+    showProfile();
+  });
+}
+  
   function showProfile() {
   babyProfile = JSON.parse(localStorage.getItem("babyProfile")) || defaultProfile;
   const weightHistory = JSON.parse(localStorage.getItem("weightHistory")) || [];

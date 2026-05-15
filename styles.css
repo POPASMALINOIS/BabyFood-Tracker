@@ -565,3 +565,73 @@ textarea {
 .remove-favorite-btn {
   min-height: 52px;
 }
+/* AJUSTE PREMIUM BOTONES RECETA */
+.recipe-actions,
+.quick-actions {
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.quick-actions .primary-btn,
+.quick-actions .secondary-btn,
+.quick-actions .danger-btn {
+  min-height: 74px;
+  padding: 18px 16px;
+  border-radius: 24px;
+  line-height: 1.25;
+}
+
+#register-recipe,
+#favorite-recipe,
+#add-plan,
+#add-shopping {
+  min-height: 76px;
+  font-size: 1rem;
+  border-radius: 24px;
+}
+
+/* Evita botones pegados en detalle receta */
+section > .quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* HISTORIAL PESO: evita solapamiento */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-row .form-group {
+  min-width: 0;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  min-width: 0;
+  height: 58px;
+  font-size: 0.95rem;
+}
+
+/* En móviles estrechos, peso y fecha en una columna */
+@media (max-width: 390px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Botón añadir peso más limpio */
+#save-weight {
+  margin-top: 10px;
+  min-height: 60px;
+  border-radius: 22px;
+}
+
+/* Separación inferior para que no choque con la isla */
+section {
+  padding-bottom: 34px;
+}

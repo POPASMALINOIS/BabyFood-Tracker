@@ -810,3 +810,36 @@ section {
   padding: 10px;
   font-size: 0.88rem;
 }
+/* CALENDARIO SEMANAL PREMIUM */
+.weekly-calendar-nav {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.calendar-day-btn {
+  min-height: 58px;
+  border: none;
+  border-radius: 18px;
+  font-size: 1rem;
+  font-weight: 900;
+  background: rgba(255,255,255,0.68);
+  color: var(--primary-dark);
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.calendar-day-btn.active-day {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  transform: translateY(-2px);
+}
+
+.calendar-day-btn:hover {
+  transform: translateY(-2px);
+}
+
+.weekly-day-card {
+  margin-top: 10px;
+}

@@ -32,6 +32,24 @@
     if (label) label.textContent = labels[view] || "BabyFood";
   };
 
+  const cleanLegacyRecipeVisuals = () => {
+    const section = document.querySelector("#content > section");
+    if (!section || !section.querySelector("#recipe-search")) return;
+
+    section.querySelectorAll(".recipe-photo-stable, .recipe-photo, .recipe-detail-hero").forEach(el => el.remove());
+    section.querySelectorAll(".recipe-card-stable, .recipe-card-v2").forEach(card => {
+      card.classList.remove("recipe-card-stable", "recipe-card-v2");
+      card.removeAttribute("data-v2-stable");
+    });
+
+    const filter = section.querySelector("#recipe-search")?.closest(".card.compact");
+    if (filter) {
+      filter.classList.remove("v2-filter-stable");
+      filter.style.position = "static";
+      filter.style.top = "auto";
+    }
+  };
+
   const enhanceHome = () => {
     const section = document.querySelector("#content > section");
     if (!section || section.dataset.v2Home === "1") return;
@@ -79,6 +97,7 @@
   const process = () => {
     const view = detectView();
     updateShell(view);
+    if (view === "recetas") cleanLegacyRecipeVisuals();
     if (view === "inicio") enhanceHome();
     if (view === "perfil") enhanceProfile();
   };
@@ -90,9 +109,7 @@
 
     const target = document.getElementById("content");
     if (target) {
-      const observer = new MutationObserver(() => {
-        requestAnimationFrame(process);
-      });
+      const observer = new MutationObserver(() => requestAnimationFrame(process));
       observer.observe(target, { childList: true, subtree: false });
     }
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = "babyfood-tracker-v19";
+const CACHE_NAME = "babyfood-tracker-v20";
 
 const APP_SHELL = [
   "./",
@@ -6,6 +6,7 @@ const APP_SHELL = [
   "./styles.css",
   "./app.js",
   "./enhancements.js",
+  "./ui-v2.js",
   "./manifest.json",
   "./data/recipes.json",
   "./assets/background.png",
@@ -29,7 +30,6 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
-
   const url = new URL(event.request.url);
 
   if (event.request.mode === "navigate") {
@@ -47,15 +47,16 @@ self.addEventListener("fetch", event => {
 
   if (url.origin === self.location.origin) {
     event.respondWith(
-      fetch(event.request)
-        .then(response => {
+      caches.match(event.request).then(cached => {
+        const network = fetch(event.request).then(response => {
           if (response.ok) {
             const copy = response.clone();
             caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
           }
           return response;
-        })
-        .catch(() => caches.match(event.request))
+        }).catch(() => cached);
+        return cached || network;
+      })
     );
   }
 });

@@ -4,59 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <title>BabyFood Tracker</title>
+  <title>BabyFood</title>
 
-  <meta name="theme-color" content="#F7EFE8">
+  <meta name="theme-color" content="#F6F2EB">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="BabyFood">
+  <meta name="description" content="Recetas, planificación y seguimiento de alimentación complementaria.">
 
   <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
   <div id="splash-screen">
-    <img src="./assets/splash.png" alt="BabyFood Tracker">
+    <img src="./assets/splash.png" alt="BabyFood">
   </div>
 
   <div id="app" class="hidden">
-
     <header class="top-header">
-      <div class="app-pill">BLW · Purés · Recetas · Plan semanal</div>
       <h1>BabyFood</h1>
-      <p>Control familiar de alimentación complementaria, recetas y planificación.</p>
+      <span class="header-dot" aria-hidden="true"></span>
     </header>
 
     <main id="content"></main>
 
-    <nav class="bottom-nav">
-      <button class="nav-btn active" data-section="inicio">
+    <nav class="bottom-nav" aria-label="Navegación principal">
+      <button class="nav-btn active" data-section="inicio" aria-label="Inicio">
         <span class="nav-icon">⌂</span>
         <span>Inicio</span>
       </button>
 
-      <button class="nav-btn" data-section="recetas">
-        <span class="nav-icon">🍽</span>
+      <button class="nav-btn" data-section="recetas" aria-label="Recetas">
+        <span class="nav-icon">◫</span>
         <span>Recetas</span>
       </button>
 
-      <button class="center-btn" data-section="registro">+</button>
+      <button class="center-btn" data-section="registro" aria-label="Registrar comida">+</button>
 
-      <button class="nav-btn" data-section="plan">
+      <button class="nav-btn" data-section="plan" aria-label="Plan semanal">
         <span class="nav-icon">▦</span>
         <span>Plan</span>
       </button>
 
-      <button class="nav-btn" data-section="perfil">
-        <span class="nav-icon">👶</span>
+      <button class="nav-btn" data-section="perfil" aria-label="Perfil">
+        <span class="nav-icon">○</span>
         <span>Perfil</span>
       </button>
     </nav>
-
   </div>
 
   <script src="app.js"></script>
+  <script src="enhancements.js"></script>
 </body>
 </html>

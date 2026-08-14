@@ -1,19 +1,20 @@
-const CACHE_NAME = "babyfood-tracker-v25";
+const CACHE_NAME = "babyfood-tracker-v26";
 
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=25",
-  "./styles-v2-fix.css?v=25",
-  "./app.js?v=25",
-  "./enhancements.js?v=25",
-  "./ui-v2.js?v=25",
-  "./manifest.json?v=25",
+  "./styles.css?v=26",
+  "./styles-v2-fix.css?v=26",
+  "./app.js?v=26",
+  "./enhancements.js?v=26",
+  "./ui-v2.js?v=26",
+  "./manifest.json?v=26",
   "./data/recipes.json",
   "./assets/background.png",
   "./assets/splash.png",
-  "./assets/icon-192.png?v=25",
-  "./assets/icon-512.png"
+  "./assets/icon-192.png?v=26",
+  "./assets/icon-512.png",
+  "./assets/recipes/001-pure-calabaza-patata-pollo.webp"
 ];
 
 self.addEventListener("install", event => {

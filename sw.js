@@ -1,18 +1,18 @@
-const CACHE_NAME = "babyfood-tracker-v24";
+const CACHE_NAME = "babyfood-tracker-v25";
 
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=24",
-  "./styles-v2-fix.css?v=24",
-  "./app.js?v=24",
-  "./enhancements.js?v=24",
-  "./ui-v2.js?v=24",
-  "./manifest.json?v=24",
+  "./styles.css?v=25",
+  "./styles-v2-fix.css?v=25",
+  "./app.js?v=25",
+  "./enhancements.js?v=25",
+  "./ui-v2.js?v=25",
+  "./manifest.json?v=25",
   "./data/recipes.json",
   "./assets/background.png",
   "./assets/splash.png",
-  "./assets/icon-192.png?v=24",
+  "./assets/icon-192.png?v=25",
   "./assets/icon-512.png"
 ];
 

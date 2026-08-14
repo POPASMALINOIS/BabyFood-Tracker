@@ -32,6 +32,48 @@ body[data-view="recetas"] .recipe-card-stable > .quick-actions {
   margin-right:0 !important;
 }
 
+/* Inicio: evitar cualquier superposición entre descripción y métricas */
+body[data-view="inicio"] .v2-home-hero {
+  min-height:0 !important;
+  padding:24px 22px 22px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+}
+
+body[data-view="inicio"] .v2-home-hero h2 {
+  max-width:82% !important;
+  margin:12px 0 10px !important;
+}
+
+body[data-view="inicio"] .v2-home-hero p {
+  max-width:82% !important;
+  margin:0 !important;
+  line-height:1.45 !important;
+}
+
+body[data-view="inicio"] .v2-home-meta {
+  position:static !important;
+  left:auto !important;
+  bottom:auto !important;
+  margin-top:18px !important;
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  z-index:2 !important;
+}
+
+body[data-view="inicio"] .v2-home-meta span {
+  white-space:nowrap !important;
+}
+
+@media (max-width:430px) {
+  body[data-view="inicio"] .v2-home-hero h2,
+  body[data-view="inicio"] .v2-home-hero p {
+    max-width:88% !important;
+  }
+}
+
 @media (min-width:700px) {
   body[data-view="recetas"] #content > section {
     display:grid;

@@ -2,46 +2,34 @@
 body[data-view="recetas"] .v2-recipe-grid { display:contents !important; }
 body[data-view="recetas"] .recipe-card-v2 { display:block !important; }
 
-.recipe-card-stable {
-  padding:0 !important;
+/* El buscador debe desplazarse con el contenido */
+body[data-view="recetas"] .card.compact.v2-filter-panel,
+body[data-view="recetas"] .v2-filter-stable {
+  position:static !important;
+  top:auto !important;
+  z-index:auto !important;
+}
+
+/* No mostrar fotografías heredadas/genéricas en Recetas */
+body[data-view="recetas"] .recipe-photo-stable,
+body[data-view="recetas"] .recipe-photo,
+body[data-view="recetas"] .recipe-detail-hero {
+  display:none !important;
+}
+
+/* Si Safari conserva clases antiguas, devolver la tarjeta a su estructura normal */
+body[data-view="recetas"] .recipe-card-stable,
+body[data-view="recetas"] .recipe-card-v2 {
+  padding:18px !important;
   overflow:hidden;
 }
 
-.recipe-card-stable .recipe-photo-stable {
-  width:100%;
-  aspect-ratio:16/10;
-  overflow:hidden;
-  background:#E7E3DB;
-}
-
-.recipe-card-stable .recipe-photo-stable img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-.recipe-card-stable > h2,
-.recipe-card-stable > p,
-.recipe-card-stable > .tag-row,
-.recipe-card-stable > .quick-actions {
-  margin-left:16px;
-  margin-right:16px;
-}
-
-.recipe-card-stable > h2 {
-  margin-top:14px;
-  font-size:1.08rem;
-}
-
-.recipe-card-stable > .quick-actions {
-  margin-bottom:16px;
-}
-
-.v2-filter-stable {
-  position:sticky;
-  top:66px;
-  z-index:100;
+body[data-view="recetas"] .recipe-card-stable > h2,
+body[data-view="recetas"] .recipe-card-stable > p,
+body[data-view="recetas"] .recipe-card-stable > .tag-row,
+body[data-view="recetas"] .recipe-card-stable > .quick-actions {
+  margin-left:0 !important;
+  margin-right:0 !important;
 }
 
 @media (min-width:700px) {
@@ -52,10 +40,11 @@ body[data-view="recetas"] .recipe-card-v2 { display:block !important; }
   }
   body[data-view="recetas"] #content > section > .section-title,
   body[data-view="recetas"] #content > section > .section-subtitle,
-  body[data-view="recetas"] #content > section > .v2-filter-panel {
+  body[data-view="recetas"] #content > section > .v2-filter-panel,
+  body[data-view="recetas"] #content > section > .card.compact {
     grid-column:1 / -1;
   }
-  body[data-view="recetas"] #content > section > .recipe-card-stable {
+  body[data-view="recetas"] #content > section > .card:not(.compact) {
     margin-bottom:0;
   }
 }

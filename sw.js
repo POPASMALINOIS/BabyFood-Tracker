@@ -1,20 +1,20 @@
-const CACHE_NAME = "babyfood-tracker-v28";
+const CACHE_NAME = "babyfood-tracker-v29";
 
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=28",
-  "./styles-v2-fix.css?v=28",
-  "./styles-v3.css?v=28",
-  "./app.js?v=28",
-  "./enhancements.js?v=28",
-  "./ui-v2.js?v=28",
-  "./v3-features.js?v=28",
-  "./manifest.json?v=28",
+  "./styles.css?v=29",
+  "./styles-v2-fix.css?v=29",
+  "./styles-v3.css?v=29",
+  "./app.js?v=29",
+  "./enhancements.js?v=29",
+  "./ui-v2.js?v=29",
+  "./v3-features.js?v=29",
+  "./manifest.json?v=29",
   "./data/recipes.json",
   "./assets/background.png",
   "./assets/splash.png",
-  "./assets/icon-192.png?v=28",
+  "./assets/icon-192.png?v=29",
   "./assets/icon-512.png",
   "./assets/recipes/001-pure-calabaza-patata-pollo.webp"
 ];

@@ -1,4 +1,8 @@
 (() => {
+  const RECIPE_IMAGES = {
+    "Puré de calabaza, patata y pollo": "assets/recipes/001-pure-calabaza-patata-pollo.webp"
+  };
+
   const safeJSON = (key, fallback) => {
     try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
     catch { return fallback; }
@@ -50,6 +54,40 @@
     }
   };
 
+  const enhanceRecipeSpecificImages = () => {
+    const section = document.querySelector("#content > section");
+    if (!section || !section.querySelector("#recipe-search")) return;
+
+    section.querySelectorAll(".recipe-detail-btn").forEach(button => {
+      const card = button.closest(".card");
+      const title = card?.querySelector("h2")?.textContent.trim();
+      const image = RECIPE_IMAGES[title];
+      if (!card || !image || card.querySelector(".recipe-specific-photo")) return;
+
+      const figure = document.createElement("div");
+      figure.className = "recipe-specific-photo";
+      figure.innerHTML = `<img src="${image}" alt="${title}" loading="lazy" decoding="async">`;
+      card.insertBefore(figure, card.firstChild);
+      card.classList.add("has-specific-photo");
+    });
+  };
+
+  const enhanceRecipeDetailImage = () => {
+    const section = document.querySelector("#content > section");
+    if (!section || !section.querySelector("#back-recipes")) return;
+    if (section.querySelector(".recipe-specific-detail-photo")) return;
+
+    const card = [...section.querySelectorAll(".card")].find(item => item.querySelector("h2"));
+    const title = card?.querySelector("h2")?.textContent.trim();
+    const image = RECIPE_IMAGES[title];
+    if (!card || !image) return;
+
+    const figure = document.createElement("div");
+    figure.className = "recipe-specific-detail-photo";
+    figure.innerHTML = `<img src="${image}" alt="${title}" decoding="async">`;
+    card.insertBefore(figure, card.firstChild);
+  };
+
   const enhanceHome = () => {
     const section = document.querySelector("#content > section");
     if (!section || section.dataset.v2Home === "1") return;
@@ -97,7 +135,11 @@
   const process = () => {
     const view = detectView();
     updateShell(view);
-    if (view === "recetas") cleanLegacyRecipeVisuals();
+    if (view === "recetas") {
+      cleanLegacyRecipeVisuals();
+      enhanceRecipeSpecificImages();
+    }
+    if (view === "detalle-receta") enhanceRecipeDetailImage();
     if (view === "inicio") enhanceHome();
     if (view === "perfil") enhanceProfile();
   };

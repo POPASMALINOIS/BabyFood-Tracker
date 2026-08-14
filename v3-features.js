@@ -3,8 +3,6 @@
     1: "assets/recipes/001-pure-calabaza-patata-pollo.webp"
   };
 
-  // Valores medios orientativos por 100 g de parte comestible.
-  // La UI identifica expresamente estos datos como estimaciones nutricionales.
   const FOOD_DB = {
     calabaza:{kcal:26,c:6.5,p:1,f:0.1}, patata:{kcal:77,c:17,p:2,f:0.1}, pollo:{kcal:165,c:0,p:31,f:3.6},
     calabacin:{kcal:17,c:3.1,p:1.2,f:0.3}, zanahoria:{kcal:41,c:9.6,p:0.9,f:0.2}, pavo:{kcal:135,c:0,p:29,f:1.6},
@@ -16,6 +14,17 @@
     cuscus:{kcal:376,c:77,p:13,f:0.6}, quinoa:{kcal:368,c:64,p:14,f:6.1}, conejo:{kcal:173,c:0,p:33,f:3.5}, papaya:{kcal:43,c:11,p:0.5,f:0.3},
     salmon:{kcal:208,c:0,p:20,f:13}, bacalao:{kcal:82,c:0,p:18,f:0.7}, tofu:{kcal:76,c:1.9,p:8,f:4.8}, yogur:{kcal:61,c:4.7,p:3.5,f:3.3},
     aceite:{kcal:884,c:0,p:0,f:100}
+  };
+
+  const ICONS = {
+    meals:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8M4 3v5c0 2 1.5 3 3 3s3-1 3-3V3M7 11v10M15 3v18M15 3c3 2 4 5 4 8h-4"/></svg>',
+    log:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9zM9 11h6M9 15h6"/></svg>',
+    age:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>',
+    weight:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9a4 4 0 0 1 8 0M12 9l2-2"/></svg>',
+    trend:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6M4 18h16M7 15l4-5 3 3 5-7"/></svg>',
+    recipes:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+    plan:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>',
+    shop:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M3 4h2l2 11h11l2-8H6"/></svg>'
   };
 
   const norm = s => String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
@@ -73,14 +82,13 @@
   function contribution(recipe){
     const text = norm(`${recipe.nombre} ${(recipe.ingredientes||[]).join(" ")}`);
     const bits=[];
-    if(/pollo|pavo|ternera|conejo|merluza|salmon|bacalao|huevo|lentejas|garbanzos|tofu/.test(text)) bits.push("proteínas que contribuyen al crecimiento y mantenimiento de tejidos");
-    if(/patata|boniato|arroz|avena|mijo|maiz|cuscus|quinoa/.test(text)) bits.push("hidratos de carbono como fuente principal de energía");
+    if(/pollo|pavo|ternera|conejo|merluza|salmon|bacalao|huevo|lentejas|garbanzos|tofu/.test(text)) bits.push("proteínas de buena calidad para crecimiento y desarrollo");
+    if(/patata|boniato|arroz|avena|mijo|maiz|cuscus|quinoa/.test(text)) bits.push("hidratos de carbono que aportan energía");
     if(/calabaza|zanahoria/.test(text)) bits.push("carotenoides precursores de vitamina A");
-    if(/brocoli|guisantes|calabacin|puerro|espinaca/.test(text)) bits.push("verduras con fibra y micronutrientes");
+    if(/brocoli|guisantes|calabacin|puerro|espinaca/.test(text)) bits.push("verduras con fibra, vitaminas y minerales");
     if(/manzana|pera|platano|mango|papaya|fresa|ciruela/.test(text)) bits.push("fruta con fibra y micronutrientes");
-    if(/aguacate|aceite/.test(text)) bits.push("grasas que aumentan la densidad energética del plato");
-    if(!bits.length) return "Combina alimentos adecuados para una alimentación variada, adaptando siempre textura y cantidad a la etapa del bebé.";
-    return `Combina ${bits.slice(0,4).join(", ")}.`;
+    if(/aguacate|aceite/.test(text)) bits.push("grasas saludables que elevan la densidad energética");
+    return bits.length ? `Combina ${bits.slice(0,4).join(", ")}.` : "Combina alimentos variados adaptados a la alimentación complementaria.";
   }
 
   function latestWeightStats(){
@@ -99,18 +107,20 @@
     return new Intl.DateTimeFormat("es-ES",{day:"numeric",month:"short",year:"numeric"}).format(d);
   }
 
+  function daysSince(value){
+    if(!value) return null;
+    const d=new Date(`${value}T12:00:00`);
+    if(Number.isNaN(d.getTime())) return null;
+    return Math.max(0,Math.floor((Date.now()-d.getTime())/86400000));
+  }
+
   function todaysPlan(){
     const plan=readJSON("weeklyPlan",{});
     const days=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
-    const day=days[new Date().getDay()];
-    const slots=plan[day]||{};
-    const order=["Desayuno","Comida","Cena","Snack"];
-    for(const slot of order){
+    const slots=plan[days[new Date().getDay()]]||{};
+    for(const slot of ["Desayuno","Comida","Cena","Snack"]){
       const id=slots[slot];
-      if(id){
-        const recipe=recipeData.find(r=>String(r.id)===String(id));
-        if(recipe) return {slot,recipe};
-      }
+      if(id){ const recipe=recipeData.find(r=>String(r.id)===String(id)); if(recipe) return {slot,recipe}; }
     }
     return null;
   }
@@ -129,47 +139,35 @@
     if(!section) return;
     const title=section.querySelector(".section-title");
     if(!title || title.textContent.trim()!=="Inicio" || section.dataset.v3Home==="1") return;
-
-    // Bloquear reentradas ANTES de modificar el DOM.
     section.dataset.v3Home="1";
 
-    const profile=readJSON("babyProfile",{});
-    const diary=readJSON("foodDiary",[]);
-    const ws=latestWeightStats();
-    const next=todaysPlan();
+    const profile=readJSON("babyProfile",{}), diary=readJSON("foodDiary",[]), ws=latestWeightStats(), next=todaysPlan();
     const hero=section.querySelector(".v2-home-hero");
+    [...section.children].forEach(el=>{ if(el!==title && !el.classList.contains("section-subtitle") && el!==hero) el.classList.add("v3-hide-original"); });
+    const heroMeta=hero?.querySelector(".v2-home-meta"); if(heroMeta) heroMeta.style.display="none";
 
-    // El nuevo dashboard sustituye las tarjetas antiguas, no se añade debajo de ellas.
-    [...section.children].forEach(el=>{
-      if(el===title || el.classList.contains("section-subtitle") || el===hero) return;
-      el.classList.add("v3-hide-original");
-    });
-
-    const heroMeta=hero?.querySelector(".v2-home-meta");
-    if(heroMeta) heroMeta.style.display="none";
-
-    const weeklyPlan=readJSON("weeklyPlan",{});
-    const days=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
-    const todaySlots=weeklyPlan[days[new Date().getDay()]]||{};
-    const plannedToday=Object.values(todaySlots).filter(Boolean).length;
+    const weeklyPlan=readJSON("weeklyPlan",{}), days=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+    const plannedToday=Object.values(weeklyPlan[days[new Date().getDay()]]||{}).filter(Boolean).length;
 
     const topMetrics=document.createElement("div");
     topMetrics.className="v3-top-metrics";
     topMetrics.innerHTML=`
-      <div><span class="v3-round-icon">🍴</span><strong>${plannedToday}</strong><small>comidas hoy</small></div>
-      <div><span class="v3-round-icon warm">▣</span><strong>${diary.length}</strong><small>registros</small></div>`;
+      <div><span class="v3-round-icon">${ICONS.meals}</span><strong>${plannedToday}</strong><small>comidas hoy</small></div>
+      <div><span class="v3-round-icon warm">${ICONS.log}</span><strong>${diary.length}</strong><small>registros</small></div>`;
 
     const delta = ws.change==null ? "" : `${ws.change>=0?"+":""}${Math.round(ws.change*1000)} g`;
-    const lastDiary=diary.at(-1);
+    const lastDiary=diary.at(-1), elapsed=daysSince(lastDiary?.date);
+    const lastLabel=lastDiary ? (elapsed===0?"Hoy":elapsed===1?"Ayer":`Hace ${elapsed} días`) : "Sin registros";
+
     const block=document.createElement("div");
     block.className="v3-dashboard";
     block.innerHTML=`
       <div class="v3-summary-card">
         <h3>Resumen rápido</h3>
         <div class="v3-stats-grid">
-          <div class="v3-stat"><span class="v3-stat-icon">▣</span><span>Edad</span><strong>${profile.birthDate ? calculateAgeFallback(profile.birthDate) : "—"}</strong></div>
-          <div class="v3-stat"><span class="v3-stat-icon">◉</span><span>Peso actual</span><strong>${profile.currentWeight || (ws.last?ws.last.value+" kg":"—")}</strong><small>${delta ? `${delta} · ` : ""}${ws.last?`Último: ${formatShortDate(ws.last.date)}`:""}</small></div>
-          <div class="v3-stat"><span class="v3-stat-icon">⌁</span><span>Último registro</span><strong>${lastDiary ? lastDiary.food : "Sin registros"}</strong><small>${lastDiary?.date ? formatShortDate(lastDiary.date) : ""}</small></div>
+          <div class="v3-stat"><span class="v3-stat-icon">${ICONS.age}</span><span>Edad</span><strong>${profile.birthDate ? calculateAgeFallback(profile.birthDate) : "—"}</strong></div>
+          <div class="v3-stat"><span class="v3-stat-icon">${ICONS.weight}</span><span>Peso actual</span><strong>${profile.currentWeight || (ws.last?ws.last.value+" kg":"—")}</strong><small>${delta ? `${delta} · ` : ""}${ws.last?`Último: ${formatShortDate(ws.last.date)}`:""}</small></div>
+          <div class="v3-stat"><span class="v3-stat-icon">${ICONS.trend}</span><span>Último registro</span><strong>${lastLabel}</strong><small>${lastDiary?.food || ""}</small></div>
         </div>
       </div>
       <div class="v3-next-card">
@@ -178,16 +176,14 @@
       </div>
       <h3 class="v3-shortcuts-title">Atajos rápidos</h3>
       <div class="v3-quick-grid">
-        <button data-v3="recipes"><span>▤</span>Recetas</button>
-        <button data-v3="plan"><span>▣</span>Plan semanal</button>
-        <button data-v3="profile"><span>⌁</span>Evolución</button>
-        <button data-v3="shopping"><span>⌑</span>Lista compra</button>
+        <button data-v3="recipes"><span>${ICONS.recipes}</span>Recetas</button>
+        <button data-v3="plan"><span>${ICONS.plan}</span>Plan semanal</button>
+        <button data-v3="profile"><span>${ICONS.trend}</span>Evolución</button>
+        <button data-v3="shopping"><span>${ICONS.shop}</span>Lista compra</button>
       </div>`;
 
     const anchor=hero || section.querySelector(".section-subtitle") || title;
-    anchor.insertAdjacentElement("afterend",topMetrics);
-    topMetrics.insertAdjacentElement("afterend",block);
-
+    anchor.insertAdjacentElement("afterend",topMetrics); topMetrics.insertAdjacentElement("afterend",block);
     block.querySelector('[data-v3="recipes"]')?.addEventListener("click",()=>document.querySelector('.nav-btn[data-section="recetas"]')?.click());
     block.querySelector('[data-v3="plan"]')?.addEventListener("click",()=>document.querySelector('.nav-btn[data-section="plan"]')?.click());
     block.querySelector('[data-v3="profile"]')?.addEventListener("click",()=>document.querySelector('.nav-btn[data-section="perfil"]')?.click());
@@ -198,21 +194,11 @@
     const section=document.querySelector("#content > section");
     if(!section || !section.querySelector("#recipe-search")) return;
     [...section.querySelectorAll(".recipe-detail-btn")].forEach(btn=>{
-      const card=btn.closest(".card");
-      if(!card || card.dataset.v3Recipe==="1") return;
+      const card=btn.closest(".card"); if(!card || card.dataset.v3Recipe==="1") return;
       card.dataset.v3Recipe="1";
-      const name=card.querySelector("h2")?.textContent.trim();
-      const recipe=recipeData.find(r=>r.nombre===name);
-      if(!recipe) return;
+      const name=card.querySelector("h2")?.textContent.trim(), recipe=recipeData.find(r=>r.nombre===name); if(!recipe) return;
       const src=recipe.image||IMAGE_MAP[recipe.id];
-      if(src){
-        card.querySelectorAll(".v3-recipe-media").forEach(el=>el.remove());
-        const media=document.createElement("div");
-        media.className="v3-recipe-media";
-        media.innerHTML=`<img src="${src}" alt="${recipe.nombre}" loading="lazy">`;
-        card.insertBefore(media,card.firstChild);
-        card.classList.add("v3-recipe-card");
-      }
+      if(src){ card.querySelectorAll(".v3-recipe-media").forEach(el=>el.remove()); const media=document.createElement("div"); media.className="v3-recipe-media"; media.innerHTML=`<img src="${src}" alt="${recipe.nombre}" loading="lazy">`; card.insertBefore(media,card.firstChild); card.classList.add("v3-recipe-card"); }
     });
   }
 
@@ -222,25 +208,23 @@
     section.dataset.v3Detail="1";
 
     const card=[...section.querySelectorAll(".card")].find(c=>c.querySelector("h2"));
-    const name=card?.querySelector("h2")?.textContent.trim();
-    const recipe=recipeData.find(r=>r.nombre===name);
-    if(!recipe) return;
-
-    // Garantiza exactamente UNA foto en el detalle, incluso al venir de una versión cacheada anterior.
-    section.querySelectorAll(".v3-detail-photo").forEach(el=>el.remove());
+    const name=card?.querySelector("h2")?.textContent.trim(), recipe=recipeData.find(r=>r.nombre===name); if(!recipe) return;
     const src=recipe.image||IMAGE_MAP[recipe.id];
+
+    // Elimina cualquier copia heredada, independientemente de la clase usada por versiones anteriores.
     if(src){
-      const hero=document.createElement("div");
-      hero.className="v3-detail-photo";
-      hero.innerHTML=`<img src="${src}" alt="${recipe.nombre}">`;
-      card.insertBefore(hero,card.firstChild);
-      card.classList.add("v3-detail-card");
+      const filename=src.split("/").pop();
+      section.querySelectorAll(`img[src*="${filename}"]`).forEach(img=>{
+        const wrap=img.closest(".v3-detail-photo,.recipe-detail-hero,.recipe-photo,.recipe-photo-stable,.v3-recipe-media");
+        if(wrap) wrap.remove(); else img.remove();
+      });
+      section.querySelectorAll(".v3-detail-photo,.recipe-detail-hero,.recipe-photo,.recipe-photo-stable").forEach(el=>el.remove());
+      const hero=document.createElement("div"); hero.className="v3-detail-photo"; hero.innerHTML=`<img src="${src}?v=29" alt="${recipe.nombre}">`;
+      card.insertBefore(hero,card.firstChild); card.classList.add("v3-detail-card");
     }
 
     section.querySelectorAll(".v3-nutrition-card").forEach(el=>el.remove());
-    const n=estimateNutrition(recipe);
-    const info=document.createElement("div");
-    info.className="card v3-nutrition-card";
+    const n=estimateNutrition(recipe), info=document.createElement("div"); info.className="card v3-nutrition-card";
     info.innerHTML=`
       <h2>Qué aporta esta receta</h2>
       <p>${contribution(recipe)}</p>
@@ -251,22 +235,21 @@
         <div><strong>${n.fat||"—"} g</strong><span>grasas</span></div>
       </div>
       <div class="v3-total-energy"><strong>Receta completa: ~${n.totalKcal||"—"} kcal</strong><span>${recipe.raciones || `${n.portions} raciones`}</span></div>
-      <small class="v3-disclaimer">Estimación orientativa calculada a partir de las cantidades indicadas y valores medios de composición por 100 g. Las necesidades y raciones de cada bebé varían.</small>`;
+      <div class="v3-energy-context"><strong>Referencia 9–11 meses</strong><span>En bebés amamantados, la OMS estima unas 300 kcal/día procedentes de alimentos complementarios, además de la leche.</span></div>
+      <small class="v3-disclaimer">Estimación orientativa basada en las cantidades indicadas y valores medios de composición. La ingesta real depende de la cantidad consumida y del patrón de lactancia o fórmula.</small>`;
     card.insertAdjacentElement("afterend",info);
   }
 
   function process(){
-    const section=document.querySelector("#content > section");
-    if(!section) return;
+    const section=document.querySelector("#content > section"); if(!section) return;
     if(section.querySelector("#recipe-search")) enhanceRecipeList();
     else if(section.querySelector("#back-recipes")) enhanceRecipeDetail();
     else if(section.querySelector(".section-title")?.textContent.trim()==="Inicio") enhanceHome();
   }
 
   document.addEventListener("DOMContentLoaded", async()=>{
-    try{ recipeData=await fetch("data/recipes.json?v=28").then(r=>r.json()); }catch{ recipeData=[]; }
-    const target=document.getElementById("content");
-    if(target) new MutationObserver(()=>requestAnimationFrame(process)).observe(target,{childList:true,subtree:false});
+    try{ recipeData=await fetch("data/recipes.json?v=29").then(r=>r.json()); }catch{ recipeData=[]; }
+    const target=document.getElementById("content"); if(target) new MutationObserver(()=>requestAnimationFrame(process)).observe(target,{childList:true,subtree:false});
     requestAnimationFrame(process);
   });
 })();

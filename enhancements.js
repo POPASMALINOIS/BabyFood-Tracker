@@ -29,7 +29,7 @@
         const value = item.value ?? normalizeWeight(item.weight);
         if (!item.date || !Number.isFinite(Number(value))) return null;
         return {
-          id: item.id || `${item.date}-${index}-${Math.random().toString(36).slice(2, 7)}`,
+          id: item.id || `${item.date}-${index}`,
           date: item.date,
           value: Number(value)
         };
@@ -46,35 +46,45 @@
     localStorage.setItem("babyProfile", JSON.stringify(profile));
   };
 
+  const buildWeightMarkup = history => history.length
+    ? history.map((item, index) => {
+        const previous = history[index + 1];
+        const delta = previous ? item.value - previous.value : null;
+        const deltaText = delta === null
+          ? "Primer registro"
+          : `${delta >= 0 ? "+" : ""}${delta.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 2 })} kg`;
+
+        return `
+          <article class="weight-history-item">
+            <div class="weight-history-main">
+              <strong>${displayWeight(item.value)}</strong>
+              <span>${new Date(`${item.date}T12:00:00`).toLocaleDateString("es-ES", { day: "2-digit", month: "short", year: "numeric" })}</span>
+            </div>
+            <div class="weight-history-side">
+              <span class="weight-delta">${deltaText}</span>
+              <button class="weight-delete-btn" type="button" data-weight-id="${item.id}" aria-label="Eliminar peso">×</button>
+            </div>
+          </article>`;
+      }).join("")
+    : `<p class="empty-state">Todavía no hay pesos registrados.</p>`;
+
   const renderWeightHistory = () => {
     const card = [...document.querySelectorAll(".form-card")]
       .find(el => el.querySelector("h2")?.textContent.trim() === "Historial de peso");
     if (!card) return;
 
     const history = normalizeHistory().sort((a, b) => String(b.date).localeCompare(String(a.date)));
-    const oldList = [...card.children].find(el => el.tagName === "DIV" && el.getAttribute("style")?.includes("margin-top"));
-    if (!oldList) return;
+    const list = card.querySelector(".weight-history-list") ||
+      [...card.children].find(el => el.tagName === "DIV" && el.getAttribute("style")?.includes("margin-top"));
+    if (!list) return;
 
-    oldList.className = "weight-history-list";
-    oldList.removeAttribute("style");
-    oldList.innerHTML = history.length
-      ? history.map((item, index) => {
-          const previous = history[index + 1];
-          const delta = previous ? item.value - previous.value : null;
-          const deltaText = delta === null ? "Primer registro" : `${delta >= 0 ? "+" : ""}${delta.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 2 })} kg`;
-          return `
-            <article class="weight-history-item">
-              <div class="weight-history-main">
-                <strong>${displayWeight(item.value)}</strong>
-                <span>${new Date(`${item.date}T12:00:00`).toLocaleDateString("es-ES", { day: "2-digit", month: "short", year: "numeric" })}</span>
-              </div>
-              <div class="weight-history-side">
-                <span class="weight-delta">${deltaText}</span>
-                <button class="weight-delete-btn" type="button" data-weight-id="${item.id}" aria-label="Eliminar peso">×</button>
-              </div>
-            </article>`;
-        }).join("")
-      : `<p class="empty-state">Todavía no hay pesos registrados.</p>`;
+    const signature = JSON.stringify(history.map(item => [item.id, item.date, item.value]));
+    if (list.dataset.signature === signature) return;
+
+    list.className = "weight-history-list";
+    list.removeAttribute("style");
+    list.dataset.signature = signature;
+    list.innerHTML = buildWeightMarkup(history);
   };
 
   const refreshProfileView = () => {
@@ -100,7 +110,7 @@
       if (sameDate) {
         sameDate.value = value;
       } else {
-        history.push({ id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, date, value });
+        history.push({ id: `${Date.now()}`, date, value });
       }
 
       localStorage.setItem("weightHistory", JSON.stringify(history));
@@ -120,12 +130,20 @@
     }
   }, true);
 
-  const observer = new MutationObserver(() => {
-    if (document.querySelector("#weight-date")) renderWeightHistory();
-  });
+  let renderQueued = false;
+  const queueWeightRender = () => {
+    if (renderQueued) return;
+    renderQueued = true;
+    requestAnimationFrame(() => {
+      renderQueued = false;
+      if (document.querySelector("#weight-date")) renderWeightHistory();
+    });
+  };
+
+  const observer = new MutationObserver(queueWeightRender);
 
   document.addEventListener("DOMContentLoaded", () => {
     observer.observe(document.body, { childList: true, subtree: true });
-    renderWeightHistory();
+    queueWeightRender();
   });
 })();
